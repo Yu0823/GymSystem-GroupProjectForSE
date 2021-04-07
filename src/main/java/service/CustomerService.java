@@ -68,11 +68,15 @@ public class CustomerService {
         }
         else if(level.equals("Vip"))
         {
-
+            u.setType("Svip");
+            DataOperation.delNodes("member","id",u.getId());
+            DataOperation.addUser(u);
         }
         else
         {
-
+            u.setType("Vip");
+            DataOperation.delNodes("member","id",u.getId());
+            DataOperation.addUser(u);
         }
         return null;
 
