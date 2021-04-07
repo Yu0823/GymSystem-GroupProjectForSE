@@ -7,7 +7,7 @@ import dao.allDo.TrainerDO;
 
 import java.util.Map;
 
-public class trainerServiceImplement {
+public class TrainerService {
     /**
      *  register a trainer
      * @param u the new register member.
@@ -16,13 +16,13 @@ public class trainerServiceImplement {
     public String register(TrainerDO u) {
         if(useridIsValid(u.getId()) && passwordIsValid(u.getPassword())){
             if(DataOperation.findSingerNode("trainer","id",u.getId())!=null){
-                return "注册失败,该用户id已经存在！请重新输入！！！";
+                return "Register wrong! ID has already had, please input the new one.";
             } else{
                 DataOperation.addUser(u);
-                return "注册成功,请登录！";
+                return "Register success, please login.";
             }
         } else {
-            return "用户id或密码格式不对";
+            return "The format of ID or password is wrong! ";
         }
     }
     //判断密码是否符合格式要求

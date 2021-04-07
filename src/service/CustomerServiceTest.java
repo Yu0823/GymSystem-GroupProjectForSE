@@ -3,13 +3,11 @@ package service;
 import dao.allDo.MemberDO;
 import org.junit.Assert;
 
-import static org.junit.Assert.*;
-
-public class CustomerServiceImplementTest {
+public class CustomerServiceTest {
 
     @org.junit.Test
     public void register() {
-        CustomerServiceImplement test=  new CustomerServiceImplement();
+        CustomerService test=  new CustomerService();
         MemberDO u = new MemberDO();
         u.setId("1111111111");
         u.setPassword("12214325436547547");
