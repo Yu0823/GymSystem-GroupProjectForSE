@@ -1,0 +1,431 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9" encoding: "UTF-8"
+
+new FormModel {
+	"i18n.autoExternalize": true
+	"i18n.bundlePackage": "sample"
+	"i18n.bundleName": "test"
+	"i18n.keyPrefix": "userlogin"
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "frame1"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				name: "member_main"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button18"
+					"text": new FormMessage( null, "userlogin.button18.text" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "watch_video", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 15
+					"y": 35
+					"width": 178
+					"height": 75
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 400
+				"height": 230
+				"x": 0
+				"y": 30
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				name: "member_video"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label17"
+					"text": new FormMessage( null, "userlogin.label17.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 30
+					"y": 20
+					"width": 110
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label18"
+					"text": new FormMessage( null, "userlogin.label18.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 35
+					"y": 125
+					"width": 105
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button2"
+					"text": new FormMessage( null, "userlogin.button2.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 35
+					"y": 50
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button12"
+					"text": new FormMessage( null, "userlogin.button12.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 78
+					"height": 30
+					"x": 145
+					"y": 50
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button13"
+					"text": new FormMessage( null, "userlogin.button13.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 78
+					"height": 30
+					"x": 255
+					"y": 50
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button14"
+					"text": new FormMessage( null, "userlogin.button14.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 78
+					"height": 30
+					"x": 35
+					"y": 150
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button15"
+					"text": new FormMessage( null, "userlogin.button15.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 78
+					"height": 30
+					"x": 145
+					"y": 150
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button16"
+					"text": new FormMessage( null, "userlogin.button16.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 78
+					"height": 30
+					"x": 260
+					"y": 150
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button19"
+					"text": new FormMessage( null, "userlogin.button19.text" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "video_back", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 295
+					"y": 210
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 368
+				"height": 240
+				"x": 0
+				"y": 30
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				name: "memberlogin"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": new FormMessage( null, "userlogin.label1.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 40
+					"y": 85
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField1"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 130
+					"y": 85
+					"width": 120
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": new FormMessage( null, "userlogin.label2.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 40
+					"y": 150
+					"width": 85
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField2"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 130
+					"y": 140
+					"width": 120
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": new FormMessage( null, "userlogin.label3.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 105
+					"y": 25
+					"width": 115
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button1"
+					"text": new FormMessage( null, "userlogin.button1.text" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "member_entermain", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 65
+					"y": 200
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button8"
+					"text": new FormMessage( null, "userlogin.button8.text" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "memberrigister", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 190
+					"y": 200
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 25
+				"y": 30
+				"height": 225
+				"width": 425
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				name: "memberrigister"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label11"
+					"text": new FormMessage( null, "userlogin.label11.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 150
+					"y": 15
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label12"
+					"text": new FormMessage( null, "userlogin.label12.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 20
+					"y": 55
+					"width": 85
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label13"
+					"text": new FormMessage( null, "userlogin.label13.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 20
+					"y": 100
+					"width": 95
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label14"
+					"text": new FormMessage( null, "userlogin.label14.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 10
+					"y": 180
+					"width": 100
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField8"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 115
+					"y": 55
+					"width": 175
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField9"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 115
+					"y": 100
+					"width": 175
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField10"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 115
+					"y": 175
+					"width": 175
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button6"
+					"text": new FormMessage( null, "userlogin.button6.text" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "memberrigisterback", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 205
+					"y": 210
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button11"
+					"text": new FormMessage( null, "userlogin.button11.text" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "memberrigistercomplete", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 85
+					"y": 210
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label15"
+					"text": new FormMessage( null, "userlogin.label15.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 5
+					"y": 140
+					"width": 115
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField11"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 115
+					"y": 140
+					"width": 175
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 400
+				"height": 245
+				"y": 20
+				"x": 45
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				name: "trainerrigister"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label7"
+					"text": new FormMessage( null, "userlogin.label7.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 150
+					"y": 15
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label8"
+					"text": new FormMessage( null, "userlogin.label8.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 20
+					"y": 55
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label9"
+					"text": new FormMessage( null, "userlogin.label9.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 20
+					"y": 100
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label10"
+					"text": new FormMessage( null, "userlogin.label10.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 20
+					"y": 150
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField5"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 115
+					"y": 55
+					"width": 175
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField6"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 115
+					"y": 100
+					"width": 175
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField7"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 115
+					"y": 145
+					"width": 175
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button5"
+					"text": new FormMessage( null, "userlogin.button5.text" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "trainerrigisterback", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 205
+					"y": 210
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button10"
+					"text": new FormMessage( null, "userlogin.button10.text" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "trainerrigistercomplete", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 95
+					"y": 210
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 45
+				"y": 20
+				"height": 240
+				"width": 370
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				name: "trainerlogin"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label4"
+					"text": new FormMessage( null, "userlogin.label4.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 40
+					"y": 85
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField3"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 130
+					"y": 85
+					"width": 120
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label5"
+					"text": new FormMessage( null, "userlogin.label5.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 40
+					"y": 150
+					"width": 85
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField4"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 130
+					"y": 140
+					"width": 120
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label6"
+					"text": new FormMessage( null, "userlogin.label6.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 105
+					"y": 25
+					"width": 115
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button4"
+					"text": new FormMessage( null, "userlogin.button4.text" )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 95
+					"y": 200
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button9"
+					"text": new FormMessage( null, "userlogin.button9.text" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "trainerrigister", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 210
+					"y": 200
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 400
+				"height": 240
+				"x": 50
+				"y": 30
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				name: "choose"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button3"
+					"text": new FormMessage( null, "userlogin.button3.text" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "choosetrainer", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 240
+					"y": 100
+					"width": 145
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button7"
+					"text": new FormMessage( null, "userlogin.button7.text" )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "chooseuser", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 40
+					"y": 100
+					"width": 145
+					"height": 30
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 35
+				"y": 15
+				"width": 415
+				"height": 245
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 70, 10 )
+			"size": new java.awt.Dimension( 485, 330 )
+		} )
+	}
+}
