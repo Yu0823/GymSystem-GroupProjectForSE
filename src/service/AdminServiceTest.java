@@ -1,7 +1,7 @@
 package service;
 
-import dao.allDo.MemberDO;
-import dao.allDo.TrainerDO;
+import dao.alldo.MemberDO;
+import dao.alldo.TrainerDO;
 import org.junit.Assert;
 import org.junit.Test;
 

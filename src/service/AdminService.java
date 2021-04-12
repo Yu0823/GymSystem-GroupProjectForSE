@@ -1,8 +1,9 @@
 package service;
 
-import dao.DataOperation;
-import dao.allDo.MemberDO;
-import dao.allDo.TrainerDO;
+
+import dao.UserDataUtil;
+import dao.alldo.MemberDO;
+import dao.alldo.TrainerDO;
 
 public class AdminService {
     /**
@@ -12,10 +13,10 @@ public class AdminService {
      */
     public String addTrainer(TrainerDO u){
         if(useridIsValid(u.getId()) && passwordIsValid(u.getPassword())){
-            if(DataOperation.findSingerNode("trainer","id",u.getId())!=null){
+            if(UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("trainer","id",u.getId()))!=null){
                 return "Insert wrong! ID has already had, please input the new one.";
             } else{
-                DataOperation.addUser(u);
+                UserDataUtil.addUser(u);
                 return "Insert success";
             }
         } else {
@@ -46,10 +47,10 @@ public class AdminService {
     public String addCustomer(MemberDO u)
     {
         if(useridIsValid(u.getId()) && passwordIsValid(u.getPassword())){
-            if(DataOperation.findSingerNode("trainer","id",u.getId())!=null){
+            if(UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("trainer","id",u.getId()))!=null){
                 return "Insert wrong! ID has already had, please input the new one.";
             } else{
-                DataOperation.addUser(u);
+                UserDataUtil.addUser(u);
                 return "Insert success";
             }
         } else {
@@ -64,7 +65,7 @@ public class AdminService {
      */
     public String deleteCustomer(String id)
     {
-        boolean result = DataOperation.delNodes("member","id",id);
+        boolean result = UserDataUtil.delNodes(UserDataUtil.xpathBuilder("member","id",id));
         if (result)
             return "Delete successful";
         else
@@ -77,7 +78,7 @@ public class AdminService {
      * @return the information about the deletion
      */
     public String deleteTrainer(String id){
-        boolean result = DataOperation.delNodes("trainer","id",id);
+        boolean result = UserDataUtil.delNodes(UserDataUtil.xpathBuilder("trainer","id",id));
         if (result)
             return "Delete successful";
         else

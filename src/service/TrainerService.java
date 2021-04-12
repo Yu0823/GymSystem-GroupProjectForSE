@@ -1,9 +1,8 @@
 package service;
 
 
-import dao.DataOperation;
-import dao.allDo.MemberDO;
-import dao.allDo.TrainerDO;
+import dao.UserDataUtil;
+import dao.alldo.TrainerDO;
 
 import java.util.Map;
 
@@ -15,10 +14,11 @@ public class TrainerService {
      */
     public String register(TrainerDO u) {
         if(useridIsValid(u.getId()) && passwordIsValid(u.getPassword())){
-            if(DataOperation.findSingerNode("trainer","id",u.getId())!=null){
+
+            if(UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("trainer","id",u.getId()))!=null){
                 return "Register wrong! ID has already had, please input the new one.";
             } else{
-                DataOperation.addUser(u);
+                UserDataUtil.addUser(u);
                 return "Register success, please login.";
             }
         } else {
@@ -47,7 +47,9 @@ public class TrainerService {
      * @return whether the login success or not. If fail, return null. If success, return user
      */
     public TrainerDO login(TrainerDO u) {
-        TrainerDO saved = (TrainerDO) DataOperation.findSingerNode("trainer","id",u.getId());
+        String xpath = UserDataUtil.xpathBuilder("trainer","id",u.getId());
+        TrainerDO saved = (TrainerDO) UserDataUtil.findSingleNode(xpath);
+        System.out.println();
         if(saved!=null){
             if(saved.getPassword().equals(u.getPassword())){
                 return saved;
@@ -56,5 +58,35 @@ public class TrainerService {
         }
         else
             return null;
+    }
+
+    /**
+     * trainer conform the book.
+     *
+     *
+     */
+    public String conform(){
+        return null;
+    }
+
+    /**
+     * add the film
+     */
+    public String  addFilm(){
+        return null;
+
+
+    }
+
+    /**
+     * change the trainer's profile
+     *
+     */
+    public String changeProfile(TrainerDO t){
+
+
+        UserDataUtil.delNodes(UserDataUtil.xpathBuilder("trainer","id",t.getId()));
+        UserDataUtil.addUser(t);
+        return "You have update your profile";
     }
 }

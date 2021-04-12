@@ -1,6 +1,6 @@
 package service;
 
-import dao.allDo.MemberDO;
+import dao.alldo.MemberDO;
 import org.junit.Assert;
 
 public class CustomerServiceTest {

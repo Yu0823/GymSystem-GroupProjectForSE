@@ -1,7 +1,10 @@
 package service;
 
-import dao.DataOperation;
-import dao.allDo.MemberDO;
+
+
+import dao.UserDataUtil;
+import dao.alldo.MemberDO;
+import dao.alldo.TrainerDO;
 
 import java.util.Map;
 
@@ -13,10 +16,10 @@ public class CustomerService {
      */
     public String register(MemberDO u) {
         if(useridIsValid(u.getId()) && passwordIsValid(u.getPassword())){
-            if(DataOperation.findSingerNode("member","id",u.getId())!=null){
+            if(UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("member","id",u.getId()))!=null){
                 return "Register wrong! ID has already had, please input the new one.";
             } else{
-                DataOperation.addUser(u);
+                UserDataUtil.addUser(u);
                 return "Register success, please login.";
             }
         } else {
@@ -45,7 +48,7 @@ public class CustomerService {
      * @return whether the login success or not. If fail, return null. If success, return user
      */
     public MemberDO login(MemberDO u) {
-        MemberDO saved = (MemberDO) DataOperation.findSingerNode("member","id",u.getId());
+        MemberDO saved = (MemberDO) UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("member","id",u.getId()));
         if(saved!=null){
             if(saved.getPassword().equals(u.getPassword())){
                 return saved;
@@ -61,26 +64,71 @@ public class CustomerService {
      * @param u the member who want to upgrade
      * @return the information of weather upgrade or not
      */
-    public String upgrade(MemberDO u){
+    public String upgrade(MemberDO u, String a){
         String level = u.getType();
         if(level.equals("Svip")){
-
+            return "You don't need to upgrade!";
         }
         else if(level.equals("Vip"))
         {
+            if (a.equals("Svip"))
             u.setType("Svip");
-            DataOperation.delNodes("member","id",u.getId());
-            DataOperation.addUser(u);
+            UserDataUtil.delNodes(UserDataUtil.xpathBuilder("member","id",u.getId()));
+            UserDataUtil.addUser(u);
+            //else if ()
         }
         else
         {
             u.setType("Vip");
-            DataOperation.delNodes("member","id",u.getId());
-            DataOperation.addUser(u);
+            UserDataUtil.delNodes(UserDataUtil.xpathBuilder("member","id",u.getId()));
+            UserDataUtil.addUser(u);
         }
+        return null;
+    }
+
+    /**
+     * customer book the svip service
+     *
+     */
+    public String book( String startTime,
+            String endTime,
+            String month,
+            String day,
+            String trainer,
+            String course){
+        TrainerDO t = (TrainerDO) UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("trainer","id",trainer));
+
+        return null;
+    }
+
+    /**
+     * customer search the certain trainer
+     *
+     */
+    public String searchTrainer(){
+
+        return null;
+    }
+
+    /**
+     * customer search the video
+     *
+     */
+    public String searchVideo()
+    {
+
         return null;
 
 
+    }
+    /**
+     * change the customer's profile
+     *
+     */
+    public String changeProfile(MemberDO t){
+        UserDataUtil.delNodes(UserDataUtil.xpathBuilder("member","id",t.getId()));
+        UserDataUtil.addUser(t);
+        return "You have update your profile";
     }
 }
 

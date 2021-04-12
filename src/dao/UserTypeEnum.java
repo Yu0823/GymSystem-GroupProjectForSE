@@ -26,7 +26,7 @@ public enum UserTypeEnum {
     public static String getName(int type){
         UserTypeEnum[] enums = UserTypeEnum.values();
         for(UserTypeEnum user : enums){
-            if(user.type == type)
+            if(user.type.equals(type))
                 return user.name;
         }
         return null;
@@ -35,7 +35,7 @@ public enum UserTypeEnum {
     public static String getPos(int type){
         UserTypeEnum[] enums = UserTypeEnum.values();
         for(UserTypeEnum user : enums){
-            if(user.type == type)
+            if(user.type.equals(type))
                 return user.pos;
         }
         return null;
@@ -44,7 +44,7 @@ public enum UserTypeEnum {
     public static Integer getType(String name){
         UserTypeEnum[] enums = UserTypeEnum.values();
         for(UserTypeEnum user : enums){
-            if(user.name == name)
+            if(user.name.equals(name))
                 return user.type;
         }
         return null;
