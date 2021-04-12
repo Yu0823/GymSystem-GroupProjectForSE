@@ -1,4 +1,4 @@
-package dao.allDo;
+package dao.alldo;
 
 import java.util.HashSet;
 
@@ -16,7 +16,6 @@ public class MemberDO extends UserDO{
     /**
      * classes of a member has ordered
      */
-    private HashSet<String> classSet;
 
     public String getType() {
         return type;
@@ -24,10 +23,6 @@ public class MemberDO extends UserDO{
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public HashSet<String> getClassSet() {
-        return classSet;
     }
 
     public String getEmail() {
@@ -40,8 +35,13 @@ public class MemberDO extends UserDO{
 
     private String email;
 
-    public MemberDO() {
-        super();
+    private HashSet<String> classSet;
+
+   public HashSet<String> getClassSet() {
+       return classSet;    }
+
+   public MemberDO() {
+       super();
         this.classSet = new HashSet<String>();
     }
 }

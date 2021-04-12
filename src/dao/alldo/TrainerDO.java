@@ -1,4 +1,4 @@
-package dao.allDo;
+package dao.alldo;
 
 import java.util.HashSet;
 

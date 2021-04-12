@@ -3,21 +3,20 @@ package dao;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.Writer;
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import dao.allDo.*;
+import dao.alldo.*;
 import org.dom4j.Document;
 import org.dom4j.Element;
+import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
 /**
  * @author yu
  */
-public class DataOperation {
+public class UserDataUtil {
     /**
      * add a member into the xml to store
      *
@@ -74,6 +73,12 @@ public class DataOperation {
             }
             else if(type == 1){
                 //if we want to add a trainer
+//                TrainerDO trainer = (TrainerDO) user;
+//                String allClass = "";
+//                for(String c : trainer.getClassSet()){
+//                    allClass = allClass + c + "|";
+//                }
+//                newElement.addAttribute("class", allClass);
             }
             else if(type == 2){
                 //if we want to add a admin
@@ -84,9 +89,8 @@ public class DataOperation {
 
             Writer out = new PrintWriter(UserTypeEnum.getPos(type), "UTF-8");
 
-            //format control
-            // OutputFormat format = new OutputFormat("\t", true);
-            //format.setTrimText(true);//delete \t and newline and space
+            OutputFormat format = new OutputFormat("\t", true);
+            format.setTrimText(true); //delete \t and newline and space
 
             XMLWriter writer = new XMLWriter(out);
 
@@ -104,26 +108,51 @@ public class DataOperation {
     }
 
     /**
-     * delete users by condition
      *
-     * @param userType the type of the user you want to delete
+     * @param userType the type of the user
      * @param searchCondition the name of the condition you want to delete
      * @param searchContent the content of the condition you want to delete
+     * @return a xpath built by your conditions
+     */
+    public static String xpathBuilder(String userType, String searchCondition, String searchContent){
+        return "//" + userType + "[@" + searchCondition + "='" + searchContent + "']";
+    }
+
+    public static String xpathBuilder(String userType, String searchCondition1, String searchContent1,
+                                      String searchCondition2, String searchContent2){
+        return "//" + userType + "[@" + searchCondition1 + "='" + searchContent1 + "' and @" +
+                searchCondition2 + "='" + searchContent2 + "']";
+    }
+
+    /**
+     * delete users by condition
+     *
+     * @param xpath xpath built by the builder
      * @return success or not
      */
-    public static boolean delNodes(String userType, String searchCondition, String searchContent){
+    public static boolean delNodes(String xpath){
+        String userType = "";
+
+        int i = 2;
+        while(true){
+            char temp = xpath.charAt(i);
+            if(temp != '['){
+                userType += temp;
+            }
+            else{
+                break;
+            }
+            i++;
+        }
+
         try {
             // init the reader
             SAXReader reader = new SAXReader();
 
-            int type = UserTypeEnum.getType(userType);
-
             // get the Document
-            File xmlFile = new File(UserTypeEnum.getPos(type));
+            File xmlFile = new File(UserTypeEnum.getPos(UserTypeEnum.getType(userType)));
 
             Document doc = reader.read(xmlFile);
-
-            String xpath = "//" + userType + "[@" + searchCondition + "='" + searchContent + "']";
 
             //search
             List<Element> result = doc.selectNodes(xpath);
@@ -133,7 +162,7 @@ public class DataOperation {
                 e.getParent().remove(e);
             }
 
-            Writer out = new PrintWriter(UserTypeEnum.getPos(type), "UTF-8");
+            Writer out = new PrintWriter(UserTypeEnum.getPos(UserTypeEnum.getType(userType)), "UTF-8");
 
             XMLWriter writer = new XMLWriter(out);
 
@@ -153,12 +182,25 @@ public class DataOperation {
     /**
      * search a singer user by condition
      *
-     * @param userType the type of the user you want to search
-     * @param searchCondition the name of the condition you want to search
-     * @param searchContent the content of the condition you want to search
+     * @param xpath the search path built by function xpathBuilder
      * @return the correct userDO
      */
-    public static UserDO findSingerNode(String userType, String searchCondition, String searchContent) {
+
+    public static UserDO findSingleNode(String xpath) {
+        String userType = "";
+
+        int i = 2;
+        while(true){
+            char temp = xpath.charAt(i);
+            if(temp != '['){
+                userType += temp;
+            }
+            else{
+                break;
+            }
+            i++;
+        }
+
         try {
             // init the reader
             SAXReader reader = new SAXReader();
@@ -172,7 +214,6 @@ public class DataOperation {
             //so you can query the child elements in the document
             //[] is called the predicate, is the query condition
             //@id represents the id attribute
-            String xpath = "//" + userType + "[@" + searchCondition + "='" + searchContent + "']";
 
             //search
             Element userEle = (Element) doc.selectSingleNode(xpath);
@@ -182,21 +223,25 @@ public class DataOperation {
 
             UserDO user = null;
             //convert the element to a userDO
-            if(userType == UserTypeEnum.getName(0)){
+            if(userType.equals(UserTypeEnum.getName(0))){
                 user = new MemberDO();
             }
-            else if(userType == UserTypeEnum.getName(1)){
+            else if(userType.equals(UserTypeEnum.getName(1))){
                 user = new TrainerDO();
             }
-            else if(userType == UserTypeEnum.getName(2)){
+            else if(userType.equals(UserTypeEnum.getName(2))){
                 user = new AdminDO();
             }
-            else if(userType == UserTypeEnum.getName(3)){
+            else if(userType.equals(UserTypeEnum.getName(3))){
                 user = new PromoterDO();
             }
 
             //get attributes
             user.setId(userEle.attributeValue("id"));
+            user.setPassword(userEle.attributeValue("password"));
+            user.setName(userEle.attributeValue("name"));
+            user.setPhoneNumber(userEle.attributeValue("phoneNumber"));
+            user.setInfo(userEle.attributeValue("info"));
 
             return user;
 
@@ -206,14 +251,27 @@ public class DataOperation {
     }
 
     /**
-     * search a singer user by condition
+     * search many users by condition
      *
-     * @param userType the type of the user you want to search
-     * @param searchCondition the name of the condition you want to search
-     * @param searchContent the content of the condition you want to search
+     * @param xpath the search path built by function xpathBuilder
      * @return the correct userDOs
      */
-    public static List<UserDO> findNodes(String userType, String searchCondition, String searchContent){
+    public static List<UserDO> findNodes(String xpath){
+
+        String userType = "";
+
+        int i = 2;
+        while(true){
+            char temp = xpath.charAt(i);
+            if(temp != '['){
+                userType += temp;
+            }
+            else{
+                break;
+            }
+            i++;
+        }
+
         try {
             // init the reader
             SAXReader reader = new SAXReader();
@@ -224,8 +282,6 @@ public class DataOperation {
             File xmlFile = new File(UserTypeEnum.getPos(type));
 
             Document doc = reader.read(xmlFile);
-
-            String xpath = "//" + userType + "[@" + searchCondition + "='" + searchContent + "']";
 
             //search
             List<Element> iniResult = doc.selectNodes(xpath);
@@ -266,14 +322,26 @@ public class DataOperation {
 
     public static void main(String[] args) {
         MemberDO m1 = new MemberDO();
-        MemberDO m2 = new MemberDO();
         m1.setId("Test001");
-        m2.setId("Test002");
         m1.setType("1");
+        m1.setEmail("111");
+        MemberDO m2 = new MemberDO();
+        m2.setId("Test002");
         m2.setType("1");
+        m2.setEmail("111");
         addUser(m1);
         addUser(m2);
-        List result = findNodes("member", "type", "1");
-        delNodes("member", "id", "Test001");
+//        TrainerDO t1 = new TrainerDO();
+//        t1.setId("Trainer001");
+//        t1.getClassSet().add("c001");
+//        t1.getClassSet().add("c002");
+//        addUser(t1);
+        List list = findNodes(xpathBuilder("member", "type", "1",
+                "email", "111"));
+//        List list = findNodes(xpathBuilder("member",
+//                "email", "111"));
+        for(Object o : list){
+            System.out.println((((MemberDO) o).getId()));
+        }
     }
 }
