@@ -1,0 +1,24 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "Notice"
+			"title": "Notice"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "register"
+				"text": "Register successfully"
+				"foreground": new java.awt.Color( 255, 0, 0, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 55
+				"y": 45
+				"width": 180
+				"height": 55
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 395, 75 )
+			"size": new java.awt.Dimension( 295, 320 )
+		} )
+	}
+}
