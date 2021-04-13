@@ -11,7 +11,6 @@ import javax.swing.*;
 
 import dao.alldo.MemberDO;
 import dao.alldo.TrainerDO;
-import net.miginfocom.swing.*;
 import service.CustomerService;
 import service.TrainerService;
 
@@ -51,7 +50,7 @@ public class UserLogin {
                     new Notice("The password or userid is wrong");
                 else{
                     MemberDO member = s2.login(m);
-                    new Mainmenu(member);
+                    new CustomerMainmenu(member);
                     Login.dispose();
                 }
         }
