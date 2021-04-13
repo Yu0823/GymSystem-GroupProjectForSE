@@ -25,10 +25,12 @@ public class CustomerMainmenu {
 
     private void button1MouseClicked(MouseEvent e) {
         // TODO add your code here
+        
     }
 
     private void button2MouseClicked(MouseEvent e) {
-        CustomerSearchTrainer cst = new CustomerSearchTrainer();
+        CustomerSearchTrainer cst = new CustomerSearchTrainer(member);
+        User.dispose();
     }
 
     private void button3MouseClicked(MouseEvent e) {
