@@ -15,7 +15,7 @@ import service.CustomerService;
 import service.TrainerService;
 
 /**
- * @author unknown
+ * @author yly
  */
 public class UserLogin {
     public UserLogin() {

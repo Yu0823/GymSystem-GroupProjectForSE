@@ -15,7 +15,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * @author unknown
+ * @author yly
  */
 public class Register extends JPanel {
     public Register() {

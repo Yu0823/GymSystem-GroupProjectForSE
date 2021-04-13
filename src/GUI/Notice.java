@@ -8,7 +8,7 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * @author unknown
+ * @author yly
  */
 public class Notice extends JPanel {
     String type;
