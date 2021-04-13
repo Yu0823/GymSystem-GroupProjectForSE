@@ -42,7 +42,7 @@ public class Notice extends JPanel {
             register.setText("Register successfully");
             register.setForeground(Color.red);
             NoticeContentPane.add(register);
-            register.setBounds(55, 45, 180, 55);
+            register.setBounds(55, 45, 595, 215);
 
             {
                 // compute preferred size

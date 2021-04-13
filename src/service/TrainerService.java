@@ -66,6 +66,7 @@ public class TrainerService {
      *
      */
     public String conform(){
+
         return null;
     }
 
@@ -73,6 +74,7 @@ public class TrainerService {
      * add the film
      */
     public String  addFilm(){
+
         return null;
 
 

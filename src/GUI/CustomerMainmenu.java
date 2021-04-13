@@ -14,12 +14,13 @@ import javax.swing.*;
 /**
  * @author unknown
  */
-public class Mainmenu  {
+public class CustomerMainmenu {
     MemberDO member;
-    public Mainmenu(MemberDO trainer) {
+    public CustomerMainmenu(MemberDO trainer) {
         initComponents();
         this.member = member;
         User.setVisible(true);
+
     }
 
     private void button1MouseClicked(MouseEvent e) {
@@ -27,7 +28,7 @@ public class Mainmenu  {
     }
 
     private void button2MouseClicked(MouseEvent e) {
-        // TODO add your code here
+        CustomerSearchTrainer cst = new CustomerSearchTrainer();
     }
 
     private void button3MouseClicked(MouseEvent e) {
