@@ -35,13 +35,14 @@ public class MemberDO extends UserDO{
 
     private String email;
 
-    private HashSet<String> classSet;
-
-   public HashSet<String> getClassSet() {
-       return classSet;    }
-
-   public MemberDO() {
-       super();
-        this.classSet = new HashSet<String>();
-    }
+//    private HashSet<String> classSet;
+//
+//    public HashSet<String> getClassSet() {
+//        return classSet;
+//    }
+//
+//    public MemberDO() {
+//        super();
+//        this.classSet = new HashSet<String>();
+//    }
 }

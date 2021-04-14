@@ -17,7 +17,6 @@ public class UserDO {
 
     private String phoneNumber;
 
-
     public String getId() { return id; }
 
     public void setId(String id) {
