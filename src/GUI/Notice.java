@@ -18,9 +18,9 @@ public class Notice extends JPanel {
         if(type.equals("register")){
             register.setVisible(true);
         }
-        else if(type.equals("The password or userid is wrong"))
+        else
         {
-            register.setText("The password or userid is wrong");
+            register.setText(type);
             register.setVisible(true);
         }
         Notice.setVisible(true);

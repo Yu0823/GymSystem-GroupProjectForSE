@@ -147,6 +147,26 @@ public class CustomerService {
         return result;
     }
 
+    /**
+    * get customer's class
+    */
+    public String getclass(MemberDO m){
+        String result = null;
+        List<ClassDO> c = ClassDataUtil.findNodes(ClassDataUtil.xpathBuilder("cusId",m.getId()));
+        int i = 0;
+        for(ClassDO cla:c){
+            if(i==0){
+                result = "**********\n";
+            }
+            else
+            {
+                result = result+"**********\n";
+            }
+            i++;
+            result = result+"class id: "+cla.getId()+"\ntime: "+cla.getDate()+cla.getTime()+"\ntrainer id: "+cla.getTrainerId()+"\n";
+        }
+        return result;
+    }
 
     /**
      * customer search the video

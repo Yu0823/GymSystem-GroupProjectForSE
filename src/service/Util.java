@@ -5,6 +5,8 @@ import dao.UserDataUtil;
 import dao.VideoDataUtil;
 
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class Util {
@@ -64,8 +66,26 @@ public class Util {
         return id;
     }
 
+    /**
+     * check the validness of email
+     * @param email the email address that need to be checked
+     * @return valid or invalid
+     */
+    public static boolean checkEmail(String email){
+        String regex =   "\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+        Pattern   p   =   Pattern.compile(regex);
+        Matcher m   =   p.matcher(email);
+        return m.find();
+    }
+
+
+
+
     public static void main(String[] args) {
-       String str =  generateIDforClass();
-       System.out.println(str);
+
+       System.out.println(checkEmail("3327317060@.com"));
+
+
+
     }
 }

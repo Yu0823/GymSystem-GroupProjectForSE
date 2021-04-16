@@ -4,7 +4,10 @@
 
 package GUI;
 
+import dao.UserDataUtil;
 import dao.alldo.MemberDO;
+import service.CustomerService;
+import service.Util;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -16,9 +19,13 @@ import javax.swing.border.*;
  */
 public class Main_menu extends JFrame {
     MemberDO m;
+
     public Main_menu(MemberDO member) {
         initComponents();
         this.m = member;
+        this.textArea7.setText(this.m.getType());
+        CustomerService s1 = new CustomerService();
+        this.textArea6.setText(s1.getclass(this.m));
     }
 
     private void button1MouseClicked(MouseEvent e) {
@@ -97,9 +104,56 @@ public class Main_menu extends JFrame {
         // TODO add your code here
     }
 
+
     private void button47MouseClicked(MouseEvent e) {
-        this.video.setVisible(false);
-        this.user_profile.setVisible(true);
+    }
+
+    private void button29ActionPerformed(ActionEvent e) {
+    }
+
+    private void button30ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        textArea13.setText(null);
+        textArea14.setText(null);
+
+    }
+
+    private void button23ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        this.textArea22.setText(null);
+        this.textArea11.setText(null);
+        this.textArea20.setText(null);
+        this.textArea21.setText(null);
+    }
+
+    private void button24ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        String name = this.textArea22.getText();
+        String age = this.textArea11.getText();
+        String gender = this.textArea20.getText();
+        String email = this.textArea21.getText();
+        System.out.println(email==null);
+        int error = 0;
+        if (name.length()!=0)
+            m.setName(name);
+        if (age.length()!=0)
+            m.setAge(age);
+        if (gender.length()!=0)
+            m.setGender(gender);
+        if (email.length()!=0) {
+            if (Util.checkEmail(email))
+                m.setEmail(email);
+            else {
+                Notice notice = new Notice("Your email is not valid!");
+                error++;
+            }
+        }
+        if (error == 0){
+            UserDataUtil.delNodes(UserDataUtil.xpathBuilder("member","id",m.getId()));
+            UserDataUtil.addUser(m);
+            new Notice("Change successfully");
+        }
+
     }
 
     private void initComponents() {
@@ -117,9 +171,6 @@ public class Main_menu extends JFrame {
         user_profile = new JPanel();
         button23 = new JButton();
         button24 = new JButton();
-        scrollPane5 = new JScrollPane();
-        textArea5 = new JTextArea();
-        label16 = new JLabel();
         label19 = new JLabel();
         label20 = new JLabel();
         button52 = new JButton();
@@ -229,14 +280,12 @@ public class Main_menu extends JFrame {
             //======== video ========
             {
                 video.setVisible(false);
-                video.setBorder (new CompoundBorder( new TitledBorder (
-                new EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion"
-                , TitledBorder. CENTER, TitledBorder. BOTTOM
-                , new Font ("D\u0069alog" , Font .BOLD ,12 )
-                , Color. red) ,video. getBorder( )) ); video. addPropertyChangeListener (
-                new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-                ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( )
-                ; }} );
+                video.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border
+                .EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax
+                .swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,
+                12),java.awt.Color.red),video. getBorder()));video. addPropertyChangeListener(new java.beans
+                .PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.
+                getPropertyName()))throw new RuntimeException();}});
                 video.setLayout(null);
 
                 //---- button45 ----
@@ -315,25 +364,15 @@ public class Main_menu extends JFrame {
 
                 //---- button23 ----
                 button23.setText("Back");
+                button23.addActionListener(e -> button23ActionPerformed(e));
                 user_profile.add(button23);
                 button23.setBounds(325, 195, 75, 30);
 
                 //---- button24 ----
                 button24.setText("Modify");
+                button24.addActionListener(e -> button24ActionPerformed(e));
                 user_profile.add(button24);
                 button24.setBounds(190, 193, 80, button24.getPreferredSize().height);
-
-                //======== scrollPane5 ========
-                {
-                    scrollPane5.setViewportView(textArea5);
-                }
-                user_profile.add(scrollPane5);
-                scrollPane5.setBounds(325, 125, 130, scrollPane5.getPreferredSize().height);
-
-                //---- label16 ----
-                label16.setText("Membership:");
-                user_profile.add(label16);
-                label16.setBounds(205, 130, 111, label16.getPreferredSize().height);
 
                 //---- label19 ----
                 label19.setText("Age:");
@@ -389,9 +428,9 @@ public class Main_menu extends JFrame {
                 button55.setBounds(5, 125, 90, 30);
 
                 //---- label22 ----
-                label22.setText("User ID: ");
+                label22.setText("User name: ");
                 user_profile.add(label22);
-                label22.setBounds(210, 15, 67, label22.getPreferredSize().height);
+                label22.setBounds(210, 15, 100, label22.getPreferredSize().height);
                 user_profile.add(textArea11);
                 textArea11.setBounds(325, 100, 128, 19);
                 user_profile.add(textArea20);
@@ -921,18 +960,20 @@ public class Main_menu extends JFrame {
 
                 //---- button29 ----
                 button29.setText("Confirm");
+                button29.addActionListener(e -> button29ActionPerformed(e));
                 profile_modify.add(button29);
                 button29.setBounds(new Rectangle(new Point(90, 220), button29.getPreferredSize()));
 
                 //---- button30 ----
                 button30.setText("Cancel");
+                button30.addActionListener(e -> button30ActionPerformed(e));
                 profile_modify.add(button30);
                 button30.setBounds(new Rectangle(new Point(215, 220), button30.getPreferredSize()));
                 profile_modify.add(textField14);
                 textField14.setBounds(165, 110, 150, textField14.getPreferredSize().height);
 
                 //---- label32 ----
-                label32.setText("Input your new ID:");
+                label32.setText("Input your new name:");
                 profile_modify.add(label32);
                 label32.setBounds(new Rectangle(new Point(25, 115), label32.getPreferredSize()));
 
@@ -1093,9 +1134,6 @@ public class Main_menu extends JFrame {
     private JPanel user_profile;
     private JButton button23;
     private JButton button24;
-    private JScrollPane scrollPane5;
-    private JTextArea textArea5;
-    private JLabel label16;
     private JLabel label19;
     private JLabel label20;
     private JButton button52;

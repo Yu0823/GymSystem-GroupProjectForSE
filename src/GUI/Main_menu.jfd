@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -78,6 +78,7 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button23"
 					"text": "Back"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button23ActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"x": 325
 					"y": 195
@@ -87,28 +88,11 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button24"
 					"text": "Modify"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button24ActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"x": 190
 					"y": 193
 					"width": 80
-				} )
-				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-					name: "scrollPane5"
-					add( new FormComponent( "javax.swing.JTextArea" ) {
-						name: "textArea5"
-					} )
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-					"x": 325
-					"y": 125
-					"width": 130
-				} )
-				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "label16"
-					"text": "Membership:"
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-					"x": 205
-					"y": 130
-					"width": 111
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label19"
@@ -172,11 +156,11 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label22"
-					"text": "User ID: "
+					"text": "User name: "
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"x": 210
 					"y": 15
-					"width": 67
+					"width": 100
 				} )
 				add( new FormComponent( "javax.swing.JTextArea" ) {
 					name: "textArea11"
@@ -677,6 +661,7 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button29"
 					"text": "Confirm"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button29ActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"x": 90
 					"y": 220
@@ -684,6 +669,7 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button30"
 					"text": "Cancel"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button30ActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"x": 215
 					"y": 220
@@ -697,7 +683,7 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label32"
-					"text": "Input your new ID:"
+					"text": "Input your new name:"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"x": 25
 					"y": 115
