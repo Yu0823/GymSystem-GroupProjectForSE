@@ -50,7 +50,7 @@ public class UserLogin {
                     new Notice("The password or userid is wrong");
                 else{
                     MemberDO member = s2.login(m);
-                    new CustomerMainmenu(member);
+                    new Main_menu(member);
                     Login.dispose();
                 }
         }
