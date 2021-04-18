@@ -4,6 +4,7 @@
 
 package GUI;
 
+import javax.swing.event.*;
 import dao.UserDataUtil;
 import dao.alldo.MemberDO;
 import service.CustomerService;
@@ -19,7 +20,7 @@ import javax.swing.border.*;
  */
 public class Main_menu extends JFrame {
     MemberDO m;
-
+    int count = 0;
     public Main_menu(MemberDO member) {
         initComponents();
         this.m = member;
@@ -52,7 +53,10 @@ public class Main_menu extends JFrame {
     }
 
     private void button6MouseClicked(MouseEvent e) {
-        // TODO add your code here
+        if(comboBox1.getSelectedItem()!=null){
+            String id = comboBox1.getSelectedItem().toString();
+            book b = new book(this.m,id);
+    }
     }
 
     private void button2MouseClicked(MouseEvent e) {
@@ -113,7 +117,7 @@ public class Main_menu extends JFrame {
 
     private void button30ActionPerformed(ActionEvent e) {
         // TODO add your code here
-        textArea13.setText(null);
+        textField13.setText(null);
         textArea14.setText(null);
 
     }
@@ -156,10 +160,60 @@ public class Main_menu extends JFrame {
 
     }
 
+    private void button26ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        CustomerService s1 = new CustomerService();
+        textArea1.setText(s1.listAllTrainer());
+    }
+
+    private void comboBox1PopupMenuWillBecomeVisible(PopupMenuEvent e) {
+        // TODO add your code here
+        if (count==0)
+        {CustomerService s1 = new CustomerService();
+            for(String str:s1.listAllTrainerId()){
+                comboBox1.addItem(str);
+            }
+            count++;
+        }
+
+    }
+
+    private void comboBox1ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - unknown
         frame1 = new JFrame();
+        profile_modify = new JPanel();
+        label31 = new JLabel();
+        textField13 = new JTextField();
+        button29 = new JButton();
+        button30 = new JButton();
+        textField14 = new JTextField();
+        label32 = new JLabel();
+        trainer = new JPanel();
+        button12 = new JButton();
+        textField12 = new JTextField();
+        label17 = new JLabel();
+        button33 = new JButton();
+        button34 = new JButton();
+        button35 = new JButton();
+        button36 = new JButton();
+        menuBar2 = new JMenuBar();
+        menu2 = new JMenu();
+        menuItem10 = new JMenuItem();
+        menuItem7 = new JMenuItem();
+        menuItem8 = new JMenuItem();
+        menuItem9 = new JMenuItem();
+        panel5 = new JPanel();
+        button32 = new JButton();
+        scrollPane2 = new JScrollPane();
+        textArea1 = new JTextArea();
+        comboBox1 = new JComboBox();
+        label48 = new JLabel();
         video = new JPanel();
         button45 = new JButton();
         button44 = new JButton();
@@ -168,6 +222,11 @@ public class Main_menu extends JFrame {
         button46 = new JButton();
         button47 = new JButton();
         button37 = new JButton();
+        menuBar1 = new JMenuBar();
+        menu1 = new JMenu();
+        menuItem5 = new JMenuItem();
+        menuItem4 = new JMenuItem();
+        menuItem6 = new JMenuItem();
         user_profile = new JPanel();
         button23 = new JButton();
         button24 = new JButton();
@@ -183,20 +242,6 @@ public class Main_menu extends JFrame {
         textArea20 = new JTextArea();
         textArea21 = new JTextArea();
         textArea22 = new JTextArea();
-        trainer_info = new JPanel();
-        button31 = new JButton();
-        button32 = new JButton();
-        scrollPane13 = new JScrollPane();
-        textArea12 = new JTextArea();
-        label33 = new JLabel();
-        scrollPane14 = new JScrollPane();
-        textArea13 = new JTextArea();
-        label34 = new JLabel();
-        panel5 = new JPanel();
-        button48 = new JButton();
-        button49 = new JButton();
-        button50 = new JButton();
-        button51 = new JButton();
         video_info = new JPanel();
         label36 = new JLabel();
         label37 = new JLabel();
@@ -223,17 +268,6 @@ public class Main_menu extends JFrame {
         button39 = new JButton();
         button40 = new JButton();
         button41 = new JButton();
-        trainer = new JPanel();
-        button12 = new JButton();
-        textField12 = new JTextField();
-        label17 = new JLabel();
-        scrollPane8 = new JScrollPane();
-        textArea8 = new JTextArea();
-        button16 = new JButton();
-        button33 = new JButton();
-        button34 = new JButton();
-        button35 = new JButton();
-        button36 = new JButton();
         home = new JPanel();
         label23 = new JLabel();
         scrollPane6 = new JScrollPane();
@@ -245,13 +279,6 @@ public class Main_menu extends JFrame {
         button25 = new JButton();
         button26 = new JButton();
         button28 = new JButton();
-        profile_modify = new JPanel();
-        label31 = new JLabel();
-        textField13 = new JTextField();
-        button29 = new JButton();
-        button30 = new JButton();
-        textField14 = new JTextField();
-        label32 = new JLabel();
         Booking_course = new JPanel();
         button18 = new JButton();
         button19 = new JButton();
@@ -277,15 +304,234 @@ public class Main_menu extends JFrame {
             var frame1ContentPane = frame1.getContentPane();
             frame1ContentPane.setLayout(null);
 
+            //======== profile_modify ========
+            {
+                profile_modify.setVisible(false);
+                profile_modify.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(
+                new javax.swing.border.EmptyBorder(0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn"
+                ,javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
+                ,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12)
+                ,java.awt.Color.red),profile_modify. getBorder()));profile_modify. addPropertyChangeListener(
+                new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
+                ){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException()
+                ;}});
+                profile_modify.setLayout(null);
+
+                //---- label31 ----
+                label31.setText("Input your new Email:");
+                profile_modify.add(label31);
+                label31.setBounds(new Rectangle(new Point(15, 55), label31.getPreferredSize()));
+                profile_modify.add(textField13);
+                textField13.setBounds(160, 50, 150, textField13.getPreferredSize().height);
+
+                //---- button29 ----
+                button29.setText("Confirm");
+                button29.addActionListener(e -> button29ActionPerformed(e));
+                profile_modify.add(button29);
+                button29.setBounds(new Rectangle(new Point(90, 220), button29.getPreferredSize()));
+
+                //---- button30 ----
+                button30.setText("Cancel");
+                button30.addActionListener(e -> button30ActionPerformed(e));
+                profile_modify.add(button30);
+                button30.setBounds(new Rectangle(new Point(215, 220), button30.getPreferredSize()));
+                profile_modify.add(textField14);
+                textField14.setBounds(165, 110, 150, textField14.getPreferredSize().height);
+
+                //---- label32 ----
+                label32.setText("Input your new name:");
+                profile_modify.add(label32);
+                label32.setBounds(new Rectangle(new Point(25, 115), label32.getPreferredSize()));
+
+                {
+                    // compute preferred size
+                    Dimension preferredSize = new Dimension();
+                    for(int i = 0; i < profile_modify.getComponentCount(); i++) {
+                        Rectangle bounds = profile_modify.getComponent(i).getBounds();
+                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                    }
+                    Insets insets = profile_modify.getInsets();
+                    preferredSize.width += insets.right;
+                    preferredSize.height += insets.bottom;
+                    profile_modify.setMinimumSize(preferredSize);
+                    profile_modify.setPreferredSize(preferredSize);
+                }
+            }
+            frame1ContentPane.add(profile_modify);
+            profile_modify.setBounds(10, 0, 475, 330);
+
+            //======== trainer ========
+            {
+                trainer.setVisible(false);
+                trainer.setLayout(null);
+
+                //---- button12 ----
+                button12.setText("Search");
+                button12.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        button5MouseClicked(e);
+                    }
+                });
+                trainer.add(button12);
+                button12.setBounds(new Rectangle(new Point(415, 10), button12.getPreferredSize()));
+                trainer.add(textField12);
+                textField12.setBounds(195, 10, 200, textField12.getPreferredSize().height);
+
+                //---- label17 ----
+                label17.setText("Trainer");
+                trainer.add(label17);
+                label17.setBounds(140, 10, 50, 22);
+
+                //---- button33 ----
+                button33.setText("Home");
+                button33.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        show_home(e);
+                    }
+                });
+                trainer.add(button33);
+                button33.setBounds(5, 5, 90, button33.getPreferredSize().height);
+
+                //---- button34 ----
+                button34.setText("Trainer");
+                trainer.add(button34);
+                button34.setBounds(5, 45, 90, button34.getPreferredSize().height);
+
+                //---- button35 ----
+                button35.setText("Video");
+                button35.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        button35MouseClicked(e);
+                    }
+                });
+                trainer.add(button35);
+                button35.setBounds(5, 85, 90, button35.getPreferredSize().height);
+
+                //---- button36 ----
+                button36.setText("Profile");
+                button36.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        button36MouseClicked(e);
+                    }
+                });
+                trainer.add(button36);
+                button36.setBounds(5, 125, 90, button36.getPreferredSize().height);
+
+                //======== menuBar2 ========
+                {
+
+                    //======== menu2 ========
+                    {
+                        menu2.setText("type");
+
+                        //---- menuItem10 ----
+                        menuItem10.setText("all");
+                        menu2.add(menuItem10);
+
+                        //---- menuItem7 ----
+                        menuItem7.setText("yoga");
+                        menu2.add(menuItem7);
+
+                        //---- menuItem8 ----
+                        menuItem8.setText("HIIT");
+                        menu2.add(menuItem8);
+
+                        //---- menuItem9 ----
+                        menuItem9.setText("strength");
+                        menu2.add(menuItem9);
+                    }
+                    menuBar2.add(menu2);
+                }
+                trainer.add(menuBar2);
+                menuBar2.setBounds(30, 170, 39, 25);
+
+                //======== panel5 ========
+                {
+                    panel5.setLayout(null);
+
+                    //---- button32 ----
+                    button32.setText("Reserve");
+                    button32.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            button6MouseClicked(e);
+                        }
+                    });
+                    panel5.add(button32);
+                    button32.setBounds(245, 240, 90, button32.getPreferredSize().height);
+
+                    //======== scrollPane2 ========
+                    {
+                        scrollPane2.setViewportView(textArea1);
+                    }
+                    panel5.add(scrollPane2);
+                    scrollPane2.setBounds(10, 15, 345, 215);
+
+                    //---- comboBox1 ----
+                    comboBox1.setMaximumRowCount(21);
+                    comboBox1.addActionListener(e -> comboBox1ActionPerformed(e));
+                    comboBox1.addPopupMenuListener(new PopupMenuListener() {
+                        @Override
+                        public void popupMenuCanceled(PopupMenuEvent e) {}
+                        @Override
+                        public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {}
+                        @Override
+                        public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
+                            comboBox1PopupMenuWillBecomeVisible(e);
+                        }
+                    });
+                    panel5.add(comboBox1);
+                    comboBox1.setBounds(100, 240, 145, comboBox1.getPreferredSize().height);
+
+                    //---- label48 ----
+                    label48.setText("choose id:");
+                    panel5.add(label48);
+                    label48.setBounds(15, 245, 78, label48.getPreferredSize().height);
+
+                    {
+                        // compute preferred size
+                        Dimension preferredSize = new Dimension();
+                        for(int i = 0; i < panel5.getComponentCount(); i++) {
+                            Rectangle bounds = panel5.getComponent(i).getBounds();
+                            preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                            preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                        }
+                        Insets insets = panel5.getInsets();
+                        preferredSize.width += insets.right;
+                        preferredSize.height += insets.bottom;
+                        panel5.setMinimumSize(preferredSize);
+                        panel5.setPreferredSize(preferredSize);
+                    }
+                }
+                trainer.add(panel5);
+                panel5.setBounds(140, 50, 375, 295);
+
+                {
+                    // compute preferred size
+                    Dimension preferredSize = new Dimension();
+                    for(int i = 0; i < trainer.getComponentCount(); i++) {
+                        Rectangle bounds = trainer.getComponent(i).getBounds();
+                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                    }
+                    Insets insets = trainer.getInsets();
+                    preferredSize.width += insets.right;
+                    preferredSize.height += insets.bottom;
+                    trainer.setMinimumSize(preferredSize);
+                    trainer.setPreferredSize(preferredSize);
+                }
+            }
+            frame1ContentPane.add(trainer);
+            trainer.setBounds(0, 5, 520, 365);
+
             //======== video ========
             {
                 video.setVisible(false);
-                video.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border
-                .EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax
-                .swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,
-                12),java.awt.Color.red),video. getBorder()));video. addPropertyChangeListener(new java.beans
-                .PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.
-                getPropertyName()))throw new RuntimeException();}});
                 video.setLayout(null);
 
                 //---- button45 ----
@@ -338,6 +584,30 @@ public class Main_menu extends JFrame {
                 button37.setText("Search");
                 video.add(button37);
                 button37.setBounds(new Rectangle(new Point(395, 20), button37.getPreferredSize()));
+
+                //======== menuBar1 ========
+                {
+
+                    //======== menu1 ========
+                    {
+                        menu1.setText("type");
+
+                        //---- menuItem5 ----
+                        menuItem5.setText("yoga");
+                        menu1.add(menuItem5);
+
+                        //---- menuItem4 ----
+                        menuItem4.setText("HIIT");
+                        menu1.add(menuItem4);
+
+                        //---- menuItem6 ----
+                        menuItem6.setText("strength");
+                        menu1.add(menuItem6);
+                    }
+                    menuBar1.add(menu1);
+                }
+                video.add(menuBar1);
+                menuBar1.setBounds(40, 180, 39, 25);
 
                 {
                     // compute preferred size
@@ -457,141 +727,6 @@ public class Main_menu extends JFrame {
             }
             frame1ContentPane.add(user_profile);
             user_profile.setBounds(5, 5, 490, 355);
-
-            //======== trainer_info ========
-            {
-                trainer_info.setVisible(false);
-                trainer_info.setLayout(null);
-
-                //---- button31 ----
-                button31.setText("Return");
-                button31.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        button2MouseClicked(e);
-                    }
-                });
-                trainer_info.add(button31);
-                button31.setBounds(new Rectangle(new Point(275, 280), button31.getPreferredSize()));
-
-                //---- button32 ----
-                button32.setText("Book");
-                button32.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        button1MouseClicked(e);
-                    }
-                });
-                trainer_info.add(button32);
-                button32.setBounds(90, 280, 70, button32.getPreferredSize().height);
-
-                //======== scrollPane13 ========
-                {
-                    scrollPane13.setViewportView(textArea12);
-                }
-                trainer_info.add(scrollPane13);
-                scrollPane13.setBounds(215, 165, 190, 95);
-
-                //---- label33 ----
-                label33.setText("Course Information");
-                trainer_info.add(label33);
-                label33.setBounds(225, 130, 165, 35);
-
-                //======== scrollPane14 ========
-                {
-                    scrollPane14.setViewportView(textArea13);
-                }
-                trainer_info.add(scrollPane14);
-                scrollPane14.setBounds(215, 40, 190, 90);
-
-                //---- label34 ----
-                label34.setText("Trainer information");
-                trainer_info.add(label34);
-                label34.setBounds(new Rectangle(new Point(220, 10), label34.getPreferredSize()));
-
-                //======== panel5 ========
-                {
-                    panel5.setLayout(null);
-
-                    //---- button48 ----
-                    button48.setText("Home");
-                    button48.addMouseListener(new MouseAdapter() {
-                        @Override
-                        public void mouseClicked(MouseEvent e) {
-                            show_home(e);
-                        }
-                    });
-                    panel5.add(button48);
-                    button48.setBounds(0, 0, 75, button48.getPreferredSize().height);
-
-                    //---- button49 ----
-                    button49.setText("Trainer");
-                    button49.addMouseListener(new MouseAdapter() {
-                        @Override
-                        public void mouseClicked(MouseEvent e) {
-                            show_trainer(e);
-                        }
-                    });
-                    panel5.add(button49);
-                    button49.setBounds(new Rectangle(new Point(0, 45), button49.getPreferredSize()));
-
-                    //---- button50 ----
-                    button50.setText("Video");
-                    button50.addMouseListener(new MouseAdapter() {
-                        @Override
-                        public void mouseClicked(MouseEvent e) {
-                            show_video(e);
-                        }
-                    });
-                    panel5.add(button50);
-                    button50.setBounds(0, 95, 75, button50.getPreferredSize().height);
-
-                    //---- button51 ----
-                    button51.setText("Profile");
-                    button51.addMouseListener(new MouseAdapter() {
-                        @Override
-                        public void mouseClicked(MouseEvent e) {
-                            show_profile(e);
-                        }
-                    });
-                    panel5.add(button51);
-                    button51.setBounds(new Rectangle(new Point(0, 140), button51.getPreferredSize()));
-
-                    {
-                        // compute preferred size
-                        Dimension preferredSize = new Dimension();
-                        for(int i = 0; i < panel5.getComponentCount(); i++) {
-                            Rectangle bounds = panel5.getComponent(i).getBounds();
-                            preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                            preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-                        }
-                        Insets insets = panel5.getInsets();
-                        preferredSize.width += insets.right;
-                        preferredSize.height += insets.bottom;
-                        panel5.setMinimumSize(preferredSize);
-                        panel5.setPreferredSize(preferredSize);
-                    }
-                }
-                trainer_info.add(panel5);
-                panel5.setBounds(10, 25, 85, 240);
-
-                {
-                    // compute preferred size
-                    Dimension preferredSize = new Dimension();
-                    for(int i = 0; i < trainer_info.getComponentCount(); i++) {
-                        Rectangle bounds = trainer_info.getComponent(i).getBounds();
-                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-                    }
-                    Insets insets = trainer_info.getInsets();
-                    preferredSize.width += insets.right;
-                    preferredSize.height += insets.bottom;
-                    trainer_info.setMinimumSize(preferredSize);
-                    trainer_info.setPreferredSize(preferredSize);
-                }
-            }
-            frame1ContentPane.add(trainer_info);
-            trainer_info.setBounds(5, 5, 470, 335);
 
             //======== video_info ========
             {
@@ -765,103 +900,6 @@ public class Main_menu extends JFrame {
             frame1ContentPane.add(video_info);
             video_info.setBounds(0, 15, 520, 380);
 
-            //======== trainer ========
-            {
-                trainer.setVisible(false);
-                trainer.setLayout(null);
-
-                //---- button12 ----
-                button12.setText("Search");
-                button12.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        button5MouseClicked(e);
-                    }
-                });
-                trainer.add(button12);
-                button12.setBounds(new Rectangle(new Point(415, 10), button12.getPreferredSize()));
-                trainer.add(textField12);
-                textField12.setBounds(210, 10, 185, textField12.getPreferredSize().height);
-
-                //---- label17 ----
-                label17.setText("Trainer");
-                trainer.add(label17);
-                label17.setBounds(155, 10, 50, 22);
-
-                //======== scrollPane8 ========
-                {
-                    scrollPane8.setViewportView(textArea8);
-                }
-                trainer.add(scrollPane8);
-                scrollPane8.setBounds(255, 95, 140, 125);
-
-                //---- button16 ----
-                button16.setText("Reserve");
-                button16.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        button6MouseClicked(e);
-                    }
-                });
-                trainer.add(button16);
-                button16.setBounds(new Rectangle(new Point(430, 115), button16.getPreferredSize()));
-
-                //---- button33 ----
-                button33.setText("Home");
-                button33.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        show_home(e);
-                    }
-                });
-                trainer.add(button33);
-                button33.setBounds(5, 5, 90, button33.getPreferredSize().height);
-
-                //---- button34 ----
-                button34.setText("Trainer");
-                trainer.add(button34);
-                button34.setBounds(5, 45, 90, button34.getPreferredSize().height);
-
-                //---- button35 ----
-                button35.setText("Video");
-                button35.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        button35MouseClicked(e);
-                    }
-                });
-                trainer.add(button35);
-                button35.setBounds(5, 85, 90, button35.getPreferredSize().height);
-
-                //---- button36 ----
-                button36.setText("Profile");
-                button36.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        button36MouseClicked(e);
-                    }
-                });
-                trainer.add(button36);
-                button36.setBounds(5, 125, 90, button36.getPreferredSize().height);
-
-                {
-                    // compute preferred size
-                    Dimension preferredSize = new Dimension();
-                    for(int i = 0; i < trainer.getComponentCount(); i++) {
-                        Rectangle bounds = trainer.getComponent(i).getBounds();
-                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-                    }
-                    Insets insets = trainer.getInsets();
-                    preferredSize.width += insets.right;
-                    preferredSize.height += insets.bottom;
-                    trainer.setMinimumSize(preferredSize);
-                    trainer.setPreferredSize(preferredSize);
-                }
-            }
-            frame1ContentPane.add(trainer);
-            trainer.setBounds(0, 5, 520, 350);
-
             //======== home ========
             {
                 home.setLayout(null);
@@ -914,6 +952,7 @@ public class Main_menu extends JFrame {
                         show_trainer(e);
                     }
                 });
+                button26.addActionListener(e -> button26ActionPerformed(e));
                 home.add(button26);
                 button26.setBounds(5, 45, 90, button26.getPreferredSize().height);
 
@@ -945,55 +984,6 @@ public class Main_menu extends JFrame {
             }
             frame1ContentPane.add(home);
             home.setBounds(0, 0, 525, 380);
-
-            //======== profile_modify ========
-            {
-                profile_modify.setVisible(false);
-                profile_modify.setLayout(null);
-
-                //---- label31 ----
-                label31.setText("Input your new Email:");
-                profile_modify.add(label31);
-                label31.setBounds(new Rectangle(new Point(15, 55), label31.getPreferredSize()));
-                profile_modify.add(textField13);
-                textField13.setBounds(160, 50, 150, textField13.getPreferredSize().height);
-
-                //---- button29 ----
-                button29.setText("Confirm");
-                button29.addActionListener(e -> button29ActionPerformed(e));
-                profile_modify.add(button29);
-                button29.setBounds(new Rectangle(new Point(90, 220), button29.getPreferredSize()));
-
-                //---- button30 ----
-                button30.setText("Cancel");
-                button30.addActionListener(e -> button30ActionPerformed(e));
-                profile_modify.add(button30);
-                button30.setBounds(new Rectangle(new Point(215, 220), button30.getPreferredSize()));
-                profile_modify.add(textField14);
-                textField14.setBounds(165, 110, 150, textField14.getPreferredSize().height);
-
-                //---- label32 ----
-                label32.setText("Input your new name:");
-                profile_modify.add(label32);
-                label32.setBounds(new Rectangle(new Point(25, 115), label32.getPreferredSize()));
-
-                {
-                    // compute preferred size
-                    Dimension preferredSize = new Dimension();
-                    for(int i = 0; i < profile_modify.getComponentCount(); i++) {
-                        Rectangle bounds = profile_modify.getComponent(i).getBounds();
-                        preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-                        preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-                    }
-                    Insets insets = profile_modify.getInsets();
-                    preferredSize.width += insets.right;
-                    preferredSize.height += insets.bottom;
-                    profile_modify.setMinimumSize(preferredSize);
-                    profile_modify.setPreferredSize(preferredSize);
-                }
-            }
-            frame1ContentPane.add(profile_modify);
-            profile_modify.setBounds(10, 0, 475, 330);
 
             //======== Booking_course ========
             {
@@ -1123,6 +1113,33 @@ public class Main_menu extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - unknown
     private JFrame frame1;
+    private JPanel profile_modify;
+    private JLabel label31;
+    private JTextField textField13;
+    private JButton button29;
+    private JButton button30;
+    private JTextField textField14;
+    private JLabel label32;
+    private JPanel trainer;
+    private JButton button12;
+    private JTextField textField12;
+    private JLabel label17;
+    private JButton button33;
+    private JButton button34;
+    private JButton button35;
+    private JButton button36;
+    private JMenuBar menuBar2;
+    private JMenu menu2;
+    private JMenuItem menuItem10;
+    private JMenuItem menuItem7;
+    private JMenuItem menuItem8;
+    private JMenuItem menuItem9;
+    private JPanel panel5;
+    private JButton button32;
+    private JScrollPane scrollPane2;
+    private JTextArea textArea1;
+    private JComboBox comboBox1;
+    private JLabel label48;
     private JPanel video;
     private JButton button45;
     private JButton button44;
@@ -1131,6 +1148,11 @@ public class Main_menu extends JFrame {
     private JButton button46;
     private JButton button47;
     private JButton button37;
+    private JMenuBar menuBar1;
+    private JMenu menu1;
+    private JMenuItem menuItem5;
+    private JMenuItem menuItem4;
+    private JMenuItem menuItem6;
     private JPanel user_profile;
     private JButton button23;
     private JButton button24;
@@ -1146,20 +1168,6 @@ public class Main_menu extends JFrame {
     private JTextArea textArea20;
     private JTextArea textArea21;
     private JTextArea textArea22;
-    private JPanel trainer_info;
-    private JButton button31;
-    private JButton button32;
-    private JScrollPane scrollPane13;
-    private JTextArea textArea12;
-    private JLabel label33;
-    private JScrollPane scrollPane14;
-    private JTextArea textArea13;
-    private JLabel label34;
-    private JPanel panel5;
-    private JButton button48;
-    private JButton button49;
-    private JButton button50;
-    private JButton button51;
     private JPanel video_info;
     private JLabel label36;
     private JLabel label37;
@@ -1186,17 +1194,6 @@ public class Main_menu extends JFrame {
     private JButton button39;
     private JButton button40;
     private JButton button41;
-    private JPanel trainer;
-    private JButton button12;
-    private JTextField textField12;
-    private JLabel label17;
-    private JScrollPane scrollPane8;
-    private JTextArea textArea8;
-    private JButton button16;
-    private JButton button33;
-    private JButton button34;
-    private JButton button35;
-    private JButton button36;
     private JPanel home;
     private JLabel label23;
     private JScrollPane scrollPane6;
@@ -1208,13 +1205,6 @@ public class Main_menu extends JFrame {
     private JButton button25;
     private JButton button26;
     private JButton button28;
-    private JPanel profile_modify;
-    private JLabel label31;
-    private JTextField textField13;
-    private JButton button29;
-    private JButton button30;
-    private JTextField textField14;
-    private JLabel label32;
     private JPanel Booking_course;
     private JButton button18;
     private JButton button19;

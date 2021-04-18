@@ -12,9 +12,10 @@ public class TrainerDO  extends UserDO{
 //        return classSet;
 //    }
 //
-//    public TrainerDO() {
-//        super();
+
+    public TrainerDO() {
+        super();
 //        this.classSet = new HashSet<String>();
-//    }
+    }
 
 }

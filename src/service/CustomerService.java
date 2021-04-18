@@ -9,6 +9,7 @@ import dao.alldo.MemberDO;
 import dao.alldo.TrainerDO;
 import dao.alldo.UserDO;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -166,6 +167,63 @@ public class CustomerService {
             result = result+"class id: "+cla.getId()+"\ntime: "+cla.getDate()+cla.getTime()+"\ntrainer id: "+cla.getTrainerId()+"\n";
         }
         return result;
+    }
+
+    /**
+     * return the trainer object by name
+     * @param name trainer's name
+     * @return List<UserDO> object of trainer
+     */
+    public List<UserDO> searchByName(String name){
+        List<UserDO> trainers = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("trainer","name",name));
+        return trainers;
+    }
+
+    /**
+     * return the trainer object by type
+     * @param type the trainer's type
+     * @return List<UserDO> object of trainer
+     */
+    public List<UserDO> searchByType(String type){
+        List<UserDO> trainers = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("trainer","type",type));
+        return trainers;
+    }
+
+    /**
+     * list all trainer's information
+     * @return result the all information of the trainers
+     */
+    public String listAllTrainer(){
+        List<UserDO> trainers = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("trainer"));
+        String result = null;
+        for(UserDO tt: trainers){
+            int i = 0;
+            if (i==0){
+                result = "************\n"+
+                         "trainer's name: "+tt.getName()+"\n"+
+                         "trainer's id: "+tt.getId()+"\n"
+                        //+ "trainer's type: "+tt.getType()+"\n"
+                         ;
+                i++;
+            }else
+            {
+                result = result +  "************\n"+
+                        "trainer's name: "+tt.getName()+"\n"+
+                        "trainer's id: "+tt.getId()+"\n"
+                       //+ "trainer's type: "+tt.getType()+"\n"
+                        ;
+            }
+        }
+        return result;
+    }
+
+    public List<String> listAllTrainerId(){
+        List<String> ids = new ArrayList<>();
+        List<UserDO> trainers = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("trainer"));
+        for(UserDO tt: trainers){
+            ids.add(tt.getId());
+        }
+        return ids;
     }
 
     /**
