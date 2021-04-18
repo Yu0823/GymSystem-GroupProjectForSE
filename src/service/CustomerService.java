@@ -196,8 +196,8 @@ public class CustomerService {
     public String listAllTrainer(){
         List<UserDO> trainers = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("trainer"));
         String result = null;
+        int i = 0;
         for(UserDO tt: trainers){
-            int i = 0;
             if (i==0){
                 result = "************\n"+
                          "trainer's name: "+tt.getName()+"\n"+
