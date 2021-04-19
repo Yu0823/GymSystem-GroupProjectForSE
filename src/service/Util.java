@@ -17,6 +17,7 @@ public class Util {
             return id;
         }
 
+
     public static void main(String[] args) {
        String str =  generateID("trainer");
        System.out.println(str);

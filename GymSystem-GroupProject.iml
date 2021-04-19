@@ -20,5 +20,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="MigLayout" level="project" />
+    <orderEntry type="library" name="customizer" level="project" />
   </component>
 </module>
