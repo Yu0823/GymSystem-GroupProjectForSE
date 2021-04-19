@@ -4,6 +4,9 @@
 
 package GUI;
 
+import dao.alldo.MemberDO;
+import dao.alldo.UserDO;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -13,9 +16,13 @@ import javax.swing.border.*;
  * @author unknown
  */
 public class Book_confirm extends JFrame {
-    public Book_confirm() {
+    MemberDO m;
+    UserDO trainer;
+    public Book_confirm(MemberDO m, UserDO trainer) {
         initComponents();
         this.frame1.setVisible(true);
+        this.m = m;
+        this. trainer = trainer;
     }
 
     private void button1MouseClicked(MouseEvent e) {
@@ -23,7 +30,7 @@ public class Book_confirm extends JFrame {
     }
 
     private void button2MouseClicked(MouseEvent e) {
-        System.exit(0);
+        frame1.dispose();
     }
 
     private void initComponents() {

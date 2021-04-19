@@ -119,7 +119,6 @@ public class CustomerService {
      * date of the class Format:"YYYYMMDD", eg:"20210501"
      * time of the class Format:"HHMM", eg:"0830"
      */
-
     public String searchTrainer(String t1,String d1,String t2,String d2){
         String path = ClassDataUtil.DateAndTimeXpathBuilder(d2,d1,t2,t1);
         List<ClassDO> lesson = ClassDataUtil.findNodes(path);
@@ -172,11 +171,30 @@ public class CustomerService {
     /**
      * return the trainer object by name
      * @param name trainer's name
-     * @return List<UserDO> object of trainer
+     * @return result the all information of the trainers
      */
-    public List<UserDO> searchByName(String name){
+    public String searchByName(String name){
         List<UserDO> trainers = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("trainer","name",name));
-        return trainers;
+        String result = null;
+        int i = 0;
+        for(UserDO tt: trainers){
+            if (i==0){
+                result = "************\n"+
+                        "trainer's name: "+tt.getName()+"\n"+
+                        "trainer's id: "+tt.getId()+"\n"
+                //+ "trainer's type: "+tt.getType()+"\n"
+                ;
+                i++;
+            }else
+            {
+                result = result +  "************\n"+
+                        "trainer's name: "+tt.getName()+"\n"+
+                        "trainer's id: "+tt.getId()+"\n"
+                //+ "trainer's type: "+tt.getType()+"\n"
+                ;
+            }
+        }
+        return result;
     }
 
     /**

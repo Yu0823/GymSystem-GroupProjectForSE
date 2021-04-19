@@ -50,6 +50,11 @@ public class Main_menu extends JFrame {
 
     private void button5MouseClicked(MouseEvent e) {
         // TODO add your code here
+        String name = textField12.getText();
+        CustomerService s1 = new CustomerService();
+        String contemt = s1.searchByName(name);
+        textArea1.setText(contemt);
+
     }
 
     private void button6MouseClicked(MouseEvent e) {
@@ -307,14 +312,12 @@ public class Main_menu extends JFrame {
             //======== profile_modify ========
             {
                 profile_modify.setVisible(false);
-                profile_modify.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(
-                new javax.swing.border.EmptyBorder(0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn"
-                ,javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
-                ,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12)
-                ,java.awt.Color.red),profile_modify. getBorder()));profile_modify. addPropertyChangeListener(
-                new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-                ){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException()
-                ;}});
+                profile_modify.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
+                EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER ,javax . swing
+                . border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,
+                java . awt. Color .red ) ,profile_modify. getBorder () ) ); profile_modify. addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
+                { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )
+                throw new RuntimeException( ) ;} } );
                 profile_modify.setLayout(null);
 
                 //---- label31 ----
