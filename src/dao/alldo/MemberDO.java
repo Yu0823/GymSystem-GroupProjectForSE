@@ -41,8 +41,9 @@ public class MemberDO extends UserDO{
 //        return classSet;
 //    }
 //
-//    public MemberDO() {
-//        super();
+    public MemberDO() {
+        super();
 //        this.classSet = new HashSet<String>();
-//    }
+        this.type = "normal";
+    }
 }

@@ -11,12 +11,11 @@ import javax.swing.*;
 
 import dao.alldo.MemberDO;
 import dao.alldo.TrainerDO;
-import net.miginfocom.swing.*;
 import service.CustomerService;
 import service.TrainerService;
 
 /**
- * @author unknown
+ * @author yly
  */
 public class UserLogin {
     public UserLogin() {
@@ -51,7 +50,7 @@ public class UserLogin {
                     new Notice("The password or userid is wrong");
                 else{
                     MemberDO member = s2.login(m);
-                    new Mainmenu(member);
+                    new Main_menu(member);
                     Login.dispose();
                 }
         }

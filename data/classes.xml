@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-<class id="c001" date="20001212" time="1440"/><class id="c002" date="20201212" time="1440"/></configuration>
+
+    <class id="test001" date="20210501" time="0830" trainerId="123456" cusId="123456"/></configuration>

@@ -8,7 +8,7 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * @author unknown
+ * @author yly
  */
 public class Notice extends JPanel {
     String type;
@@ -18,9 +18,9 @@ public class Notice extends JPanel {
         if(type.equals("register")){
             register.setVisible(true);
         }
-        else if(type.equals("The password or userid is wrong"))
+        else
         {
-            register.setText("The password or userid is wrong");
+            register.setText(type);
             register.setVisible(true);
         }
         Notice.setVisible(true);
@@ -42,7 +42,7 @@ public class Notice extends JPanel {
             register.setText("Register successfully");
             register.setForeground(Color.red);
             NoticeContentPane.add(register);
-            register.setBounds(55, 45, 180, 55);
+            register.setBounds(55, 45, 595, 215);
 
             {
                 // compute preferred size
