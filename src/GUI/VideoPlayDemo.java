@@ -1,3 +1,5 @@
+package GUI;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -20,12 +22,12 @@ public class VideoPlayDemo extends JFrame {
         super("视频播放程序"); //调用父类构造函数
 
         container = getContentPane(); //得到窗口容器
-        JToolBar toobar = new JToolBar(); //实例化工具栏
+        JToolBar toolbar = new JToolBar(); //实例化工具栏
         JButton openFile = new JButton("打开媒体文件"); //实例化按钮
-        toobar.add(openFile); //增加按钮到工具栏
+        toolbar.add(openFile); //增加按钮到工具栏
         JButton openURL = new JButton("打开网络地址");
-        toobar.add(openURL);
-        container.add(toobar, BorderLayout.NORTH); //设置工具栏
+        toolbar.add(openURL);
+        container.add(toolbar, BorderLayout.NORTH); //设置工具栏
 
         openFile.addActionListener(new ActionListener() { //打开文件按钮事件处理
             public void actionPerformed(ActionEvent event) {
