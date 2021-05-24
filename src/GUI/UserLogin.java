@@ -44,7 +44,7 @@ public class UserLogin {
                 u.setPassword(password);
                 u.setId(id);
                 if(s1.login(u) == null)
-                    new Notice("The password or userid is wrong");
+                    JOptionPane.showMessageDialog(new JFrame(), "The password or userid is wrong.", "Message Dialog", JOptionPane.ERROR_MESSAGE);
                 else{
                     TrainerDO trainer = s1.login(u);
 
@@ -57,7 +57,7 @@ public class UserLogin {
                 m.setPassword(password);
                 m.setId(id);
                 if(s2.login(m)==null)
-                    new Notice("The password or userid is wrong");
+                    JOptionPane.showMessageDialog(new JFrame(), "The password or userid is wrong.", "Message Dialog", JOptionPane.ERROR_MESSAGE);
                 else{
                     MemberDO member = s2.login(m);
                     new Main_menu(member);

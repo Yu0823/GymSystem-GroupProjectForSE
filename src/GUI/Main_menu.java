@@ -170,14 +170,14 @@ public class Main_menu extends JFrame {
             if (Util.checkEmail(email))
                 m.setEmail(email);
             else {
-                Notice notice = new Notice("Your email is not valid!");
+                JOptionPane.showMessageDialog(new JFrame(), "Your email is not valid!", "Message Dialog", JOptionPane.ERROR_MESSAGE);
                 error++;
             }
         }
         if (error == 0){
             UserDataUtil.delNodes(UserDataUtil.xpathBuilder("member","id",m.getId()));
             UserDataUtil.addUser(m);
-            new Notice("Change successfully");
+            JOptionPane.showMessageDialog(new JFrame(), "Change successfully", "Message Dialog", JOptionPane.PLAIN_MESSAGE);
         }
 
     }
