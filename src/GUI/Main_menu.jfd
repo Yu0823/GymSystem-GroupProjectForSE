@@ -634,16 +634,7 @@ new FormModel {
 					"x": 145
 					"y": 250
 					"width": 320
-					"height": 110
-				} )
-				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "button27"
-					"text": "Video"
-					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "show_video", true ) )
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-					"x": 5
-					"width": 90
-					"y": 85
+					"height": 115
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button25"
@@ -662,6 +653,15 @@ new FormModel {
 					"x": 5
 					"y": 45
 					"width": 90
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button27"
+					"text": "Video"
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "show_video", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 5
+					"width": 90
+					"y": 85
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button28"
@@ -798,7 +798,7 @@ new FormModel {
 				"y": 0
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"size": new java.awt.Dimension( 520, 400 )
+			"size": new java.awt.Dimension( 520, 435 )
 			"location": new java.awt.Point( 0, 0 )
 		} )
 	}
