@@ -190,7 +190,7 @@ public class Main_menu extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
+        // Generated using JFormDesigner Evaluation license - PangYu
         frame1 = new JFrame();
         profile_modify = new JPanel();
         label31 = new JLabel();
@@ -280,9 +280,9 @@ public class Main_menu extends JFrame {
         label24 = new JLabel();
         scrollPane7 = new JScrollPane();
         textArea7 = new JTextArea();
-        button27 = new JButton();
         button25 = new JButton();
         button26 = new JButton();
+        button27 = new JButton();
         button28 = new JButton();
         Booking_course = new JPanel();
         button18 = new JButton();
@@ -312,12 +312,12 @@ public class Main_menu extends JFrame {
             //======== profile_modify ========
             {
                 profile_modify.setVisible(false);
-                profile_modify.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
-                EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER ,javax . swing
-                . border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,
-                java . awt. Color .red ) ,profile_modify. getBorder () ) ); profile_modify. addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
-                { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )
-                throw new RuntimeException( ) ;} } );
+                profile_modify.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder
+                ( 0, 0 ,0 , 0) ,  "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border
+                .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069al\u006fg", java .awt . Font. BOLD ,12 ) ,java . awt
+                . Color .red ) ,profile_modify. getBorder () ) ); profile_modify. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void
+                propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062or\u0064er" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
+                ;} } );
                 profile_modify.setLayout(null);
 
                 //---- label31 ----
@@ -929,18 +929,7 @@ public class Main_menu extends JFrame {
                     scrollPane7.setViewportView(textArea7);
                 }
                 home.add(scrollPane7);
-                scrollPane7.setBounds(145, 250, 320, 110);
-
-                //---- button27 ----
-                button27.setText("Video");
-                button27.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        show_video(e);
-                    }
-                });
-                home.add(button27);
-                button27.setBounds(5, 85, 90, button27.getPreferredSize().height);
+                scrollPane7.setBounds(145, 250, 320, 115);
 
                 //---- button25 ----
                 button25.setText("Home");
@@ -958,6 +947,17 @@ public class Main_menu extends JFrame {
                 button26.addActionListener(e -> button26ActionPerformed(e));
                 home.add(button26);
                 button26.setBounds(5, 45, 90, button26.getPreferredSize().height);
+
+                //---- button27 ----
+                button27.setText("Video");
+                button27.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        show_video(e);
+                    }
+                });
+                home.add(button27);
+                button27.setBounds(5, 85, 90, button27.getPreferredSize().height);
 
                 //---- button28 ----
                 button28.setText("Profile");
@@ -1114,7 +1114,7 @@ public class Main_menu extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - PangYu
     private JFrame frame1;
     private JPanel profile_modify;
     private JLabel label31;
@@ -1204,9 +1204,9 @@ public class Main_menu extends JFrame {
     private JLabel label24;
     private JScrollPane scrollPane7;
     private JTextArea textArea7;
-    private JButton button27;
     private JButton button25;
     private JButton button26;
+    private JButton button27;
     private JButton button28;
     private JPanel Booking_course;
     private JButton button18;

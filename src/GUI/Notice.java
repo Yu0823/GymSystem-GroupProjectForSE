@@ -28,7 +28,7 @@ public class Notice extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
+        // Generated using JFormDesigner Evaluation license - PangYu
         Notice = new JFrame();
         register = new JLabel();
 
@@ -41,6 +41,7 @@ public class Notice extends JPanel {
             //---- register ----
             register.setText("Register successfully");
             register.setForeground(Color.red);
+            register.setHorizontalAlignment(SwingConstants.LEFT);
             NoticeContentPane.add(register);
             register.setBounds(55, 45, 595, 215);
 
@@ -65,7 +66,7 @@ public class Notice extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - PangYu
     private JFrame Notice;
     private JLabel register;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

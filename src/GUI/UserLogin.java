@@ -67,7 +67,7 @@ public class UserLogin {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
+        // Generated using JFormDesigner Evaluation license - PangYu
         Login = new JFrame();
         label2 = new JLabel();
         panel1 = new JPanel();
@@ -86,19 +86,18 @@ public class UserLogin {
             LoginContentPane.setLayout(null);
 
             //---- label2 ----
-            label2.setText("welcome!");
+            label2.setText("Welcome!");
             LoginContentPane.add(label2);
-            label2.setBounds(285, 10, 90, 65);
+            label2.setBounds(270, 25, 90, 65);
 
             //======== panel1 ========
             {
-                panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax
-                . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing
-                .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .
-                Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red
-                ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override
-                public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName (
-                ) ) )throw new RuntimeException( ) ;} } );
+                panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing.
+                border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border . TitledBorder. CENTER
+                ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font
+                . BOLD ,12 ) ,java . awt. Color .red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener(
+                new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "bord\u0065r"
+                .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
                 panel1.setLayout(null);
 
                 //---- passwordField1 ----
@@ -127,16 +126,17 @@ public class UserLogin {
                     "promoter",
                     "admin"
                 }));
+                comboBox1.addActionListener(e -> comboBox1ActionPerformed(e));
                 panel1.add(comboBox1);
                 comboBox1.setBounds(new Rectangle(new Point(410, 0), comboBox1.getPreferredSize()));
 
                 //---- label5 ----
-                label5.setText("user id");
+                label5.setText("User ID");
                 panel1.add(label5);
                 label5.setBounds(35, 10, 90, label5.getPreferredSize().height);
 
                 //---- label6 ----
-                label6.setText("password");
+                label6.setText("Password");
                 panel1.add(label6);
                 label6.setBounds(30, 55, 90, label6.getPreferredSize().height);
 
@@ -179,7 +179,7 @@ public class UserLogin {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - PangYu
     private JFrame Login;
     private JLabel label2;
     private JPanel panel1;
@@ -191,8 +191,4 @@ public class UserLogin {
     private JLabel label5;
     private JLabel label6;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-    public static void main(String[] args) {
-        UserLogin u = new UserLogin();
-
-    }
 }

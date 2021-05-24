@@ -55,7 +55,7 @@ public class Register extends JPanel {
                 m.setPassword(password);
                 String result = s1.register(m);
                 if(result.equals("Register success, please login.")){
-                    Notice n = new Notice("register");
+                    JOptionPane.showMessageDialog(Register, "Register Success", "message",JOptionPane.WARNING_MESSAGE);
                     UserLogin u = new UserLogin();
                     Register.dispose();
                 }
