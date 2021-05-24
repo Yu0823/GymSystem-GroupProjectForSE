@@ -4,14 +4,28 @@
 
 package GUI;
 
+
 import javax.swing.event.*;
+
+
 import dao.UserDataUtil;
 import dao.alldo.MemberDO;
+
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.stage.Screen;
 import service.CustomerService;
 import service.Util;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -21,12 +35,14 @@ import javax.swing.border.*;
 public class Main_menu extends JFrame {
     MemberDO m;
     int count = 0;
+
     public Main_menu(MemberDO member) {
         initComponents();
         this.m = member;
         this.textArea7.setText(this.m.getType());
         CustomerService s1 = new CustomerService();
         this.textArea6.setText(s1.getclass(this.m));
+
     }
 
     private void button1MouseClicked(MouseEvent e) {
@@ -41,6 +57,7 @@ public class Main_menu extends JFrame {
     private void show_video(MouseEvent e) {
         this.home.setVisible(false);
         this.video.setVisible(true);
+        this.getVideo();
     }
 
     private void show_profile(MouseEvent e) {
@@ -190,7 +207,7 @@ public class Main_menu extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
+        // Generated using JFormDesigner Evaluation license - 666
         frame1 = new JFrame();
         profile_modify = new JPanel();
         label31 = new JLabel();
@@ -220,6 +237,7 @@ public class Main_menu extends JFrame {
         comboBox1 = new JComboBox();
         label48 = new JLabel();
         video = new JPanel();
+        videoPanel = new JPanel();
         button45 = new JButton();
         button44 = new JButton();
         label35 = new JLabel();
@@ -312,12 +330,12 @@ public class Main_menu extends JFrame {
             //======== profile_modify ========
             {
                 profile_modify.setVisible(false);
-                profile_modify.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
-                EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER ,javax . swing
-                . border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,
-                java . awt. Color .red ) ,profile_modify. getBorder () ) ); profile_modify. addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
-                { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )
-                throw new RuntimeException( ) ;} } );
+                profile_modify.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder
+                (0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder.CENTER,javax.swing.border
+                .TitledBorder.BOTTOM,new java.awt.Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt
+                .Color.red),profile_modify. getBorder()));profile_modify. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void
+                propertyChange(java.beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException()
+                ;}});
                 profile_modify.setLayout(null);
 
                 //---- label31 ----
@@ -536,6 +554,28 @@ public class Main_menu extends JFrame {
             {
                 video.setVisible(false);
                 video.setLayout(null);
+
+                //======== videoPanel ========
+                {
+                    videoPanel.setLayout(null);
+
+                    {
+                        // compute preferred size
+                        Dimension preferredSize = new Dimension();
+                        for(int i = 0; i < videoPanel.getComponentCount(); i++) {
+                            Rectangle bounds = videoPanel.getComponent(i).getBounds();
+                            preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                            preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+                        }
+                        Insets insets = videoPanel.getInsets();
+                        preferredSize.width += insets.right;
+                        preferredSize.height += insets.bottom;
+                        videoPanel.setMinimumSize(preferredSize);
+                        videoPanel.setPreferredSize(preferredSize);
+                    }
+                }
+                video.add(videoPanel);
+                videoPanel.setBounds(0, 210, 330, 235);
 
                 //---- button45 ----
                 button45.setText("Trainer");
@@ -1114,7 +1154,7 @@ public class Main_menu extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - 666
     private JFrame frame1;
     private JPanel profile_modify;
     private JLabel label31;
@@ -1144,6 +1184,7 @@ public class Main_menu extends JFrame {
     private JComboBox comboBox1;
     private JLabel label48;
     private JPanel video;
+    private JPanel videoPanel;
     private JButton button45;
     private JButton button44;
     private JLabel label35;
@@ -1227,4 +1268,37 @@ public class Main_menu extends JFrame {
     private JLabel label29;
     private JLabel label30;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    private void getVideo(){
+        final JFXPanel VFXPanel = new JFXPanel();
+
+        File video_source = new File("video/0.mp4");
+        Media m = new Media(video_source.toURI().toString());
+        MediaPlayer player = new MediaPlayer(m);
+        MediaView viewer = new MediaView(player);
+
+        StackPane root = new StackPane();
+        Scene scene = new Scene(root);
+
+        // center video position
+        javafx.geometry.Rectangle2D screen = Screen.getPrimary().getVisualBounds();
+        viewer.setX((screen.getWidth() - videoPanel.getWidth()) / 2);
+        viewer.setY((screen.getHeight() - videoPanel.getHeight()) / 2);
+
+        // resize video based on screen size
+        DoubleProperty width = viewer.fitWidthProperty();
+        DoubleProperty height = viewer.fitHeightProperty();
+        width.bind(Bindings.selectDouble(viewer.sceneProperty(), "width"));
+        height.bind(Bindings.selectDouble(viewer.sceneProperty(), "height"));
+        viewer.setPreserveRatio(true);
+
+        // add video to stackpane
+        root.getChildren().add(viewer);
+
+        VFXPanel.setScene(scene);
+        //player.play();
+        videoPanel.setLayout(new BorderLayout());
+        videoPanel.add(VFXPanel, BorderLayout.CENTER);
+    }
+
 }

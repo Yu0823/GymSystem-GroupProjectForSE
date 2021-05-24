@@ -6,11 +6,21 @@ package GUI;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import javax.swing.*;
 
 
 import dao.alldo.MemberDO;
 import dao.alldo.TrainerDO;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.stage.Screen;
 import service.CustomerService;
 import service.TrainerService;
 
@@ -195,4 +205,5 @@ public class UserLogin {
         UserLogin u = new UserLogin();
 
     }
+
 }
