@@ -7,11 +7,12 @@ new FormModel {
 			name: "frame1"
 			"undecorated": true
 			"font": new java.awt.Font( "Dialog", 2, 32 )
+			"$sizePolicy": 1
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Back"
 				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 0, 8, false )
-				"background": &Color0 new java.awt.Color( 204, 204, 255, 255 )
+				"border": new javax.swing.border.BevelBorder( 0, new java.awt.Color( 0, 143, 176, 255 ), new java.awt.Color( 153, 44, 44, 255 ), new java.awt.Color( 85, 191, 85, 255 ), new java.awt.Color( 0, 86, 180, 255 ) )
 				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button1MouseClicked", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 150
@@ -22,7 +23,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Account Upgrade"
-				"font": new java.awt.Font( "方正舒体", 0, 17 )
+				"font": new java.awt.Font( "方正舒体", 1, 20 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 25
 				"y": 25
@@ -33,7 +34,7 @@ new FormModel {
 				name: "button2"
 				"text": "Confirm"
 				"font": #SwingDerivedFont0
-				"background": #Color0
+				"border": new javax.swing.border.BevelBorder( 0, sfield java.awt.Color pink, sfield java.awt.Color magenta, sfield java.awt.Color green, sfield java.awt.Color orange )
 				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button2MouseClicked", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 150
@@ -68,9 +69,9 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
 				"text": "Your account balance:"
-				"font": new java.awt.Font( "方正舒体", 0, 19 )
+				"font": new java.awt.Font( "方正舒体", 1, 19 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 195
+				"width": 210
 				"height": 55
 				"x": 110
 				"y": 235
@@ -79,11 +80,12 @@ new FormModel {
 				name: "scrollPane1"
 				add( new FormComponent( "javax.swing.JTextArea" ) {
 					name: "textArea1"
+					"background": new java.awt.Color( 255, 204, 255, 255 )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 315
-				"y": 255
-				"width": 110
+				"x": 330
+				"y": 260
+				"width": 70
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"size": new java.awt.Dimension( 710, 570 )

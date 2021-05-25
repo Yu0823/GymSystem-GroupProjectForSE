@@ -68,7 +68,7 @@ public class Reservation extends JFrame {
             //---- button1 ----
             button1.setText("Back");
             button1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button1.getFont().getStyle(), button1.getFont().getSize() + 8));
-            button1.setBackground(new Color(204, 204, 255));
+            button1.setBorder(new BevelBorder(BevelBorder.RAISED, Color.pink, Color.green, Color.orange, new Color(0, 77, 187)));
             button1.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -92,13 +92,18 @@ public class Reservation extends JFrame {
             label2.setAutoscrolls(true);
             frame1ContentPane.add(label2);
             label2.setBounds(40, 470, label2.getPreferredSize().width, 50);
+
+            //======== scrollPane1 ========
+            {
+                scrollPane1.setBorder(new MatteBorder(4, 2, 1, 2, Color.gray));
+            }
             frame1ContentPane.add(scrollPane1);
             scrollPane1.setBounds(140, 110, 545, 345);
 
             //---- button2 ----
             button2.setText("Confirm");
             button2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button2.getFont().getStyle(), button2.getFont().getSize() + 8));
-            button2.setBackground(new Color(204, 204, 255));
+            button2.setBorder(new BevelBorder(BevelBorder.RAISED, Color.yellow, Color.red, Color.magenta, new Color(0, 119, 182)));
             button2.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -124,7 +129,7 @@ public class Reservation extends JFrame {
                 frame1ContentPane.setMinimumSize(preferredSize);
                 frame1ContentPane.setPreferredSize(preferredSize);
             }
-            frame1.pack();
+            frame1.setSize(725, 585);
             frame1.setLocationRelativeTo(frame1.getOwner());
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents

@@ -9,18 +9,22 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
 				"text": "welcome!"
-				"font": new java.awt.Font( "方正舒体", 0, 21 )
+				"font": new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 1, 21, true )
+				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 285
 				"y": 10
-				"width": 90
+				"width": 130
 				"height": 65
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 				name: "panel1"
+				"cursor": new java.awt.Cursor( 2 )
 				add( new FormComponent( "javax.swing.JPasswordField" ) {
 					name: "passwordField1"
 					"toolTipText": "input the passworld"
+					"columns": 1
+					"background": new java.awt.Color( 255, 204, 255, 255 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"width": 270
 					"height": 41
@@ -29,6 +33,7 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JTextField" ) {
 					name: "textField1"
+					"background": new java.awt.Color( 255, 204, 255, 255 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"width": 270
 					"height": 41
@@ -38,7 +43,9 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button1"
 					"text": "login"
-					"font": new java.awt.Font( "方正舒体", 0, 17 )
+					"font": new java.awt.Font( "方正舒体", 1, 17 )
+					"border": new javax.swing.border.BevelBorder( 0, new java.awt.Color( 100, 157, 186, 255 ), new java.awt.Color( 46, 196, 196, 255 ), new java.awt.Color( 153, 124, 19, 255 ), new java.awt.Color( 128, 22, 22, 255 ) )
+					"autoscrolls": true
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
@@ -50,7 +57,8 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button2"
 					"text": "register"
-					"font": new java.awt.Font( "方正舒体", 0, 17 )
+					"font": new java.awt.Font( "方正舒体", 1, 17 )
+					"border": new javax.swing.border.BevelBorder( 0, new java.awt.Color( 111, 104, 167, 255 ), new java.awt.Color( 0, 87, 176, 255 ), new java.awt.Color( 245, 71, 71, 255 ), new java.awt.Color( 105, 21, 21, 255 ) )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
@@ -69,15 +77,18 @@ new FormModel {
 						addElement( "promoter" )
 						addElement( "admin" )
 					}
+					"background": new javax.swing.plaf.ColorUIResource( 238, 238, 238 )
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
+					"border": new javax.swing.border.BevelBorder( 0, null, null, null, null )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "comboBox1ActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-					"x": 410
-					"y": 0
+					"x": 420
+					"y": 5
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label5"
 					"text": "user id"
-					"font": new java.awt.Font( "方正舒体", 0, 16 )
+					"font": new java.awt.Font( "方正舒体", 1, 16 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"x": 30
 					"y": 10
@@ -86,7 +97,7 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label6"
 					"text": "password"
-					"font": new java.awt.Font( "方正舒体", 0, 16 )
+					"font": new java.awt.Font( "方正舒体", 1, 16 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"x": 30
 					"y": 55
