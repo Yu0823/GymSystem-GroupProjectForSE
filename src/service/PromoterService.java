@@ -1,11 +1,13 @@
 package service;
 
+/**
+ * @author yu
+ */
 public class PromoterService {
     /**
      * implement some promotion method
      */
-    public String promotion(){
-        return null;
-
+    public boolean discount(){
+        return false;
     }
 }

@@ -102,7 +102,7 @@ public class UserDataUtil {
 
         } catch (Exception e) {
             // exception settle down
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -204,7 +204,7 @@ public class UserDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -266,8 +266,9 @@ public class UserDataUtil {
             return user;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     /**
@@ -321,11 +322,13 @@ public class UserDataUtil {
                 temp.setInfo(user.attributeValue("info"));
                 finalResult.add(temp);
             }
+
             return finalResult;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static void main(String[] args) {
