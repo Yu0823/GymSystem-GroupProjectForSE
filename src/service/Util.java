@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class Util {
     /**
      * generate id for user
-     * @param type
+     *
      */
     public static String generateID(String type) {
         String id = "1111111";
@@ -78,12 +78,38 @@ public class Util {
         return m.find();
     }
 
+    /**
+     * check the validness of phone number
+     * @param phonenumber the phone number that need to be checked
+     * @return valid or invalid
+     */
+    public static boolean checkPhone(String phonenumber){
+        String regex =   "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$";
+        Pattern   p   =   Pattern.compile(regex);
+        Matcher m   =   p.matcher(phonenumber);
+        return m.find();
+    }
 
+    //判断密码是否符合格式要求
+    public static boolean passwordIsValid(String s){
+        if(s.length()>=6)
+            return true;
+        else
+            return false;
+    }
+    //该方法判断用户名是否符合格式要求。
+    public static boolean useridIsValid(String s) {
+        if (s.length() >= 6)
+            return true;
+        else
+            return false;
 
+    }
 
     public static void main(String[] args) {
 
        System.out.println(checkEmail("3327317060@.com"));
+       System.out.println(checkPhone("13588410085"));
 
 
 

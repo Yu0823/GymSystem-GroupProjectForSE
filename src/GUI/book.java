@@ -63,9 +63,9 @@ public class book extends JFrame {
 
             //======== book ========
             {
-                book.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(
-                0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder
-                .BOTTOM,new java.awt.Font("Dialo\u0067",java.awt.Font.BOLD,12),java.awt.Color.
+                book.setBorder(new CompoundBorder(new TitledBorder(new EmptyBorder(
+                0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", TitledBorder.CENTER, TitledBorder
+                .BOTTOM,new Font("Dialo\u0067", Font.BOLD,12), Color.
                 red),book. getBorder()));book. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.
                 beans.PropertyChangeEvent e){if("borde\u0072".equals(e.getPropertyName()))throw new RuntimeException();}});
                 book.setLayout(null);

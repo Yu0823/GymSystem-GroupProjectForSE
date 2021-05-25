@@ -21,8 +21,9 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Screen;
-import service.CustomerService;
-import service.TrainerService;
+import service.CustomerLogin;
+import service.TrainerLogin;
+
 
 /**
  * @author yly
@@ -39,28 +40,28 @@ public class UserLogin {
         String password = String.valueOf(passwordField1.getPassword());
         switch (type){
             case "trainer":
-                TrainerService s1 = new TrainerService();
+
+                TrainerLogin s1 = new TrainerLogin();
                 TrainerDO u = new TrainerDO();
                 u.setPassword(password);
                 u.setId(id);
                 if(s1.login(u) == null)
-                    JOptionPane.showMessageDialog(new JFrame(), "The password or userid is wrong.", "Message Dialog", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"登陆失败！");
                 else{
                     TrainerDO trainer = s1.login(u);
-
                     Login.dispose();
                 }
                 break;
             case "member":
-                CustomerService s2 = new CustomerService();
+                CustomerLogin s2 = new CustomerLogin();
                 MemberDO m = new MemberDO();
                 m.setPassword(password);
                 m.setId(id);
                 if(s2.login(m)==null)
-                    JOptionPane.showMessageDialog(new JFrame(), "The password or userid is wrong.", "Message Dialog", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"用户名或密码错误！");
                 else{
                     MemberDO member = s2.login(m);
-                    new Main_menu(member);
+                    new Main_Menu(member);
                     Login.dispose();
                 }
         }
@@ -77,7 +78,7 @@ public class UserLogin {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
+        // Generated using JFormDesigner Evaluation license - MudongGuo
         Login = new JFrame();
         label2 = new JLabel();
         panel1 = new JPanel();
@@ -97,18 +98,17 @@ public class UserLogin {
 
             //---- label2 ----
             label2.setText("welcome!");
+            label2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 21));
             LoginContentPane.add(label2);
             label2.setBounds(285, 10, 90, 65);
 
             //======== panel1 ========
             {
-                panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax
-                . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing
-                .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .
-                Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red
-                ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override
-                public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName (
-                ) ) )throw new RuntimeException( ) ;} } );
+                panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
+                ( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border
+                . TitledBorder. BOTTOM, new Font ("D\u0069alog" , Font .BOLD ,12 ), Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
+                propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( )
+                ; }} );
                 panel1.setLayout(null);
 
                 //---- passwordField1 ----
@@ -120,15 +120,21 @@ public class UserLogin {
 
                 //---- button1 ----
                 button1.setText("login");
-                button1.addActionListener(this::button1ActionPerformed);
+                button1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 17));
+                button1.addActionListener(e -> {
+			button1ActionPerformed(e);
+		});
                 panel1.add(button1);
-                button1.setBounds(90, 115, 135, 45);
+                button1.setBounds(130, 115, 135, 45);
 
                 //---- button2 ----
                 button2.setText("register");
-                button2.addActionListener(this::button2ActionPerformed);
+                button2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 17));
+                button2.addActionListener(e -> {
+			button2ActionPerformed(e);
+		});
                 panel1.add(button2);
-                button2.setBounds(335, 115, 115, 43);
+                button2.setBounds(320, 115, 135, 45);
 
                 //---- comboBox1 ----
                 comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
@@ -137,16 +143,19 @@ public class UserLogin {
                     "promoter",
                     "admin"
                 }));
+                comboBox1.addActionListener(e -> comboBox1ActionPerformed(e));
                 panel1.add(comboBox1);
                 comboBox1.setBounds(new Rectangle(new Point(410, 0), comboBox1.getPreferredSize()));
 
                 //---- label5 ----
                 label5.setText("user id");
+                label5.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 16));
                 panel1.add(label5);
-                label5.setBounds(35, 10, 90, label5.getPreferredSize().height);
+                label5.setBounds(30, 10, 90, label5.getPreferredSize().height);
 
                 //---- label6 ----
                 label6.setText("password");
+                label6.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 16));
                 panel1.add(label6);
                 label6.setBounds(30, 55, 90, label6.getPreferredSize().height);
 
@@ -189,7 +198,7 @@ public class UserLogin {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - MudongGuo
     private JFrame Login;
     private JLabel label2;
     private JPanel panel1;
@@ -203,7 +212,6 @@ public class UserLogin {
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     public static void main(String[] args) {
         UserLogin u = new UserLogin();
-
     }
 
 }

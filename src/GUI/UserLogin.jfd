@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.7" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -8,10 +8,11 @@ new FormModel {
 			"title": "Login"
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
-				"text": "Welcome!"
+				"text": "welcome!"
+				"font": new java.awt.Font( "方正舒体", 0, 21 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 270
-				"y": 25
+				"x": 285
+				"y": 10
 				"width": 90
 				"height": 65
 			} )
@@ -37,10 +38,11 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button1"
 					"text": "login"
+					"font": new java.awt.Font( "方正舒体", 0, 17 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-					"x": 90
+					"x": 130
 					"y": 115
 					"width": 135
 					"height": 45
@@ -48,14 +50,15 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button2"
 					"text": "register"
+					"font": new java.awt.Font( "方正舒体", 0, 17 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-					"x": 335
+					"x": 320
 					"y": 115
-					"width": 115
-					"height": 43
+					"width": 135
+					"height": 45
 				} )
 				add( new FormComponent( "javax.swing.JComboBox" ) {
 					name: "comboBox1"
@@ -73,15 +76,17 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label5"
-					"text": "User ID"
+					"text": "user id"
+					"font": new java.awt.Font( "方正舒体", 0, 16 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-					"x": 35
+					"x": 30
 					"y": 10
 					"width": 90
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label6"
-					"text": "Password"
+					"text": "password"
+					"font": new java.awt.Font( "方正舒体", 0, 16 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"x": 30
 					"y": 55
@@ -94,7 +99,7 @@ new FormModel {
 				"width": 600
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 0, 0 )
+			"location": new java.awt.Point( 0, 35 )
 			"size": new java.awt.Dimension( 725, 520 )
 		} )
 	}
