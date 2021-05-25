@@ -6,11 +6,21 @@ package GUI;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import javax.swing.*;
 
 
 import dao.alldo.MemberDO;
 import dao.alldo.TrainerDO;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.stage.Screen;
 import service.CustomerService;
 import service.TrainerService;
 
@@ -34,7 +44,7 @@ public class UserLogin {
                 u.setPassword(password);
                 u.setId(id);
                 if(s1.login(u) == null)
-                    new Notice("The password or userid is wrong");
+                    JOptionPane.showMessageDialog(new JFrame(), "The password or userid is wrong.", "Message Dialog", JOptionPane.ERROR_MESSAGE);
                 else{
                     TrainerDO trainer = s1.login(u);
 
@@ -47,10 +57,10 @@ public class UserLogin {
                 m.setPassword(password);
                 m.setId(id);
                 if(s2.login(m)==null)
-                    new Notice("The password or userid is wrong");
+                    JOptionPane.showMessageDialog(new JFrame(), "The password or userid is wrong.", "Message Dialog", JOptionPane.ERROR_MESSAGE);
                 else{
                     MemberDO member = s2.login(m);
-                    new CustomerMainmenu(member);
+                    new Main_menu(member);
                     Login.dispose();
                 }
         }
@@ -195,4 +205,5 @@ public class UserLogin {
         UserLogin u = new UserLogin();
 
     }
+
 }

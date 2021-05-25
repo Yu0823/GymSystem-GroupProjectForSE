@@ -102,7 +102,7 @@ public class UserDataUtil {
 
         } catch (Exception e) {
             // exception settle down
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -110,14 +110,31 @@ public class UserDataUtil {
     /**
      *
      * @param userType the type of the user
-     * @param searchCondition the name of the condition you want to delete
-     * @param searchContent the content of the condition you want to delete
+     * @return
+     */
+    public static String xpathBuilder(String userType){
+        return "//" + userType;
+    }
+    /**
+     *
+     * @param userType the type of the user
+     * @param searchCondition the name of the condition you want to select
+     * @param searchContent the content of the condition you want to select
      * @return a xpath built by your conditions
      */
     public static String xpathBuilder(String userType, String searchCondition, String searchContent){
         return "//" + userType + "[@" + searchCondition + "='" + searchContent + "']";
     }
 
+    /**
+     *
+     * @param userType the type of the user
+     * @param searchCondition1 the name of the condition1 you want to select
+     * @param searchContent1 the content of the condition1 you want to select
+     * @param searchCondition2 as above
+     * @param searchContent2 as above
+     * @return
+     */
     public static String xpathBuilder(String userType, String searchCondition1, String searchContent1,
                                       String searchCondition2, String searchContent2){
         return "//" + userType + "[@" + searchCondition1 + "='" + searchContent1 + "' and @" +
@@ -125,17 +142,20 @@ public class UserDataUtil {
     }
 
     /**
-     * delete users by condition
-     *
-     * @param xpath xpath built by the builder
-     * @return success or not
+     * get the user type from a xpath
+     * @param xpath the original xpath
+     * @return
      */
-    public static boolean delNodes(String xpath){
+    private static String getTypeFromPath(String xpath){
         String userType = "";
 
         int i = 2;
         while(true){
-            char temp = xpath.charAt(i);
+            char temp = ' ';
+            if(i == xpath.length()){
+                break;
+            }
+            temp = xpath.charAt(i);
             if(temp != '['){
                 userType += temp;
             }
@@ -144,6 +164,17 @@ public class UserDataUtil {
             }
             i++;
         }
+        return userType;
+    }
+    /**
+     * delete users by condition
+     *
+     * @param xpath xpath built by the builder
+     * @return success or not
+     */
+    public static boolean delNodes(String xpath){
+
+        String userType = getTypeFromPath(xpath);
 
         try {
             // init the reader
@@ -173,7 +204,7 @@ public class UserDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -187,19 +218,8 @@ public class UserDataUtil {
      */
 
     public static UserDO findSingleNode(String xpath) {
-        String userType = "";
 
-        int i = 2;
-        while(true){
-            char temp = xpath.charAt(i);
-            if(temp != '['){
-                userType += temp;
-            }
-            else{
-                break;
-            }
-            i++;
-        }
+        String userType = getTypeFromPath(xpath);
 
         try {
             // init the reader
@@ -246,8 +266,9 @@ public class UserDataUtil {
             return user;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     /**
@@ -258,19 +279,7 @@ public class UserDataUtil {
      */
     public static List<UserDO> findNodes(String xpath){
 
-        String userType = "";
-
-        int i = 2;
-        while(true){
-            char temp = xpath.charAt(i);
-            if(temp != '['){
-                userType += temp;
-            }
-            else{
-                break;
-            }
-            i++;
-        }
+        String userType = getTypeFromPath(xpath);
 
         try {
             // init the reader
@@ -313,11 +322,13 @@ public class UserDataUtil {
                 temp.setInfo(user.attributeValue("info"));
                 finalResult.add(temp);
             }
+
             return finalResult;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static void main(String[] args) {
@@ -329,15 +340,14 @@ public class UserDataUtil {
         m2.setId("Test002");
         m2.setType("1");
         m2.setEmail("111");
-        addUser(m1);
-        addUser(m2);
+//        addUser(m1);
+//        addUser(m2);
 //        TrainerDO t1 = new TrainerDO();
 //        t1.setId("Trainer001");
 //        t1.getClassSet().add("c001");
 //        t1.getClassSet().add("c002");
 //        addUser(t1);
-        List list = findNodes(xpathBuilder("member", "type", "1",
-                "email", "111"));
+        List list = findNodes(xpathBuilder("member"));
 //        List list = findNodes(xpathBuilder("member",
 //                "email", "111"));
         for(Object o : list){

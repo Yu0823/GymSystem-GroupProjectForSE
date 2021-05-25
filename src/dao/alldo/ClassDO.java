@@ -29,6 +29,12 @@ public class ClassDO {
      */
     private String cusId;
 
+    /**
+     * represent if the trainer confirm the class
+     * yes:true no:false
+     */
+    private String isConfirm;
+
     public String getId() {
         return id;
     }
@@ -37,17 +43,13 @@ public class ClassDO {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
-    }
+    public String getDate() { return date; }
 
     public void setDate(String date) {
         this.date = date;
     }
 
-    public String getTime() {
-        return time;
-    }
+    public String getTime() { return time; }
 
     public void setTime(String time) {
         this.time = time;
@@ -67,5 +69,13 @@ public class ClassDO {
 
     public void setCusId(String cusId) {
         this.cusId = cusId;
+    }
+
+    public String getIsConfirm() {
+        return isConfirm;
+    }
+
+    public void setIsConfirm(String isConfirm) {
+        this.isConfirm = isConfirm;
     }
 }

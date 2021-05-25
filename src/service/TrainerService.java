@@ -2,9 +2,13 @@ package service;
 
 
 import dao.UserDataUtil;
+import dao.VideoDataUtil;
 import dao.alldo.TrainerDO;
+import dao.alldo.VideoDO;
 
 import java.util.Map;
+
+import static service.Util.generateIDforVideo;
 
 public class TrainerService {
     /**
@@ -73,9 +77,13 @@ public class TrainerService {
     /**
      * add the film
      */
-    public String  addFilm(){
-
-        return null;
+    public String  addFilm(String path,String author){
+        VideoDO video = new VideoDO();
+        video.setId(generateIDforVideo());
+        video.setPath(path);
+        video.setUploader(author);
+        VideoDataUtil.addVideo(video);
+        return "insert successfully";
 
 
     }
@@ -85,8 +93,6 @@ public class TrainerService {
      *
      */
     public String changeProfile(TrainerDO t){
-
-
         UserDataUtil.delNodes(UserDataUtil.xpathBuilder("trainer","id",t.getId()));
         UserDataUtil.addUser(t);
         return "You have update your profile";
