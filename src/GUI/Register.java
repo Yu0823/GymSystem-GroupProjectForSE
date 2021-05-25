@@ -42,7 +42,7 @@ public class Register extends JPanel {
                 trainer.setPassword(password);
                 String result = s1.register(trainer);
                 if(result.equals("Register success, please login.")){
-                    Notice n = new Notice("register");
+                    JOptionPane.showMessageDialog(new JFrame(), "Register success, please login.", "Message Dialog", JOptionPane.PLAIN_MESSAGE);
                     UserLogin u = new UserLogin();
                     Register.dispose();
                 }
@@ -55,7 +55,7 @@ public class Register extends JPanel {
                 m.setPassword(password);
                 String result = s1.register(m);
                 if(result.equals("Register success, please login.")){
-                    JOptionPane.showMessageDialog(Register, "Register Success", "message",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(new JFrame(), "Register success, please login.", "Message Dialog", JOptionPane.PLAIN_MESSAGE);
                     UserLogin u = new UserLogin();
                     Register.dispose();
                 }

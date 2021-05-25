@@ -19,6 +19,7 @@ public class CustomerService {
      * @param u the new register member.
      * @return whether the register success or not
      */
+
     public String register(MemberDO u) {
         if(useridIsValid(u.getId()) && passwordIsValid(u.getPassword())){
             if(UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("member","id",u.getId()))!=null){
