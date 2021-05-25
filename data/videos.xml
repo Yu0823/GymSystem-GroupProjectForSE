@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-<video id="v1" name="testVideo1" videotype="yoga" length="120" uploader="t001" level="1"/></configuration>
+    <video id="class001" name="testVideo1" videotype="yoga" length="120" uploader="t001"/><video id="class002" name="5" videotype="yoga" length="120" uploader="t001"/></configuration>

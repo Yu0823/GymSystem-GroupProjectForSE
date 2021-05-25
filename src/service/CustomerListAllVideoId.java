@@ -11,11 +11,11 @@ import static dao.VideoDataUtil.xpathBuilder;
 public class CustomerListAllVideoId {
     public List<String> listAllVideoId(){
         List<String> result = null;
-        List<VideoDO> l = findNodes(xpathBuilder("id","class002"));
-        for(VideoDO v:l){
-            String str = v.getId();
-            result.add(str);
-        }
+//        List<VideoDO> l = findNodes(xpathBuilder("id","class002"));
+//        for(VideoDO v:l){
+//            String str = v.getId();
+//            result.add(str);
+//        }
         return result;
     }
 }
