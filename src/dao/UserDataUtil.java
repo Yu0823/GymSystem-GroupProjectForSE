@@ -219,55 +219,7 @@ public class UserDataUtil {
 
     public static UserDO findSingleNode(String xpath) {
 
-        String userType = getTypeFromPath(xpath);
-
-        try {
-            // init the reader
-            SAXReader reader = new SAXReader();
-            // get the Document
-            File xmlFile = new File(UserTypeEnum.getPos(UserTypeEnum.getType(userType)));
-
-            Document doc = reader.read(xmlFile);
-
-            //Prepare the xpath
-            //Use "//" to be the header indicates that there is no deep constraint,
-            //so you can query the child elements in the document
-            //[] is called the predicate, is the query condition
-            //@id represents the id attribute
-
-            //search
-            Element userEle = (Element) doc.selectSingleNode(xpath);
-            if (userEle == null) {
-                return null;
-            }
-
-            UserDO user = null;
-            //convert the element to a userDO
-            if(userType.equals(UserTypeEnum.getName(0))){
-                user = new MemberDO();
-            }
-            else if(userType.equals(UserTypeEnum.getName(1))){
-                user = new TrainerDO();
-            }
-            else if(userType.equals(UserTypeEnum.getName(2))){
-                user = new AdminDO();
-            }
-            else if(userType.equals(UserTypeEnum.getName(3))){
-                user = new PromoterDO();
-            }
-
-            //get attributes
-            user.setId(userEle.attributeValue("id"));
-            user.setPassword(userEle.attributeValue("password"));
-            user.setName(userEle.attributeValue("name"));
-            user.setPhoneNumber(userEle.attributeValue("phoneNumber"));
-            user.setInfo(userEle.attributeValue("info"));
-
-            return user;
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        return findNodes(xpath).get(0);
     }
 
     /**
