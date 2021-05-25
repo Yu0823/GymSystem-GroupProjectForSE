@@ -68,7 +68,7 @@ public class VideoDataUtil {
 
         } catch (Exception e) {
             // exception settle down
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return true;
     }
@@ -143,7 +143,7 @@ public class VideoDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return true;
     }
@@ -154,7 +154,7 @@ public class VideoDataUtil {
      * @param xpath the search path built by function xpathBuilder
      * @return the correct classDOs
      */
-    public static List<ClassDO> findNodes(String xpath){
+    public static List<VideoDO> findNodes(String xpath){
 
         String pos = "data/videos.xml";
 
@@ -169,35 +169,35 @@ public class VideoDataUtil {
 
             //search
             List<Element> iniResult = doc.selectNodes(xpath);
-            List<ClassDO> finalResult = new ArrayList<>();
+            List<VideoDO> finalResult = new ArrayList<>();
 
 
             for(Element c : iniResult){
-                ClassDO temp = new ClassDO();
+                VideoDO temp = new VideoDO();
                 temp.setId(c.attributeValue("id"));
-                temp.setDate(c.attributeValue("date"));
-                temp.setTime(c.attributeValue("time"));
-                temp.setTrainerId(c.attributeValue("trainerId"));
-                temp.setCusId(c.attributeValue("cusId"));
+                temp.setPath(c.attributeValue("path"));
+                temp.setVideoType(c.attributeValue("videotype"));
+                temp.setName(c.attributeValue("name"));
+                temp.setUploader(c.attributeValue("uploader"));
                 finalResult.add(temp);
             }
             return finalResult;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
     public static void main(String[] args) {
         VideoDO v = new VideoDO();
-        v.setId("class001");
+        v.setId("class002");
         v.setLength("120");
-        v.setName("testVideo1");
+        v.setName("5");
         v.setUploader("t001");
         v.setVideoType("yoga");
         //addVideo(v);
         List l = findNodes(xpathBuilder("id","class001"));
         System.out.println(l.get(0));
+        VideoDataUtil.addVideo(v);
     }
 }

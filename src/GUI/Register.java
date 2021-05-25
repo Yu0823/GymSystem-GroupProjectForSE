@@ -6,8 +6,10 @@ package GUI;
 
 import dao.alldo.MemberDO;
 import dao.alldo.TrainerDO;
-import service.CustomerService;
-import service.TrainerService;
+import service.CustomerRegister;
+
+import service.TrainerRegister;
+
 import service.Util;
 
 import java.awt.*;
@@ -36,33 +38,44 @@ public class Register extends JPanel {
         String type = comboBox1.getSelectedItem().toString();
         if(password.equals(confirmPassword)){
             if(type.equals("trainer")){
-                TrainerService s1 = new TrainerService();
+                TrainerRegister s1 = new TrainerRegister();
                 TrainerDO trainer = new TrainerDO();
                 trainer.setId(id);
                 trainer.setPassword(password);
-                String result = s1.register(trainer);
-                if(result.equals("Register success, please login.")){
-                    JOptionPane.showMessageDialog(new JFrame(), "Register success, please login.", "Message Dialog", JOptionPane.PLAIN_MESSAGE);
+                int result = s1.register(trainer);
+                if(result==2){
+                    JOptionPane.showMessageDialog(null,"Register successfully!");
                     UserLogin u = new UserLogin();
                     Register.dispose();
                 }
-                else
-                    warning.setText(result);
+                else{
+                    String str;
+                    if(result==1)
+                        str = "Register wrong! ID has already had, please input the new one.";
+                    else
+                        str = "The format of ID or password is wrong! ";
+                    warning.setText(str);
+                }
             }else {
-                CustomerService s1 = new CustomerService();
+                CustomerRegister s1 = new CustomerRegister();
                 MemberDO m = new MemberDO();
                 m.setId(id);
                 m.setPassword(password);
-                String result = s1.register(m);
-                if(result.equals("Register success, please login.")){
-                    JOptionPane.showMessageDialog(new JFrame(), "Register success, please login.", "Message Dialog", JOptionPane.PLAIN_MESSAGE);
+                int result = s1.register(m);
+                if(result==2){
+                    JOptionPane.showMessageDialog(null,"Register successfully!");
                     UserLogin u = new UserLogin();
                     Register.dispose();
                 }
-                else
-                    warning.setText(result);
+                else{
+                    String str;
+                    if(result==1)
+                        str = "Register wrong! ID has already had, please input the new one.";
+                    else
+                        str = "The format of ID or password is wrong! ";
+                    warning.setText(str);
             }
-        }
+        }}
         else
             warning.setText("password is not same");
 
@@ -76,7 +89,7 @@ public class Register extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
+        // Generated using JFormDesigner Evaluation license - MudongGuo
         Register = new JFrame();
         textField1 = new JTextField();
         textField2 = new JTextField();
@@ -166,7 +179,7 @@ public class Register extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - MudongGuo
     private JFrame Register;
     private JTextField textField1;
     private JTextField textField2;
