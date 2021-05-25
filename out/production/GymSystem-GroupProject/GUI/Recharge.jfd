@@ -1,0 +1,95 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "frame1"
+			"undecorated": true
+			"font": new java.awt.Font( "Dialog", 2, 32 )
+			"$sizePolicy": 1
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Back"
+				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 0, 8, false )
+				"border": new javax.swing.border.BevelBorder( 0, new java.awt.Color( 0, 143, 176, 255 ), new java.awt.Color( 153, 44, 44, 255 ), new java.awt.Color( 85, 191, 85, 255 ), new java.awt.Color( 0, 86, 180, 255 ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button1MouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 150
+				"height": 50
+				"x": 495
+				"y": 430
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Account Upgrade"
+				"font": new java.awt.Font( "方正舒体", 1, 20 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 25
+				"y": 25
+				"width": 175
+				"height": 70
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "Confirm"
+				"font": #SwingDerivedFont0
+				"border": new javax.swing.border.BevelBorder( 0, sfield java.awt.Color pink, sfield java.awt.Color magenta, sfield java.awt.Color green, sfield java.awt.Color orange )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button2MouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 150
+				"height": 50
+				"x": 315
+				"y": 430
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Select the target level"
+				"font": new java.awt.Font( "方正舒体", 0, 26 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 290
+				"height": 55
+				"x": 110
+				"y": 105
+			} )
+			add( new FormComponent( "javax.swing.JRadioButton" ) {
+				name: "radioButton1"
+				"text": "SVIP-200$"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 105
+				"y": 170
+			} )
+			add( new FormComponent( "javax.swing.JRadioButton" ) {
+				name: "radioButton2"
+				"text": "VIP-100$"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 105
+				"y": 210
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Your account balance:"
+				"font": new java.awt.Font( "方正舒体", 1, 19 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 210
+				"height": 55
+				"x": 110
+				"y": 235
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "textArea1"
+					"background": new java.awt.Color( 255, 204, 255, 255 )
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 330
+				"y": 260
+				"width": 70
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 710, 570 )
+			"location": new java.awt.Point( 10, 20 )
+		} )
+	}
+}
