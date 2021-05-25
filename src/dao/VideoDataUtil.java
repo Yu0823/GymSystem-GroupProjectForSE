@@ -154,7 +154,7 @@ public class VideoDataUtil {
      * @param xpath the search path built by function xpathBuilder
      * @return the correct classDOs
      */
-    public static List<ClassDO> findNodes(String xpath){
+    public static List<VideoDO> findNodes(String xpath){
 
         String pos = "data/videos.xml";
 
@@ -169,16 +169,16 @@ public class VideoDataUtil {
 
             //search
             List<Element> iniResult = doc.selectNodes(xpath);
-            List<ClassDO> finalResult = new ArrayList<>();
+            List<VideoDO> finalResult = new ArrayList<>();
 
 
             for(Element c : iniResult){
-                ClassDO temp = new ClassDO();
+                VideoDO temp = new VideoDO();
                 temp.setId(c.attributeValue("id"));
-                temp.setDate(c.attributeValue("date"));
-                temp.setTime(c.attributeValue("time"));
-                temp.setTrainerId(c.attributeValue("trainerId"));
-                temp.setCusId(c.attributeValue("cusId"));
+                temp.setPath(c.attributeValue("path"));
+                temp.setVideoType(c.attributeValue("videotype"));
+                temp.setName(c.attributeValue("name"));
+                temp.setUploader(c.attributeValue("uploader"));
                 finalResult.add(temp);
             }
             return finalResult;
