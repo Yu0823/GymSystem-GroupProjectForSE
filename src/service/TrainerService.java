@@ -82,7 +82,7 @@ public class TrainerService {
         video.setId(generateIDforVideo());
         video.setPath(path);
         video.setUploader(author);
-        VideoDataUtil.addClass(video);
+        VideoDataUtil.addVideo(video);
         return "insert successfully";
 
 

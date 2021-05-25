@@ -24,7 +24,7 @@ public class VideoDataUtil {
      * @param video a videoDO of the class you want to add
      * @return true when success, false when fail
      */
-    public static boolean addClass(VideoDO video) {
+    public static boolean addVideo(VideoDO video) {
 
 
         try {
@@ -44,8 +44,10 @@ public class VideoDataUtil {
             Element newElement = root.addElement("video");
 
             newElement.addAttribute("id", video.getId());
-            newElement.addAttribute("length", video.getLength());
             newElement.addAttribute("path", video.getPath());
+            newElement.addAttribute("name", video.getName());
+            newElement.addAttribute("videotype", video.getVideoType());
+            newElement.addAttribute("length", video.getLength());
             newElement.addAttribute("uploader", video.getUploader());
 
 
@@ -154,7 +156,7 @@ public class VideoDataUtil {
      */
     public static List<ClassDO> findNodes(String xpath){
 
-        String pos = "data/classes.xml";
+        String pos = "data/videos.xml";
 
         try {
             // init the reader
@@ -187,5 +189,14 @@ public class VideoDataUtil {
     }
 
     public static void main(String[] args) {
+        VideoDO v = new VideoDO();
+        v.setId("class001");
+        v.setLength("120");
+        v.setName("testVideo1");
+        v.setUploader("t001");
+        v.setVideoType("yoga");
+        //addVideo(v);
+        List l = findNodes(xpathBuilder("id","class001"));
+        System.out.println(l.get(0));
     }
 }
