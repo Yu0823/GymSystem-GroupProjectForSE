@@ -68,7 +68,7 @@ public class VideoDataUtil {
 
         } catch (Exception e) {
             // exception settle down
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return true;
     }
@@ -143,7 +143,7 @@ public class VideoDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return true;
     }
@@ -184,9 +184,8 @@ public class VideoDataUtil {
             return finalResult;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
     public static void main(String[] args) {
