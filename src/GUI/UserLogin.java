@@ -138,7 +138,7 @@ public class UserLogin {
                 button1.setAutoscrolls(true);
                 button1.addActionListener(e -> {
 			button1ActionPerformed(e);
-			button1ActionPerformed(e);
+
 		});
                 panel1.add(button1);
                 button1.setBounds(130, 115, 135, 45);
@@ -148,8 +148,6 @@ public class UserLogin {
                 button2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 17));
                 button2.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(111, 104, 167), new Color(0, 87, 176), new Color(245, 71, 71), new Color(105, 21, 21)));
                 button2.addActionListener(e -> {
-			button2ActionPerformed(e);
-			button2ActionPerformed(e);
 			button2ActionPerformed(e);
 		});
                 panel1.add(button2);

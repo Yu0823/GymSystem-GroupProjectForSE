@@ -319,6 +319,7 @@ public class UserDataUtil {
                 temp.setName(user.attributeValue("name"));
                 temp.setPhoneNumber(user.attributeValue("phoneNumber"));
                 temp.setInfo(user.attributeValue("info"));
+                temp.setInfo(user.attributeValue("type"));
                 finalResult.add(temp);
             }
             return finalResult;
@@ -348,7 +349,7 @@ public class UserDataUtil {
 //        List list = findNodes(xpathBuilder("member",
 //                "email", "111"));
         for(Object o : list){
-            System.out.println((((MemberDO) o).getId()));
+            System.out.println((((MemberDO) o).getType()));
         }
     }
 }

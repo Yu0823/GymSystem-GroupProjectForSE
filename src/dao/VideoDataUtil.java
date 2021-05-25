@@ -49,6 +49,7 @@ public class VideoDataUtil {
             newElement.addAttribute("videotype", video.getVideoType());
             newElement.addAttribute("length", video.getLength());
             newElement.addAttribute("uploader", video.getUploader());
+            newElement.addAttribute("level", video.getLevel());
 
 
             Writer out = new PrintWriter(pos, "UTF-8");
@@ -179,6 +180,8 @@ public class VideoDataUtil {
                 temp.setVideoType(c.attributeValue("videotype"));
                 temp.setName(c.attributeValue("name"));
                 temp.setUploader(c.attributeValue("uploader"));
+                temp.setLevel(c.attributeValue("level"));
+                temp.setLength(c.attributeValue("length"));
                 finalResult.add(temp);
             }
             return finalResult;
@@ -190,14 +193,14 @@ public class VideoDataUtil {
 
     public static void main(String[] args) {
         VideoDO v = new VideoDO();
-        v.setId("class002");
+        v.setId("v1");
         v.setLength("120");
-        v.setName("5");
+        v.setName("testVideo1");
         v.setUploader("t001");
         v.setVideoType("yoga");
+        v.setLevel("1");
         //addVideo(v);
-        List l = findNodes(xpathBuilder("id","class001"));
+        List l = findNodes(xpathBuilder("id","v1"));
         System.out.println(l.get(0));
-        VideoDataUtil.addVideo(v);
     }
 }

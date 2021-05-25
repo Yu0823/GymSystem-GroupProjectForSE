@@ -44,6 +44,5 @@ public class MemberDO extends UserDO{
     public MemberDO() {
         super();
 //        this.classSet = new HashSet<String>();
-        this.type = "normal";
     }
 }

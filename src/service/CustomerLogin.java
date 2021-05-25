@@ -2,6 +2,9 @@ package service;
 
 import dao.UserDataUtil;
 import dao.alldo.MemberDO;
+import dao.alldo.UserDO;
+
+import java.util.List;
 
 public class CustomerLogin {
     /**
@@ -10,10 +13,11 @@ public class CustomerLogin {
      * @return whether the login success or not. If fail, return null. If success, return user
      */
     public MemberDO login(MemberDO u) {
-        MemberDO saved = (MemberDO) UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("member","id",u.getId()));
-        if(saved!=null){
-            if(saved.getPassword().equals(u.getPassword())){
-                return saved;
+        List<UserDO> saved = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("member","id",u.getId()));
+        if(!saved.isEmpty()){
+            MemberDO save = (MemberDO)saved.get(0);
+            if(save.getPassword().equals(u.getPassword())){
+                return save;
             } else
                 return null;
         }

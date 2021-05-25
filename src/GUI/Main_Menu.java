@@ -23,7 +23,7 @@ public class Main_Menu extends JFrame {
 
     private void button2MouseClicked(MouseEvent e) {
         // TODO add your code here
-        if(m.getType()=="SVIP"){
+        if(m.getType().equals("SVIP")){
             frame1.setVisible(false);
             new Reservation(this.m);
             frame1.dispose();
