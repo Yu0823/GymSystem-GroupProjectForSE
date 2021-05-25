@@ -35,7 +35,7 @@ public class Book_confirm extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
+        // Generated using JFormDesigner Evaluation license - PangYu
         frame1 = new JFrame();
         label1 = new JLabel();
         label2 = new JLabel();
@@ -163,7 +163,7 @@ public class Book_confirm extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - PangYu
     private JFrame frame1;
     private JLabel label1;
     private JLabel label2;

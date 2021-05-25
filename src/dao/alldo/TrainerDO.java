@@ -5,7 +5,7 @@ import java.util.HashSet;
 /**
  * @author yu
  */
-public class TrainerDO  extends UserDO{
+public class TrainerDO extends UserDO {
 //    private HashSet<String> classSet;
 //
 //    public HashSet<String> getClassSet() {

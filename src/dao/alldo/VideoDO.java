@@ -49,19 +49,11 @@ public class VideoDO {
         this.uploader = uploader;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public String getVideoType() {
-        return videoType;
-    }
+    public String getVideoType() { return videoType; }
 
-    public void setVideoType(String videoType) {
-        this.videoType = videoType;
-    }
+    public void setVideoType(String videoType) { this.videoType = videoType; }
 }

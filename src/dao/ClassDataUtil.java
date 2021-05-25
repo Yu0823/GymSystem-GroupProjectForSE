@@ -66,7 +66,7 @@ public class ClassDataUtil {
 
         } catch (Exception e) {
             // exception settle down
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -146,7 +146,7 @@ public class ClassDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -187,8 +187,9 @@ public class ClassDataUtil {
             return finalResult;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static void main(String[] args) {
