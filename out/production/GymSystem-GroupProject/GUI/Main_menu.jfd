@@ -204,6 +204,14 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 				name: "video"
 				"visible": false
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+					name: "videoPanel"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 330
+					"height": 235
+					"x": 0
+					"y": 210
+				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button45"
 					"text": "Trainer"

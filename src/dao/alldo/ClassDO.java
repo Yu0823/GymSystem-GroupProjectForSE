@@ -29,6 +29,12 @@ public class ClassDO {
      */
     private String cusId;
 
+    /**
+     * represent if the trainer confirm the class
+     * yes:true no:false
+     */
+    private String isConfirm;
+
     public String getId() {
         return id;
     }
@@ -67,5 +73,13 @@ public class ClassDO {
 
     public void setCusId(String cusId) {
         this.cusId = cusId;
+    }
+
+    public String getIsConfirm() {
+        return isConfirm;
+    }
+
+    public void setIsConfirm(String isConfirm) {
+        this.isConfirm = isConfirm;
     }
 }

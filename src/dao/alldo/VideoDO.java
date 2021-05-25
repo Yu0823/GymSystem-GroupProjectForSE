@@ -9,6 +9,10 @@ public class VideoDO {
 
     private String path;
 
+    private String name;
+
+    private String videoType;
+
     private String length;
 
     private String uploader;
@@ -43,5 +47,21 @@ public class VideoDO {
 
     public void setUploader(String uploader) {
         this.uploader = uploader;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getVideoType() {
+        return videoType;
+    }
+
+    public void setVideoType(String videoType) {
+        this.videoType = videoType;
     }
 }
