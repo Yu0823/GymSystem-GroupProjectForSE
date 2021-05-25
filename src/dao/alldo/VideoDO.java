@@ -13,6 +13,11 @@ public class VideoDO {
 
     private String videoType;
 
+    /**
+     * level of videos: 0 - for everyone / 1 - for vip / 2 - for svip
+     */
+    private String level;
+
     private String length;
 
     private String uploader;
@@ -63,5 +68,13 @@ public class VideoDO {
 
     public void setVideoType(String videoType) {
         this.videoType = videoType;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 }
