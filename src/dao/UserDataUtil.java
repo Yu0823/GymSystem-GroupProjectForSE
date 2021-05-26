@@ -65,11 +65,13 @@ public class UserDataUtil {
             newElement.addAttribute("phoneNumber", user.getPhoneNumber());
             newElement.addAttribute("info", user.getInfo());
 
+
             if(type == 0) {
                 //if we want to add a member
                 MemberDO member = (MemberDO) user;
                 newElement.addAttribute("type", member.getType());
                 newElement.addAttribute("email", member.getEmail());
+                newElement.addAttribute("balance", member.getBalance());
             }
             else if(type == 1){
                 //if we want to add a trainer
@@ -189,7 +191,6 @@ public class UserDataUtil {
             List<Element> result = doc.selectNodes(xpath);
 
             for(Element e : result){
-                System.out.println(e.getName() + e.getData());
                 e.getParent().remove(e);
             }
 
@@ -219,55 +220,7 @@ public class UserDataUtil {
 
     public static UserDO findSingleNode(String xpath) {
 
-        String userType = getTypeFromPath(xpath);
-
-        try {
-            // init the reader
-            SAXReader reader = new SAXReader();
-            // get the Document
-            File xmlFile = new File(UserTypeEnum.getPos(UserTypeEnum.getType(userType)));
-
-            Document doc = reader.read(xmlFile);
-
-            //Prepare the xpath
-            //Use "//" to be the header indicates that there is no deep constraint,
-            //so you can query the child elements in the document
-            //[] is called the predicate, is the query condition
-            //@id represents the id attribute
-
-            //search
-            Element userEle = (Element) doc.selectSingleNode(xpath);
-            if (userEle == null) {
-                return null;
-            }
-
-            UserDO user = null;
-            //convert the element to a userDO
-            if(userType.equals(UserTypeEnum.getName(0))){
-                user = new MemberDO();
-            }
-            else if(userType.equals(UserTypeEnum.getName(1))){
-                user = new TrainerDO();
-            }
-            else if(userType.equals(UserTypeEnum.getName(2))){
-                user = new AdminDO();
-            }
-            else if(userType.equals(UserTypeEnum.getName(3))){
-                user = new PromoterDO();
-            }
-
-            //get attributes
-            user.setId(userEle.attributeValue("id"));
-            user.setPassword(userEle.attributeValue("password"));
-            user.setName(userEle.attributeValue("name"));
-            user.setPhoneNumber(userEle.attributeValue("phoneNumber"));
-            user.setInfo(userEle.attributeValue("info"));
-
-            return user;
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        return findNodes(xpath).get(0);
     }
 
     /**
@@ -303,6 +256,7 @@ public class UserDataUtil {
                         temp = new MemberDO();
                         ((MemberDO) temp).setType(user.attributeValue("type"));
                         ((MemberDO) temp).setEmail(user.attributeValue("email"));
+                        ((MemberDO) temp).setBalance(user.attributeValue("balance"));
                         break;
                     case 1:
                         temp = new TrainerDO();
@@ -334,12 +288,14 @@ public class UserDataUtil {
         m1.setId("Test001");
         m1.setType("1");
         m1.setEmail("111");
+        m1.setBalance("400");
         MemberDO m2 = new MemberDO();
         m2.setId("Test002");
         m2.setType("1");
         m2.setEmail("111");
-//        addUser(m1);
-//        addUser(m2);
+        m2.setBalance("500");
+        addUser(m1);
+        addUser(m2);
 //        TrainerDO t1 = new TrainerDO();
 //        t1.setId("Trainer001");
 //        t1.getClassSet().add("c001");
@@ -348,8 +304,5 @@ public class UserDataUtil {
         List list = findNodes(xpathBuilder("member"));
 //        List list = findNodes(xpathBuilder("member",
 //                "email", "111"));
-        for(Object o : list){
-            System.out.println((((MemberDO) o).getType()));
-        }
     }
 }
