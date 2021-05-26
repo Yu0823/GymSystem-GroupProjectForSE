@@ -17,6 +17,11 @@ public class VideoDO {
 
     private String uploader;
 
+    /**
+     * 0 - everyone / 1 - vip / 2 - svip
+     */
+    private String level;
+
     public String getId() {
         return id;
     }
@@ -65,5 +70,11 @@ public class VideoDO {
         this.videoType = videoType;
     }
 
+    public String getLevel() {
+        return level;
+    }
 
+    public void setLevel(String level) {
+        this.level = level;
+    }
 }

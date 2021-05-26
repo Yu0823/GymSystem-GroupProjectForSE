@@ -47,7 +47,6 @@ new FormModel {
 					"border": new javax.swing.border.BevelBorder( 0, new java.awt.Color( 100, 157, 186, 255 ), new java.awt.Color( 46, 196, 196, 255 ), new java.awt.Color( 153, 124, 19, 255 ), new java.awt.Color( 128, 22, 22, 255 ) )
 					"autoscrolls": true
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
-					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"x": 130
 					"y": 115
@@ -59,8 +58,6 @@ new FormModel {
 					"text": "register"
 					"font": new java.awt.Font( "方正舒体", 1, 17 )
 					"border": new javax.swing.border.BevelBorder( 0, new java.awt.Color( 111, 104, 167, 255 ), new java.awt.Color( 0, 87, 176, 255 ), new java.awt.Color( 245, 71, 71, 255 ), new java.awt.Color( 105, 21, 21, 255 ) )
-					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
-					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"x": 320

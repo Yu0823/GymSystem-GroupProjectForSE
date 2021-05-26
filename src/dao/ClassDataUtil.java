@@ -7,6 +7,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
+import javax.xml.transform.OutputKeys;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.Writer;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 public class ClassDataUtil {
     /**
-     * add a member into the xml to store
+     * add a class into the xml to store
      *
      * @param c a classDO of the class you want to add
      * @return true when success, false when fail
@@ -47,16 +48,16 @@ public class ClassDataUtil {
             newElement.addAttribute("time", c.getTime());
             newElement.addAttribute("trainerId", c.getTrainerId());
             newElement.addAttribute("cusId", c.getCusId());
-
+            newElement.addAttribute("isConfirm", c.getIsConfirm());
 
             Writer out = new PrintWriter(pos, "UTF-8");
 
             //format control
-            OutputFormat format = new OutputFormat("\t", true);
-            format.setTrimText(true); 
-            //delete \t and newline and space
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            format.setTrimText(false);
+            format.setNewlines(true);
 
-            XMLWriter writer = new XMLWriter(out);
+            XMLWriter writer = new XMLWriter(out, format);
 
             writer.write(doc);
 
@@ -65,8 +66,7 @@ public class ClassDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            // exception settle down
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -146,7 +146,7 @@ public class ClassDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -182,28 +182,19 @@ public class ClassDataUtil {
                 temp.setTime(c.attributeValue("time"));
                 temp.setTrainerId(c.attributeValue("trainerId"));
                 temp.setCusId(c.attributeValue("cusId"));
+                temp.setIsConfirm(c.attributeValue("isConfirm"));
                 finalResult.add(temp);
             }
             return finalResult;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static void main(String[] args) {
-        ClassDO c1 = new ClassDO();
-        c1.setId("c001");
-        c1.setDate("20001212");
-        c1.setTime("1440");
-        ClassDO c2 = new ClassDO();
-        c2.setId("c002");
-        c2.setDate("20201212");
-        c2.setTime("1440");
-//        addClass(c1);
-//        addClass(c2);
-//        List list = findNodes(DateXpathBuilder("30000101", "10000202"));
-        List list2 = findNodes(DateAndTimeXpathBuilder("20001212", "20001212", "1500", "1400"));
+        List list2 = findNodes(ClassDataUtil.xpathBuilder("trainerId","400000","isConfirm","true"));
         for(Object o : list2){
             System.out.println(((ClassDO) o).getId());
         }

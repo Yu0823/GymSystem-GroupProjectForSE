@@ -13,8 +13,9 @@ import javax.swing.plaf.*;
 //import com.jgoodies.forms.factories.*;
 
 
-
+import dao.alldo.AdminDO;
 import dao.alldo.MemberDO;
+import dao.alldo.PromoterDO;
 import dao.alldo.TrainerDO;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
@@ -25,7 +26,9 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Screen;
+import service.AdminLogin;
 import service.CustomerLogin;
+import service.PromoterLogin;
 import service.TrainerLogin;
 
 
@@ -44,7 +47,6 @@ public class UserLogin {
         String password = String.valueOf(passwordField1.getPassword());
         switch (type){
             case "trainer":
-
                 TrainerLogin s1 = new TrainerLogin();
                 TrainerDO u = new TrainerDO();
                 u.setPassword(password);
@@ -53,6 +55,8 @@ public class UserLogin {
                     JOptionPane.showMessageDialog(null,"登陆失败！");
                 else{
                     TrainerDO trainer = s1.login(u);
+                    System.out.println(trainer.toString());
+                    new Trainer_Menu(trainer);
                     Login.dispose();
                 }
                 break;
@@ -61,13 +65,39 @@ public class UserLogin {
                 MemberDO m = new MemberDO();
                 m.setPassword(password);
                 m.setId(id);
-                if(s2.login(m)==null)
+                if(s2.login(m) == null)
                     JOptionPane.showMessageDialog(null,"用户名或密码错误！");
                 else{
                     MemberDO member = s2.login(m);
                     new Main_Menu(member);
                     Login.dispose();
                 }
+            case "promoter":
+                PromoterLogin pl = new PromoterLogin();
+                PromoterDO p = new PromoterDO();
+                p.setPassword(password);
+                p.setId(id);
+                if(pl.login(p)==null)
+                    JOptionPane.showMessageDialog(null,"用户名或密码错误！");
+                else{
+                    PromoterDO member = pl.login(p);
+                    new Promoter(member);
+                    Login.dispose();
+                }
+                break;
+            case "admin":
+                AdminLogin al = new AdminLogin();
+                AdminDO a = new AdminDO();
+                a.setId(id);
+                a.setPassword(password);
+                if(al.login(a)==null)
+                    JOptionPane.showMessageDialog(null,"用户名或密码错误！");
+                else{
+                    AdminDO member = al.login(a);
+                   // new (member);
+                    Login.dispose();
+                }
+                break;
         }
     }
 
@@ -110,13 +140,12 @@ public class UserLogin {
             //======== panel1 ========
             {
                 panel1.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
-                panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
-                . border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder
-                . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .
-                awt .Font .BOLD ,12 ), java. awt. Color. red) ,panel1. getBorder( )) )
-                ; panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-                ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
-                ;
+                panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
+                EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing
+                . border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ),
+                java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( )
+                { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () ))
+                throw new RuntimeException( ); }} );
                 panel1.setLayout(null);
 
                 //---- passwordField1 ----
@@ -136,10 +165,7 @@ public class UserLogin {
                 button1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 17));
                 button1.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(100, 157, 186), new Color(46, 196, 196), new Color(153, 124, 19), new Color(128, 22, 22)));
                 button1.setAutoscrolls(true);
-                button1.addActionListener(e -> {
-			button1ActionPerformed(e);
-
-		});
+                button1.addActionListener(e -> button1ActionPerformed(e));
                 panel1.add(button1);
                 button1.setBounds(130, 115, 135, 45);
 
@@ -147,9 +173,7 @@ public class UserLogin {
                 button2.setText("register");
                 button2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 17));
                 button2.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(111, 104, 167), new Color(0, 87, 176), new Color(245, 71, 71), new Color(105, 21, 21)));
-                button2.addActionListener(e -> {
-			button2ActionPerformed(e);
-		});
+                button2.addActionListener(e -> button2ActionPerformed(e));
                 panel1.add(button2);
                 button2.setBounds(320, 115, 135, 45);
 

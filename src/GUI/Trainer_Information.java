@@ -1,5 +1,5 @@
 /*
- * Created by JFormDesigner on Mon May 24 19:39:46 CST 2021
+ * Created by JFormDesigner on Wed May 26 16:25:50 CST 2021
  */
 
 package GUI;
@@ -8,46 +8,33 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
-import javax.swing.plaf.*;
-import dao.alldo.MemberDO;
+import dao.alldo.TrainerDO;
 
 /**
  * @author MudongGuo
  */
-public class Information extends JFrame {
-    MemberDO m;
-    public Information(MemberDO m) {
+public class Trainer_Information extends JFrame {
+    TrainerDO t;
+    public Trainer_Information(TrainerDO t) {
         initComponents();
         frame1.setVisible(true);
-        this.m = m;
-        //panel1.add(new JTextArea(m.getInfo()));
+        this.t = t;
         profile.setFont(new Font("微软雅黑",Font.BOLD,16));
-        profile.setText("ID:"+m.getId()+"\n"+"Name:"+m.getName()+"\n"+"Age:"+m.getAge()+"\n"+"Email:"+m.getEmail()+"\n"+"Phone Number:"+m.getPhoneNumber()+"\n"+"Account type:"+m.getType()+"\n");
+        profile.setText("ID:"+t.getId()+"\n"+"Name:"+t.getName()+"\n"+"Age:"+t.getAge()+"\n"+"Phone Number:"+t.getPhoneNumber()+"\n");
+    }
+
+    private void button1MouseClicked(MouseEvent e) {
+        // TODO add your code here
+        frame1.setVisible(false);
+        new Trainer_Menu(this.t);
+        frame1.dispose();
     }
 
     private void button2MouseClicked(MouseEvent e) {
         // TODO add your code here
         frame1.setVisible(false);
-        new Profile_Modification(this.m);
+        new Trainer_Profile_Modification(this.t);
         frame1.dispose();
-    }
-
-    private void button5MouseClicked(MouseEvent e) {
-        // TODO add your code here
-        frame1.setVisible(false);
-        new Main_Menu(this.m);
-        frame1.dispose();
-    }
-
-    private void button3MouseClicked(MouseEvent e) {
-        // TODO add your code here
-        if(m.getType().toString()=="SVIP"){
-            JOptionPane.showMessageDialog(null,"Your account is already the highest level!");
-        }else{
-            frame1.setVisible(false);
-            new Recharge(this.m);
-            frame1.dispose();
-        }
     }
 
     private void initComponents() {
@@ -59,7 +46,6 @@ public class Information extends JFrame {
         button2 = new JButton();
         scrollPane1 = new JScrollPane();
         profile = new JTextArea();
-        button3 = new JButton();
 
         //======== frame1 ========
         {
@@ -74,14 +60,14 @@ public class Information extends JFrame {
             button1.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    button5MouseClicked(e);
+                    button1MouseClicked(e);
                 }
             });
             frame1ContentPane.add(button1);
-            button1.setBounds(405, 260, 150, 50);
+            button1.setBounds(405, 190, 150, 50);
 
             //---- label1 ----
-            label1.setText("Personal Information");
+            label1.setText("Trainer Information");
             label1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 20));
             frame1ContentPane.add(label1);
             label1.setBounds(25, 25, 215, 70);
@@ -97,33 +83,20 @@ public class Information extends JFrame {
                 }
             });
             frame1ContentPane.add(button2);
-            button2.setBounds(405, 180, 150, 50);
+            button2.setBounds(405, 110, 150, 50);
 
             //======== scrollPane1 ========
             {
 
                 //---- profile ----
                 profile.setBackground(Color.white);
-                profile.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 12));
+                profile.setFont(new Font("\u5fae\u8f6f\u96c5\u9ed1", Font.PLAIN, 12));
                 profile.setBorder(new MatteBorder(5, 2, 1, 2, Color.gray));
                 profile.setEditable(false);
                 scrollPane1.setViewportView(profile);
             }
             frame1ContentPane.add(scrollPane1);
             scrollPane1.setBounds(25, 110, 235, 265);
-
-            //---- button3 ----
-            button3.setText("Recharge");
-            button3.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button3.getFont().getStyle() | Font.BOLD, button3.getFont().getSize() + 8));
-            button3.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(80, 44, 228), Color.magenta, Color.yellow, Color.cyan));
-            button3.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    button3MouseClicked(e);
-                }
-            });
-            frame1ContentPane.add(button3);
-            button3.setBounds(405, 100, 150, 50);
 
             {
                 // compute preferred size
@@ -153,6 +126,5 @@ public class Information extends JFrame {
     private JButton button2;
     private JScrollPane scrollPane1;
     private JTextArea profile;
-    private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

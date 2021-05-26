@@ -10,8 +10,14 @@ import javax.swing.*;
 import javax.swing.border.*;
 import dao.alldo.MemberDO;
 import dao.alldo.TrainerDO;
+import dao.alldo.UserDO;
+
+import java.util.Iterator;
+import java.util.List;
 import service.CustomerListAllTrainerId;
 import service.CustomerSearchTrainerById;
+import service.CustomerListAllTrainer;
+import service.CustomerListAllTrainerInformation;
 
 /**
  * @author MudongGuo
@@ -32,6 +38,8 @@ public class Reservation extends JFrame {
                 count1++;
             }
         }
+        CustomerListAllTrainerInformation s2 = new CustomerListAllTrainerInformation();
+        textArea1.append(s2.listAllTrainer()+System.getProperty("line separator"));
     }
 
     private void button1MouseClicked(MouseEvent e) {
@@ -45,6 +53,8 @@ public class Reservation extends JFrame {
         // TODO add your code here
         CustomerSearchTrainerById c = new CustomerSearchTrainerById();
         new Reservation_Confirm(this.m, c.searchById(comboBox1.getSelectedItem().toString()));
+        frame1.setVisible(false);
+        frame1.dispose();
     }
 
     private void initComponents() {
@@ -55,6 +65,7 @@ public class Reservation extends JFrame {
         label1 = new JLabel();
         label2 = new JLabel();
         scrollPane1 = new JScrollPane();
+        textArea1 = new JTextArea();
         button2 = new JButton();
         comboBox1 = new JComboBox();
 
@@ -81,7 +92,7 @@ public class Reservation extends JFrame {
             //---- label1 ----
             label1.setText("Reservation");
             label1.setInheritsPopupMenu(false);
-            label1.setForeground(Color.white);
+            label1.setForeground(Color.pink);
             label1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", label1.getFont().getStyle() | Font.BOLD, label1.getFont().getSize() + 5));
             frame1ContentPane.add(label1);
             label1.setBounds(45, 25, 115, 70);
@@ -96,6 +107,11 @@ public class Reservation extends JFrame {
             //======== scrollPane1 ========
             {
                 scrollPane1.setBorder(new MatteBorder(4, 2, 1, 2, Color.gray));
+
+                //---- textArea1 ----
+                textArea1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 13));
+                textArea1.setForeground(Color.black);
+                scrollPane1.setViewportView(textArea1);
             }
             frame1ContentPane.add(scrollPane1);
             scrollPane1.setBounds(140, 110, 545, 345);
@@ -142,6 +158,7 @@ public class Reservation extends JFrame {
     private JLabel label1;
     private JLabel label2;
     private JScrollPane scrollPane1;
+    private JTextArea textArea1;
     private JButton button2;
     private JComboBox comboBox1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

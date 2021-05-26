@@ -64,6 +64,8 @@ public class UserDataUtil {
             newElement.addAttribute("name", user.getName());
             newElement.addAttribute("phoneNumber", user.getPhoneNumber());
             newElement.addAttribute("info", user.getInfo());
+            newElement.addAttribute("age",user.getAge());
+            newElement.addAttribute("gender",user.getGender());
 
 
             if(type == 0) {
@@ -89,12 +91,14 @@ public class UserDataUtil {
                 //if we want to add a promoter
             }
 
+
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            format.setTrimText(false);
+            format.setNewlines(true);
+
             Writer out = new PrintWriter(UserTypeEnum.getPos(type), "UTF-8");
 
-            OutputFormat format = new OutputFormat("\t", true);
-            format.setTrimText(true); //delete \t and newline and space
-
-            XMLWriter writer = new XMLWriter(out);
+            XMLWriter writer = new XMLWriter(out, format);
 
             writer.write(doc);
 
@@ -104,7 +108,7 @@ public class UserDataUtil {
 
         } catch (Exception e) {
             // exception settle down
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -205,7 +209,7 @@ public class UserDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -273,36 +277,28 @@ public class UserDataUtil {
                 temp.setName(user.attributeValue("name"));
                 temp.setPhoneNumber(user.attributeValue("phoneNumber"));
                 temp.setInfo(user.attributeValue("info"));
-                temp.setInfo(user.attributeValue("type"));
+                temp.setAge(user.attributeValue("age"));
+                temp.setGender(user.attributeValue("gender"));
+
                 finalResult.add(temp);
             }
             return finalResult;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static void main(String[] args) {
-        MemberDO m1 = new MemberDO();
+        UserDO m1 = new MemberDO();
         m1.setId("Test001");
-        m1.setType("1");
-        m1.setEmail("111");
-        m1.setBalance("400");
-        MemberDO m2 = new MemberDO();
-        m2.setId("Test002");
-        m2.setType("1");
-        m2.setEmail("111");
-        m2.setBalance("500");
+        m1.setName("1");
+        m1.setPassword("111");
+        m1.setPhoneNumber("400");
+        m1.setInfo("fffff");
+        m1.setAge("12");
+        m1.setGender("male");
         addUser(m1);
-        addUser(m2);
-//        TrainerDO t1 = new TrainerDO();
-//        t1.setId("Trainer001");
-//        t1.getClassSet().add("c001");
-//        t1.getClassSet().add("c002");
-//        addUser(t1);
-        List list = findNodes(xpathBuilder("member"));
-//        List list = findNodes(xpathBuilder("member",
-//                "email", "111"));
     }
 }

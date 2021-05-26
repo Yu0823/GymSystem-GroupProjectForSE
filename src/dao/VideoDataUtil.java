@@ -49,16 +49,17 @@ public class VideoDataUtil {
             newElement.addAttribute("videotype", video.getVideoType());
             newElement.addAttribute("length", video.getLength());
             newElement.addAttribute("uploader", video.getUploader());
+            newElement.addAttribute("level", video.getLevel());
 
 
             Writer out = new PrintWriter(pos, "UTF-8");
 
             //format control
-            OutputFormat format = new OutputFormat("\t", true);
-            format.setTrimText(true); 
-            //delete \t and newline and space
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            format.setTrimText(false);
+            format.setNewlines(true);
 
-            XMLWriter writer = new XMLWriter(out);
+            XMLWriter writer = new XMLWriter(out, format);
 
             writer.write(doc);
 
@@ -68,7 +69,7 @@ public class VideoDataUtil {
 
         } catch (Exception e) {
             // exception settle down
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -143,7 +144,7 @@ public class VideoDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -152,7 +153,7 @@ public class VideoDataUtil {
      * search many classes by condition
      *
      * @param xpath the search path built by function xpathBuilder
-     * @return the correct classDOs
+     * @return the correct videoDOs
      */
     public static List<VideoDO> findNodes(String xpath){
 
@@ -179,13 +180,16 @@ public class VideoDataUtil {
                 temp.setVideoType(c.attributeValue("videotype"));
                 temp.setName(c.attributeValue("name"));
                 temp.setUploader(c.attributeValue("uploader"));
+                temp.setLength(c.attributeValue("length"));
+                temp.setLevel(c.attributeValue("level"));
                 finalResult.add(temp);
             }
             return finalResult;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static void main(String[] args) {
@@ -195,9 +199,8 @@ public class VideoDataUtil {
         v.setName("5");
         v.setUploader("t001");
         v.setVideoType("yoga");
+        v.setLevel("1");
         //addVideo(v);
-        List l = findNodes(xpathBuilder("id","class001"));
-        System.out.println(l.get(0));
         VideoDataUtil.addVideo(v);
     }
 }

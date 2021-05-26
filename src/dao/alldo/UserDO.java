@@ -21,8 +21,6 @@ public class UserDO {
 
     private String gender;
 
-    private String balance;
-
     public String getAge() {
         return age;
     }
@@ -75,13 +73,5 @@ public class UserDO {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getBalance() {
-        return balance;
-    }
-
-    public void setBalance(String balance) {
-        this.balance = balance;
     }
 }

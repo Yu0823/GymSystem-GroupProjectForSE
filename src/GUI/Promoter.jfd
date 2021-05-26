@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.7" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -9,41 +9,61 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "current price"
+				"font": new java.awt.Font( "方正舒体", 0, 19 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 60
-				"y": 20
+				"y": 35
 				"width": 135
 				"height": 50
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField1"
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 55
-				"y": 75
-				"width": 285
-				"height": 140
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "discount"
+				"font": new java.awt.Font( "方正舒体", 0, 15 )
+				"border": new javax.swing.border.BevelBorder( 0, sfield java.awt.Color yellow, new java.awt.Color( 200, 27, 27, 255 ), new java.awt.Color( 255, 93, 225, 255 ), new java.awt.Color( 0, 14, 198, 255 ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 445
-				"y": 65
-				"width": 115
-				"height": 35
+				"x": 450
+				"y": 125
+				"width": 100
+				"height": 50
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "feedback"
+				"font": new java.awt.Font( "方正舒体", 0, 15 )
+				"border": new javax.swing.border.BevelBorder( 0, sfield java.awt.Color green, new java.awt.Color( 106, 59, 113, 255 ), new java.awt.Color( 204, 51, 0, 255 ), sfield java.awt.Color darkGray )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 450
 				"y": 185
-				"width": 115
-				"height": 45
+				"width": 100
+				"height": 50
+			} )
+			add( new FormComponent( "javax.swing.JTextArea" ) {
+				name: "textArea1"
+				"editable": false
+				"border": new javax.swing.border.MatteBorder( 5, 2, 1, 2, sfield java.awt.Color gray )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 55
+				"y": 100
+				"width": 270
+				"height": 275
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "refresh"
+				"border": new javax.swing.border.BevelBorder( 0, new java.awt.Color( 255, 95, 201, 255 ), new java.awt.Color( 23, 35, 216, 255 ), new java.awt.Color( 100, 146, 47, 255 ), sfield java.awt.Color green )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 215
+				"y": 35
+				"width": 100
+				"height": 50
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 665, 425 )
+			"size": new java.awt.Dimension( 620, 495 )
 		} )
 	}
 }

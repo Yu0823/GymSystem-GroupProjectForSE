@@ -1,4 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
 
-<video id="v1" name="testVideo1" videotype="yoga" length="120" uploader="t001" level="1"/></configuration>
+<configuration>
+     
+   
+   
+  <video id="400001" name="testVideo1" level="0" videotype="Yoga" length="120" uploader="400000"/>
+     
+   
+   
+  <video id="400002" name="testVideo2" level="1" videotype="Yoga" length="120" uploader="400001"/>
+     
+   
+   
+  <video id="400003" name="testVideo3" level="2" videotype="Martial art" length="120" uploader="400002"/>
+     
+   
+   
+  <video id="400004" name="testVideo4" level="0" videotype="Martial art" length="120" uploader="400003"/>
+     
+   
+   
+  <video id="400005" name="testVideo5" level="1" videotype="Martial art" length="120" uploader="400004"/>
+     
+   
+   
+  <video id="400006" name="testVideo6" level="2" videotype="Fitness" length="120" uploader="400005"/>
+     
+   
+   
+  <video id="400007" name="testVideo7" level="0" videotype="Fitness" length="120" uploader="400006"/>
+     
+   
+   
+  <video id="400008" name="testVideo8" level="1" videotype="Fitness" length="120" uploader="400007"/>
+     
+   
+   
+  <video id="400009" name="testVideo9" level="2" videotype="Aerobics" length="120" uploader="400008"/>
+     
+   
+   
+  <video id="400000" name="testVideo10" level="0" videotype="Aerobics" length="120" uploader="400009"/>
+
+   <video id="class002" name="5" videotype="yoga" length="120" uploader="t001" level="1"/></configuration>

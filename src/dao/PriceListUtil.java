@@ -54,12 +54,12 @@ public class PriceListUtil {
             Writer out = new PrintWriter(pos, "UTF-8");
 
             //format control
-            OutputFormat format = new OutputFormat("\t", true);
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            format.setTrimText(false);
+            format.setNewlines(true);
 
-            //delete \t and newline and space
-            format.setTrimText(true);
+            XMLWriter writer = new XMLWriter(out, format);
 
-            XMLWriter writer = new XMLWriter(out);
 
             writer.write(doc);
 

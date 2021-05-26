@@ -1,13 +1,19 @@
 package service;
 
+import dao.ClassDataUtil;
+import dao.alldo.ClassDO;
+
+import java.util.List;
+
 public class TrainerConform {
     /**
      * trainer conform the book.
-     *
-     *
+     * @param classid
+     * @return true
      */
-    public String conform(){
-
-        return null;
+    public boolean conform(String classid){
+        List<ClassDO> cla = ClassDataUtil.findNodes(ClassDataUtil.xpathBuilder("id",classid));
+        cla.get(0).setIsConfirm("true");
+        return true;
     }
 }

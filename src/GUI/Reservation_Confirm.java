@@ -101,7 +101,7 @@ public class Reservation_Confirm extends JFrame {
             frame1ContentPane.setLayout(null);
 
             //---- button1 ----
-            button1.setText("Back");
+            button1.setText("Cancel");
             button1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button1.getFont().getStyle(), button1.getFont().getSize() + 8));
             button1.setBorder(new BevelBorder(BevelBorder.RAISED, Color.pink, Color.green, Color.orange, new Color(0, 77, 187)));
             button1.addMouseListener(new MouseAdapter() {
@@ -116,7 +116,7 @@ public class Reservation_Confirm extends JFrame {
             //---- label1 ----
             label1.setText("Reservation Confirm");
             label1.setInheritsPopupMenu(false);
-            label1.setForeground(Color.white);
+            label1.setForeground(Color.pink);
             label1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", label1.getFont().getStyle() | Font.BOLD, label1.getFont().getSize() + 5));
             frame1ContentPane.add(label1);
             label1.setBounds(45, 25, 190, 70);
