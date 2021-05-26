@@ -20,6 +20,7 @@ public class Promoter extends JFrame {
         // Generated using JFormDesigner Evaluation license - 666
         label1 = new JLabel();
         textField1 = new JTextField();
+        button1 = new JButton();
 
         //======== this ========
         setTitle("Promoter");
@@ -32,6 +33,11 @@ public class Promoter extends JFrame {
         label1.setBounds(265, 20, 135, 50);
         contentPane.add(textField1);
         textField1.setBounds(265, 65, 230, 100);
+
+        //---- button1 ----
+        button1.setText("text");
+        contentPane.add(button1);
+        button1.setBounds(35, 45, 115, 35);
 
         {
             // compute preferred size
@@ -56,5 +62,6 @@ public class Promoter extends JFrame {
     // Generated using JFormDesigner Evaluation license - 666
     private JLabel label1;
     private JTextField textField1;
+    private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
