@@ -53,11 +53,11 @@ public class ClassDataUtil {
             Writer out = new PrintWriter(pos, "UTF-8");
 
             //format control
-            OutputFormat format = new OutputFormat("\t", true);
-            format.setTrimText(true); 
-            //delete \t and newline and space
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            format.setTrimText(false);
+            format.setNewlines(true);
 
-            XMLWriter writer = new XMLWriter(out);
+            XMLWriter writer = new XMLWriter(out, format);
 
             writer.write(doc);
 

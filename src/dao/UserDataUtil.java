@@ -91,12 +91,14 @@ public class UserDataUtil {
                 //if we want to add a promoter
             }
 
+
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            format.setTrimText(false);
+            format.setNewlines(true);
+
             Writer out = new PrintWriter(UserTypeEnum.getPos(type), "UTF-8");
 
-            OutputFormat format = new OutputFormat("\t", true);
-            format.setTrimText(true); //delete \t and newline and space
-
-            XMLWriter writer = new XMLWriter(out);
+            XMLWriter writer = new XMLWriter(out, format);
 
             writer.write(doc);
 
@@ -298,11 +300,5 @@ public class UserDataUtil {
         m1.setAge("12");
         m1.setGender("male");
         addUser(m1);
-//        TrainerDO t1 = new TrainerDO();
-//        t1.setId("Trainer001");
-//        t1.getClassSet().add("c001");
-//        t1.getClassSet().add("c002");
-//        addUser(t1);
-        List list = findNodes(xpathBuilder("member"));
     }
 }
