@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-
-<admin id="test001"/></configuration>
+    <admin id="100000" password="100000"  name = "tom" info = "student" phoneNumber = "13423324928" age = "19" gender = "M"/>
+    <admin id="100001" password="100001"  name = "Abagael" info = "student" phoneNumber = "13729384927" age = "18" gender = "F"/>
+    <admin id="100002" password="100002"  name = "Abbey" info = "teacher" phoneNumber = "13729384628" age = "29" gender = "F"/>
+    <admin id="100003" password="100003"  name = "Abdul" info = "student" phoneNumber = "15729584928" age = "29" gender = "M"/>
+    <admin id="100004" password="100004"  name = "Mabe" info = "teacher" phoneNumber = "18726384928" age = "18" gender = "F"/>
+    <admin id="100005" password="100005"  name = "Mable" info = "student" phoneNumber = "13779384928" age = "29" gender = "M"/>
+    <admin id="100006" password="100006"  name = "Mac" info = "doctor" phoneNumber = "18729384928" age = "39" gender = "M"/>
+    <admin id="100007" password="100007"  name = "Hadassah" info = "student" phoneNumber = "15729384928" age = "14" gender = "F"/>
+    <admin id="100008" password="100008"  name = "Hadley" info = "teacher" phoneNumber = "15729384928" age = "24" gender = "M"/>
+    <admin id="100009" password="100009"  name = "Bailey" info = "student" phoneNumber = "13724384928" age = "49" gender = "M"/>
+</configuration>
