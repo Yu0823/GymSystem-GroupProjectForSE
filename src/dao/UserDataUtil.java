@@ -65,11 +65,13 @@ public class UserDataUtil {
             newElement.addAttribute("phoneNumber", user.getPhoneNumber());
             newElement.addAttribute("info", user.getInfo());
 
+
             if(type == 0) {
                 //if we want to add a member
                 MemberDO member = (MemberDO) user;
                 newElement.addAttribute("type", member.getType());
                 newElement.addAttribute("email", member.getEmail());
+                newElement.addAttribute("balance", member.getBalance());
             }
             else if(type == 1){
                 //if we want to add a trainer
@@ -255,6 +257,7 @@ public class UserDataUtil {
                         temp = new MemberDO();
                         ((MemberDO) temp).setType(user.attributeValue("type"));
                         ((MemberDO) temp).setEmail(user.attributeValue("email"));
+                        ((MemberDO) temp).setBalance(user.attributeValue("balance"));
                         break;
                     case 1:
                         temp = new TrainerDO();
@@ -286,12 +289,14 @@ public class UserDataUtil {
         m1.setId("Test001");
         m1.setType("1");
         m1.setEmail("111");
+        m1.setBalance("400");
         MemberDO m2 = new MemberDO();
         m2.setId("Test002");
         m2.setType("1");
         m2.setEmail("111");
-//        addUser(m1);
-//        addUser(m2);
+        m2.setBalance("500");
+        addUser(m1);
+        addUser(m2);
 //        TrainerDO t1 = new TrainerDO();
 //        t1.setId("Trainer001");
 //        t1.getClassSet().add("c001");
@@ -300,8 +305,5 @@ public class UserDataUtil {
         List list = findNodes(xpathBuilder("member"));
 //        List list = findNodes(xpathBuilder("member",
 //                "email", "111"));
-        for(Object o : list){
-            System.out.println((((MemberDO) o).getId()));
-        }
     }
 }

@@ -11,6 +11,7 @@ import org.dom4j.io.XMLWriter;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.List;
 
 /**
  * @author yu
@@ -35,6 +36,13 @@ public class PriceListUtil {
             xmlFile = new File(pos);
 
             Document doc = reader.read(xmlFile);
+
+            List<Element> result = doc.selectNodes("//priceList");
+
+            for(Element e : result){
+                System.out.println(e.getName() + e.getData());
+                e.getParent().remove(e);
+            }
 
             Element root = doc.getRootElement();
 
@@ -102,8 +110,8 @@ public class PriceListUtil {
 
     public static void main(String[] args) {
         PriceListDO l = new PriceListDO();
-        l.setPrice1("100");
-        l.setPrice2("200");
+        l.setPrice1("150");
+        l.setPrice2("250");
         updatePrice(l);
         PriceListDO now = getPriceList();
         System.out.println(now);
