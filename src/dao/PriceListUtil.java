@@ -11,6 +11,7 @@ import org.dom4j.io.XMLWriter;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.List;
 
 /**
  * @author yu
@@ -36,6 +37,13 @@ public class PriceListUtil {
 
             Document doc = reader.read(xmlFile);
 
+            List<Element> result = doc.selectNodes("//priceList");
+
+            for(Element e : result){
+                System.out.println(e.getName() + e.getData());
+                e.getParent().remove(e);
+            }
+
             Element root = doc.getRootElement();
 
             Element newElement = root.addElement("priceList");
@@ -46,12 +54,12 @@ public class PriceListUtil {
             Writer out = new PrintWriter(pos, "UTF-8");
 
             //format control
-            OutputFormat format = new OutputFormat("\t", true);
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            format.setTrimText(false);
+            format.setNewlines(true);
 
-            //delete \t and newline and space
-            format.setTrimText(true);
+            XMLWriter writer = new XMLWriter(out, format);
 
-            XMLWriter writer = new XMLWriter(out);
 
             writer.write(doc);
 
@@ -102,8 +110,8 @@ public class PriceListUtil {
 
     public static void main(String[] args) {
         PriceListDO l = new PriceListDO();
-        l.setPrice1("100");
-        l.setPrice2("200");
+        l.setPrice1("150");
+        l.setPrice2("250");
         updatePrice(l);
         PriceListDO now = getPriceList();
         System.out.println(now);

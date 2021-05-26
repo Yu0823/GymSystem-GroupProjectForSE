@@ -31,7 +31,7 @@ public class ClassDO {
 
     /**
      * represent if the trainer confirm the class
-     * yes:true no:false
+     * == true when has been confirmed, ==false when has not been confirmed
      */
     private String isConfirm;
 
@@ -43,13 +43,17 @@ public class ClassDO {
         this.id = id;
     }
 
-    public String getDate() { return date; }
+    public String getDate() {
+        return date;
+    }
 
     public void setDate(String date) {
         this.date = date;
     }
 
-    public String getTime() { return time; }
+    public String getTime() {
+        return time;
+    }
 
     public void setTime(String time) {
         this.time = time;

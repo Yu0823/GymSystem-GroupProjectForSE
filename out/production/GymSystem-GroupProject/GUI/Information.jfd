@@ -1,0 +1,92 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "frame1"
+			"undecorated": true
+			"font": new java.awt.Font( "Dialog", 2, 32 )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Back"
+				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 0, 8, false )
+				"background": &Color0 new java.awt.Color( 204, 204, 255, 255 )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button5MouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 150
+				"height": 50
+				"x": 495
+				"y": 430
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Schedule"
+				"font": new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 0, 5, false )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 305
+				"y": 25
+				"width": 115
+				"height": 70
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				name: "panel1"
+				"background": new java.awt.Color( 204, 204, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 305
+				"y": 110
+				"height": 265
+				"width": 345
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Personal Information"
+				"font": new java.awt.Font( "方正舒体", 0, 17 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 25
+				"y": 25
+				"width": 175
+				"height": 70
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "Modify"
+				"font": #SwingDerivedFont0
+				"background": #Color0
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button2MouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 150
+				"height": 50
+				"x": 315
+				"y": 430
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "profile"
+					"background": new java.awt.Color( 204, 204, 255, 255 )
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 25
+				"y": 110
+				"width": 235
+				"height": 265
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "Recharge"
+				"font": #SwingDerivedFont0
+				"background": #Color0
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button3MouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 150
+				"height": 50
+				"y": 430
+				"x": 135
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 710, 570 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}

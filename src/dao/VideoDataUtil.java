@@ -49,16 +49,17 @@ public class VideoDataUtil {
             newElement.addAttribute("videotype", video.getVideoType());
             newElement.addAttribute("length", video.getLength());
             newElement.addAttribute("uploader", video.getUploader());
+            newElement.addAttribute("level", video.getLevel());
 
 
             Writer out = new PrintWriter(pos, "UTF-8");
 
             //format control
-            OutputFormat format = new OutputFormat("\t", true);
-            format.setTrimText(true); 
-            //delete \t and newline and space
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            format.setTrimText(false);
+            format.setNewlines(true);
 
-            XMLWriter writer = new XMLWriter(out);
+            XMLWriter writer = new XMLWriter(out, format);
 
             writer.write(doc);
 
@@ -152,9 +153,9 @@ public class VideoDataUtil {
      * search many classes by condition
      *
      * @param xpath the search path built by function xpathBuilder
-     * @return the correct classDOs
+     * @return the correct videoDOs
      */
-    public static List<ClassDO> findNodes(String xpath){
+    public static List<VideoDO> findNodes(String xpath){
 
         String pos = "data/videos.xml";
 
@@ -169,16 +170,18 @@ public class VideoDataUtil {
 
             //search
             List<Element> iniResult = doc.selectNodes(xpath);
-            List<ClassDO> finalResult = new ArrayList<>();
+            List<VideoDO> finalResult = new ArrayList<>();
 
 
             for(Element c : iniResult){
-                ClassDO temp = new ClassDO();
+                VideoDO temp = new VideoDO();
                 temp.setId(c.attributeValue("id"));
-                temp.setDate(c.attributeValue("date"));
-                temp.setTime(c.attributeValue("time"));
-                temp.setTrainerId(c.attributeValue("trainerId"));
-                temp.setCusId(c.attributeValue("cusId"));
+                temp.setPath(c.attributeValue("path"));
+                temp.setVideoType(c.attributeValue("videotype"));
+                temp.setName(c.attributeValue("name"));
+                temp.setUploader(c.attributeValue("uploader"));
+                temp.setLength(c.attributeValue("length"));
+                temp.setLevel(c.attributeValue("level"));
                 finalResult.add(temp);
             }
             return finalResult;
@@ -191,13 +194,13 @@ public class VideoDataUtil {
 
     public static void main(String[] args) {
         VideoDO v = new VideoDO();
-        v.setId("class001");
+        v.setId("class002");
         v.setLength("120");
-        v.setName("testVideo1");
+        v.setName("5");
         v.setUploader("t001");
         v.setVideoType("yoga");
+        v.setLevel("1");
         //addVideo(v);
-        List l = findNodes(xpathBuilder("id","class001"));
-        System.out.println(l.get(0));
+        VideoDataUtil.addVideo(v);
     }
 }
