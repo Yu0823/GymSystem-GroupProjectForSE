@@ -18,6 +18,8 @@ public class MemberDO extends UserDO{
      */
     private String email;
 
+    private String balance;
+
     public String getType() {
         return type;
     }
@@ -32,6 +34,14 @@ public class MemberDO extends UserDO{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
     }
 
     public MemberDO() {

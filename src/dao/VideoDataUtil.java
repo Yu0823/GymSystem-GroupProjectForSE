@@ -68,7 +68,7 @@ public class VideoDataUtil {
 
         } catch (Exception e) {
             // exception settle down
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -143,7 +143,7 @@ public class VideoDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -152,7 +152,7 @@ public class VideoDataUtil {
      * search many classes by condition
      *
      * @param xpath the search path built by function xpathBuilder
-     * @return the correct classDOs
+     * @return the correct videoDOs
      */
     public static List<VideoDO> findNodes(String xpath){
 
@@ -179,13 +179,15 @@ public class VideoDataUtil {
                 temp.setVideoType(c.attributeValue("videotype"));
                 temp.setName(c.attributeValue("name"));
                 temp.setUploader(c.attributeValue("uploader"));
+                temp.setLength(c.attributeValue("length"));
                 finalResult.add(temp);
             }
             return finalResult;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static void main(String[] args) {

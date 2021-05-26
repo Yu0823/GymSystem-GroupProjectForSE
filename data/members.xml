@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-<member id="Test001" info="1" type="1" email="111" balance="700.0"/><member id="Test002" info="1" type="1" email="111" balance="800.0"/></configuration>
+<member id="Test001" info="1" type="1" email="111" balance="700.0"/><member id="Test002" info="1" type="1" email="111" balance="800.0"/><member id="Test001" password="111" name="1" phoneNumber="400" info="fffff" age="12" gender="male"/></configuration>

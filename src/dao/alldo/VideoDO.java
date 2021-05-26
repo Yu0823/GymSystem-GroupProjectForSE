@@ -65,5 +65,4 @@ public class VideoDO {
         this.videoType = videoType;
     }
 
-
 }

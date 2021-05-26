@@ -7,6 +7,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
+import javax.xml.transform.OutputKeys;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.Writer;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 public class ClassDataUtil {
     /**
-     * add a member into the xml to store
+     * add a class into the xml to store
      *
      * @param c a classDO of the class you want to add
      * @return true when success, false when fail
@@ -49,7 +50,6 @@ public class ClassDataUtil {
             newElement.addAttribute("cusId", c.getCusId());
             newElement.addAttribute("isConfirm", c.getIsConfirm());
 
-
             Writer out = new PrintWriter(pos, "UTF-8");
 
             //format control
@@ -66,8 +66,7 @@ public class ClassDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            // exception settle down
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -147,7 +146,7 @@ public class ClassDataUtil {
             writer.close();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return true;
     }
@@ -189,8 +188,9 @@ public class ClassDataUtil {
             return finalResult;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static void main(String[] args) {
