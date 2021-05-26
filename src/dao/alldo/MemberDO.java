@@ -14,8 +14,9 @@ public class MemberDO extends UserDO{
     private String type;
 
     /**
-     * classes of a member has ordered
+     * email of the member
      */
+    private String email;
 
     public String getType() {
         return type;
@@ -32,8 +33,6 @@ public class MemberDO extends UserDO{
     public void setEmail(String email) {
         this.email = email;
     }
-
-    private String email;
 
     public MemberDO() {
         super();

@@ -47,6 +47,7 @@ public class ClassDataUtil {
             newElement.addAttribute("time", c.getTime());
             newElement.addAttribute("trainerId", c.getTrainerId());
             newElement.addAttribute("cusId", c.getCusId());
+            newElement.addAttribute("isConfirm", c.getIsConfirm());
 
 
             Writer out = new PrintWriter(pos, "UTF-8");
@@ -182,6 +183,7 @@ public class ClassDataUtil {
                 temp.setTime(c.attributeValue("time"));
                 temp.setTrainerId(c.attributeValue("trainerId"));
                 temp.setCusId(c.attributeValue("cusId"));
+                temp.setIsConfirm(c.attributeValue("isConfirm"));
                 finalResult.add(temp);
             }
             return finalResult;
@@ -192,18 +194,7 @@ public class ClassDataUtil {
     }
 
     public static void main(String[] args) {
-        ClassDO c1 = new ClassDO();
-        c1.setId("c001");
-        c1.setDate("20001212");
-        c1.setTime("1440");
-        ClassDO c2 = new ClassDO();
-        c2.setId("c002");
-        c2.setDate("20201212");
-        c2.setTime("1440");
-//        addClass(c1);
-//        addClass(c2);
-//        List list = findNodes(DateXpathBuilder("30000101", "10000202"));
-        List list2 = findNodes(DateAndTimeXpathBuilder("20001212", "20001212", "1500", "1400"));
+        List list2 = findNodes(ClassDataUtil.xpathBuilder("trainerId","400000","isConfirm","true"));
         for(Object o : list2){
             System.out.println(((ClassDO) o).getId());
         }

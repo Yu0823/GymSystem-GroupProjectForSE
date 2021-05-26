@@ -31,7 +31,7 @@ public class ClassDO {
 
     /**
      * represent if the trainer confirm the class
-     * yes:true no:false
+     * == true when has been confirmed, ==false when has not been confirmed
      */
     private String isConfirm;
 
