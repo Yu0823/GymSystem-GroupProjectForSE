@@ -191,7 +191,6 @@ public class UserDataUtil {
             List<Element> result = doc.selectNodes(xpath);
 
             for(Element e : result){
-                System.out.println(e.getName() + e.getData());
                 e.getParent().remove(e);
             }
 
