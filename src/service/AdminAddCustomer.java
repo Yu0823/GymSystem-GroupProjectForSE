@@ -2,6 +2,9 @@ package service;
 
 import dao.UserDataUtil;
 import dao.alldo.MemberDO;
+import dao.alldo.UserDO;
+
+import java.util.List;
 
 public class AdminAddCustomer {
     /**
@@ -14,8 +17,9 @@ public class AdminAddCustomer {
      */
     public int addCustomer(MemberDO u)
     {
+        List<UserDO> saved = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("trainer","id",u.getId()));
         if(Util.useridIsValid(u.getId()) && Util.passwordIsValid(u.getPassword())){
-            if(UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("trainer","id",u.getId()))!=null){
+            if(!saved.isEmpty()){
                 return 1;
             } else{
                 UserDataUtil.addUser(u);

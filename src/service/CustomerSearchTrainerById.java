@@ -2,6 +2,9 @@ package service;
 
 import dao.UserDataUtil;
 import dao.alldo.TrainerDO;
+import dao.alldo.UserDO;
+
+import java.util.List;
 
 public class CustomerSearchTrainerById {
     /**
@@ -10,8 +13,8 @@ public class CustomerSearchTrainerById {
      * @return trainer object
      */
     public TrainerDO searchById(String id){
-        TrainerDO trainer = (TrainerDO) UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("trainer","id",id));
+        List<UserDO> saved = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("trainer","id",id));
 
-        return trainer;
+        return (TrainerDO)saved.get(0);
     }
 }

@@ -2,6 +2,10 @@ package service;
 
 import dao.UserDataUtil;
 import dao.alldo.MemberDO;
+import dao.alldo.TrainerDO;
+import dao.alldo.UserDO;
+
+import java.util.List;
 
 public class CustomerRegister {
     /**
@@ -14,8 +18,9 @@ public class CustomerRegister {
      */
 
     public int register(MemberDO u) {
+        List<UserDO> saved = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("member","id",u.getId()));
         if(Util.useridIsValid(u.getId()) && Util.passwordIsValid(u.getPassword())){
-            if(UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("member","id",u.getId()))!=null){
+            if(!saved.isEmpty()){
                 return 1;
             } else{
                 UserDataUtil.addUser(u);
