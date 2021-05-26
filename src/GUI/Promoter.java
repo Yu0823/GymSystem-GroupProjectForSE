@@ -21,6 +21,7 @@ public class Promoter extends JFrame {
         label1 = new JLabel();
         textField1 = new JTextField();
         button1 = new JButton();
+        button2 = new JButton();
 
         //======== this ========
         setTitle("Promoter");
@@ -30,14 +31,19 @@ public class Promoter extends JFrame {
         //---- label1 ----
         label1.setText("current price");
         contentPane.add(label1);
-        label1.setBounds(265, 20, 135, 50);
+        label1.setBounds(60, 20, 135, 50);
         contentPane.add(textField1);
-        textField1.setBounds(265, 65, 230, 100);
+        textField1.setBounds(55, 75, 285, 140);
 
         //---- button1 ----
-        button1.setText("text");
+        button1.setText("discount");
         contentPane.add(button1);
-        button1.setBounds(35, 45, 115, 35);
+        button1.setBounds(445, 65, 115, 35);
+
+        //---- button2 ----
+        button2.setText("feedback");
+        contentPane.add(button2);
+        button2.setBounds(450, 185, 115, 45);
 
         {
             // compute preferred size
@@ -63,5 +69,6 @@ public class Promoter extends JFrame {
     private JLabel label1;
     private JTextField textField1;
     private JButton button1;
+    private JButton button2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

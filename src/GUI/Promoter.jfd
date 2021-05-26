@@ -10,7 +10,7 @@ new FormModel {
 				name: "label1"
 				"text": "current price"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 265
+				"x": 60
 				"y": 20
 				"width": 135
 				"height": 50
@@ -18,19 +18,28 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 265
-				"y": 65
-				"width": 230
-				"height": 100
+				"x": 55
+				"y": 75
+				"width": 285
+				"height": 140
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
-				"text": "text"
+				"text": "discount"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 35
-				"y": 45
+				"x": 445
+				"y": 65
 				"width": 115
 				"height": 35
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "feedback"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 450
+				"y": 185
+				"width": 115
+				"height": 45
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
