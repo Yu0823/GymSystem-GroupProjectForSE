@@ -30,7 +30,7 @@ public class Trainer_Upload_Video extends JFrame {
         initComponents();
         frame1.setVisible(true);
         this.t = trainerDO;
-        textArea1.append(tll.listUpload(t.getId())+System.getProperty("Line separator"));
+        textArea1.append(tll.listUpload(t.getId()));
         List<VideoDO> lv = tlv.listUpload(this.t.getId());
         for(VideoDO str:lv){
             comboBox1.addItem(str.getId());

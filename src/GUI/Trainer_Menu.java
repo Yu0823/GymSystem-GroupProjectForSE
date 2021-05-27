@@ -21,7 +21,7 @@ public class Trainer_Menu extends JFrame {
         initComponents();
         frame1.setVisible(true);
         this.t = t;
-        textArea1.append(tlc.listConfirmedClassInformation(this.t.getId())+System.getProperty("line separator"));
+        textArea1.append(tlc.listConfirmedClassInformation(this.t.getId()));
     }
 
     private void button5MouseClicked(MouseEvent e) {

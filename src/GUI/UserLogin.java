@@ -10,7 +10,7 @@ import java.io.File;
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.plaf.*;
-//import com.jgoodies.forms.factories.*;
+
 
 
 import dao.alldo.AdminDO;
@@ -94,7 +94,7 @@ public class UserLogin {
                     JOptionPane.showMessageDialog(null,"用户名或密码错误！");
                 else{
                     AdminDO member = al.login(a);
-                   // new (member);
+                    new Admin_Menu(member);
                     Login.dispose();
                 }
                 break;

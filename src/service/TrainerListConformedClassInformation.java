@@ -33,6 +33,7 @@ public class TrainerListConformedClassInformation {
                 ;
             }
         }
+        System.out.println(result);
         return result;
     }
 
