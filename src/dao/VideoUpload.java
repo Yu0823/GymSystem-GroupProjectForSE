@@ -6,8 +6,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 
 /**
- * @author yu
  * Put the video that trainer want to upload to our database
+ * @author yu
  */
 public class VideoUpload {
 

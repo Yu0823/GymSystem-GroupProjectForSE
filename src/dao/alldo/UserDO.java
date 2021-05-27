@@ -1,5 +1,9 @@
 package dao.alldo;
 
+/**
+ * Basic Data Object for different types of users
+ * @author yu
+ */
 public class UserDO {
     /**
      * unique id of each user

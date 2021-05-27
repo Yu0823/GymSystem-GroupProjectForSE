@@ -1,6 +1,7 @@
 package dao.alldo;
 
 /**
+ * Data Object for Classes
  * @author yu
  */
 public class ClassDO {

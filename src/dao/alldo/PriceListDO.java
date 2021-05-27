@@ -1,6 +1,7 @@
 package dao.alldo;
 
 /**
+ * DO of price list to upgrade
  * @author yu
  */
 public class PriceListDO {

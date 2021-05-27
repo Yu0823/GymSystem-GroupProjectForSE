@@ -1,6 +1,7 @@
 package dao.alldo;
 
 /**
+ * DO for Videos
  * @author yu
  */
 public class VideoDO {

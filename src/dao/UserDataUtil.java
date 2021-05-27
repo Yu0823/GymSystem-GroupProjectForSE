@@ -14,12 +14,12 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
 /**
+ * Some utils for users data
  * @author yu
  */
 public class UserDataUtil {
     /**
      * add a member into the xml to store
-     *
      * @param user a DO of a user in the gym
      * @return true when success, false when fail
      */
@@ -114,7 +114,7 @@ public class UserDataUtil {
     }
 
     /**
-     *
+     * to build a xpath
      * @param userType the type of the user
      * @return
      */
@@ -122,7 +122,7 @@ public class UserDataUtil {
         return "//" + userType;
     }
     /**
-     *
+     * as above
      * @param userType the type of the user
      * @param searchCondition the name of the condition you want to select
      * @param searchContent the content of the condition you want to select
@@ -133,7 +133,7 @@ public class UserDataUtil {
     }
 
     /**
-     *
+     * as above
      * @param userType the type of the user
      * @param searchCondition1 the name of the condition1 you want to select
      * @param searchContent1 the content of the condition1 you want to select
@@ -174,7 +174,6 @@ public class UserDataUtil {
     }
     /**
      * delete users by condition
-     *
      * @param xpath xpath built by the builder
      * @return success or not
      */
@@ -217,7 +216,6 @@ public class UserDataUtil {
 
     /**
      * search a singer user by condition
-     *
      * @param xpath the search path built by function xpathBuilder
      * @return the correct userDO
      */
