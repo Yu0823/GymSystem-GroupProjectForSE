@@ -48,7 +48,7 @@ public class User_Video_Play extends JFrame {
     private void button2MouseClicked(MouseEvent e) {
         // TODO add your code here
         String ID = comboBox1.getSelectedItem().toString();
-        VIdeoPlayer newWindow = new VIdeoPlayer("video\\"+ID+".mp4");
+        VIdeoPlayer newWindow = new VIdeoPlayer("video/"+ID+".mp4");
         newWindow.run();
     }
 

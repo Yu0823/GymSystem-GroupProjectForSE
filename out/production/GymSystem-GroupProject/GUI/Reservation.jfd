@@ -1,0 +1,84 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "frame1"
+			"undecorated": true
+			"font": new java.awt.Font( "Dialog", 2, 32 )
+			"$sizePolicy": 1
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Back"
+				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 0, 8, false )
+				"border": new javax.swing.border.BevelBorder( 0, sfield java.awt.Color pink, sfield java.awt.Color green, sfield java.awt.Color orange, new java.awt.Color( 0, 77, 187, 255 ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button1MouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 150
+				"height": 50
+				"x": 540
+				"y": 470
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Reservation"
+				"inheritsPopupMenu": false
+				"foreground": sfield java.awt.Color pink
+				"font": new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 1, 5, false )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 45
+				"y": 25
+				"width": 115
+				"height": 70
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Select the ID of the Trainer "
+				"font": new java.awt.Font( "方正舒体", 0, 18 )
+				"autoscrolls": true
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 40
+				"y": 470
+				"height": 50
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				"border": new javax.swing.border.MatteBorder( 4, 2, 1, 2, sfield java.awt.Color gray )
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "textArea1"
+					"font": new java.awt.Font( "方正舒体", 1, 13 )
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 140
+				"y": 110
+				"width": 545
+				"height": 345
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "Confirm"
+				"font": #SwingDerivedFont0
+				"border": new javax.swing.border.BevelBorder( 0, sfield java.awt.Color yellow, sfield java.awt.Color red, sfield java.awt.Color magenta, new java.awt.Color( 0, 119, 182, 255 ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button2MouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 150
+				"height": 50
+				"x": 370
+				"y": 470
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox1"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 100
+				"height": 50
+				"x": 260
+				"y": 470
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 725, 585 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}
