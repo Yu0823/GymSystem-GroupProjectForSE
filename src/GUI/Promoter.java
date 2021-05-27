@@ -42,14 +42,21 @@ public class Promoter extends JFrame {
         Feedback f = new Feedback();
     }
 
+    private void button4ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        this.dispose();
+        new UserLogin();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - MudongGuo
+        // Generated using JFormDesigner Evaluation license - 666
         label1 = new JLabel();
         button1 = new JButton();
         button2 = new JButton();
         textArea1 = new JTextArea();
         button3 = new JButton();
+        button4 = new JButton();
 
         //======== this ========
         setTitle("Promoter");
@@ -91,6 +98,17 @@ public class Promoter extends JFrame {
         contentPane.add(button3);
         button3.setBounds(215, 35, 100, 50);
 
+        //---- button4 ----
+        button4.setText("log out");
+        button4.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 15));
+        button4.setBorder(new BevelBorder(BevelBorder.LOWERED));
+        button4.setMaximumSize(new Dimension(92, 28));
+        button4.setMinimumSize(new Dimension(92, 28));
+        button4.setPreferredSize(new Dimension(92, 28));
+        button4.addActionListener(e -> button4ActionPerformed(e));
+        contentPane.add(button4);
+        button4.setBounds(450, 255, 100, 45);
+
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
@@ -111,12 +129,13 @@ public class Promoter extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - MudongGuo
+    // Generated using JFormDesigner Evaluation license - 666
     private JLabel label1;
     private JButton button1;
     private JButton button2;
     private JTextArea textArea1;
     private JButton button3;
+    private JButton button4;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     public static void main(String[] args) {
 

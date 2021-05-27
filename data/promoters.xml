@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <promoter id="300001" password="121212"/>
-    
-    <promoter id="300003" password="121212"/>
-    <promoter id="300004" password="121212"/>
-    <promoter id="300005" password="121212"/>
-    <promoter id="300006" password="121212"/>
-    <promoter id="300007" password="121212"/>
-    <promoter id="300008" password="121212"/>
-    <promoter id="300009" password="121212"/>
-    <promoter id="300000" password="121212"/>
+    <promoter id="300001" password="123456"/>
+    <promoter id="300002"/>
+    <promoter id="300003"/>
+    <promoter id="300004"/>
+    <promoter id="300005"/>
+    <promoter id="300006"/>
+    <promoter id="300007"/>
+    <promoter id="300008"/>
+    <promoter id="300009"/>
+    <promoter id="300000"/>
 </configuration>

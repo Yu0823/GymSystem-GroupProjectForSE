@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <configuration>
 
-    
-  
-   <priceList price1="15.0" price2="25.0"/></configuration>
+<priceList price1="100" price2="200"/><priceList price1="100" price2="200"/><priceList price1="100" price2="200"/><priceList price1="100" price2="200"/><priceList price1="100" price2="200"/><priceList price1="100" price2="200"/><priceList price1="100" price2="200"/><priceList price1="100" price2="200"/><priceList price1="100" price2="200"/><priceList price1="100" price2="200"/><priceList price1="100" price2="200"/></configuration>

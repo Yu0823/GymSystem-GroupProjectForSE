@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
+
+import dao.VideoUpload;
 import dao.alldo.TrainerDO;
 import dao.alldo.VideoDO;
 import service.TrainerListConformedClassInformation;
@@ -46,7 +48,13 @@ public class Trainer_Upload_Video extends JFrame {
 
     private void button3MouseClicked(MouseEvent e) {
         // TODO add your code here
-        new Trainer_Upload_Video_Confirm(this.t);
+        VideoUpload vup = new VideoUpload();
+        String path = VideoUpload.fileChooser("video//");
+        if(path!=null){
+            new Trainer_Upload_Video_Confirm(this.t,path);
+        }else
+            JOptionPane.showMessageDialog(null,"Please choose the file!");
+
     }
 
     private void button2MouseClicked(MouseEvent e) {
@@ -57,7 +65,7 @@ public class Trainer_Upload_Video extends JFrame {
             vp.run();
         }else if(comboBox2.getSelectedItem().toString()=="Delete"){
             String id = comboBox1.getSelectedItem().toString();
-            tdf.deleteFilm(id);
+            System.out.println(tdf.deleteFilm(id));
             JOptionPane.showMessageDialog(null,"You have delete the video successfully!");
             frame1.setVisible(false);
             frame1.dispose();
@@ -67,7 +75,7 @@ public class Trainer_Upload_Video extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - MudongGuo
+        // Generated using JFormDesigner Evaluation license - 666
         frame1 = new JFrame();
         button1 = new JButton();
         label1 = new JLabel();
@@ -183,7 +191,7 @@ public class Trainer_Upload_Video extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - MudongGuo
+    // Generated using JFormDesigner Evaluation license - 666
     private JFrame frame1;
     private JButton button1;
     private JLabel label1;

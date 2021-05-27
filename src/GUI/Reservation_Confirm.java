@@ -20,7 +20,7 @@ import service.CustomerBook;
 public class Reservation_Confirm extends JFrame {
     MemberDO m;
     TrainerDO t;
-    ClassDO c;
+    ClassDO c = new ClassDO();
     public Reservation_Confirm(MemberDO m, TrainerDO t) {
         initComponents();
         frame1.setVisible(true);

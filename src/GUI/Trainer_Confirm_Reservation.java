@@ -8,7 +8,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
+
+import dao.alldo.ClassDO;
 import dao.alldo.TrainerDO;
+import service.TrainerListUncomformedClass;
 import service.TrainerListUnconfirmedClassInformation;
 import service.TrainerConform;
 import service.TrainerDeleteClass;
@@ -17,12 +20,17 @@ import service.TrainerDeleteClass;
  */
 public class Trainer_Confirm_Reservation extends JFrame {
     TrainerDO t;
-    TrainerListUnconfirmedClassInformation tlu;
+    TrainerListUnconfirmedClassInformation tlu = new TrainerListUnconfirmedClassInformation();
+    TrainerListUncomformedClass tlc = new TrainerListUncomformedClass();
     public Trainer_Confirm_Reservation(TrainerDO t) {
         initComponents();
         frame1.setVisible(true);
         this.t = t;
-        textArea1.append(tlu.listUnconfirmedClassInformation(this.t.getId())+System.getProperty("Line separator"));
+        textArea1.append(tlu.listUnconfirmedClassInformation(this.t.getId()));
+        for(ClassDO a: tlc.listUnconfirmedClass(this.t.getId())){
+            comboBox1.addItem(a.getId());
+        }
+
     }
 
     private void button1MouseClicked(MouseEvent e) {

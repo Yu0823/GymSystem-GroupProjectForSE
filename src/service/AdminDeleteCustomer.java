@@ -1,6 +1,10 @@
 package service;
 
 import dao.UserDataUtil;
+import dao.alldo.MemberDO;
+import dao.alldo.UserDO;
+
+import java.util.List;
 
 public class AdminDeleteCustomer {
     /**
@@ -10,7 +14,12 @@ public class AdminDeleteCustomer {
      */
     public boolean deleteCustomer(String id)
     {
-        boolean result = UserDataUtil.delNodes(UserDataUtil.xpathBuilder("member","id",id));
+        boolean result;
+        List<UserDO> collection = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("member","id",id));
+        if(collection.isEmpty())
+            result = false;
+        else
+            result = UserDataUtil.delNodes(UserDataUtil.xpathBuilder("member","id",id));
         if (result)
             return true;
         else
