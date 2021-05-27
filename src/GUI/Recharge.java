@@ -32,12 +32,38 @@ public class Recharge extends JFrame {
 
     private void button2MouseClicked(MouseEvent e) {
         // TODO add your code here
-
+        if(radioButton1.isSelected()&&radioButton2.isSelected()){
+            JOptionPane.showMessageDialog(null,"Please Select only 1 option!");
+        }else if(radioButton2.isSelected()==false&&radioButton1.isSelected()==false){
+            JOptionPane.showMessageDialog(null,"Please Select 1 option!");
+        }/*else if(radioButton1.isSelected()&&m.balance<200){
+            JOptionPane.showMessageDialog(null,"Your balance is insufficient!"+"\n"+"Please recharge and try again!");
+        }else if(radioButton2.isSelected()&&m.balance<100){
+            JOptionPane.showMessageDialog(null,"Your balance is insufficient!"+"\n"+"Please recharge and try again!");
+        }else if(radioButton1.isSelected()){
+            m.setBalance(m.balance-200);
+            m.setType("SVIP");
+            CustomerChangeProfile s = new CustomerChangeProfile();
+            s.changeProfile(m);
+            JOptionPane.showMessageDialog(null,"Your account has been upgraded to SVIP!");
+            frame1.setVisible(false);
+            new Information(this.m);
+            frame1.dispose();
+        }else if(radioButton2.isSelected()){
+            m.setBalance(m.balance-100);
+            m.setType("VIP");
+            CustomerChangeProfile s = new CustomerChangeProfile();
+            s.changeProfile(m);
+            JOptionPane.showMessageDialog(null,"Your account has been upgraded to VIP!");
+            frame1.setVisible(false);
+            new Information(this.m);
+            frame1.dispose();
+        }*/
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - MudongGuo
+        // Generated using JFormDesigner Evaluation license - PangYu
         frame1 = new JFrame();
         button1 = new JButton();
         label1 = new JLabel();
@@ -138,7 +164,7 @@ public class Recharge extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - MudongGuo
+    // Generated using JFormDesigner Evaluation license - PangYu
     private JFrame frame1;
     private JButton button1;
     private JLabel label1;
