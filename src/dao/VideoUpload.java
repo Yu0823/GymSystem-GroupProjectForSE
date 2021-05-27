@@ -14,29 +14,28 @@ public class VideoUpload {
     /**
      * Move the video in mp4 type the trainer choose and copy to the destination you set;
      * @param des the destination of the file copying
-     * @return true if success
+     * @return the file name you choose
      */
-    public static boolean fileChooser(String des) {
-        JFileChooser chooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                "MP4 Videos", "mp4");
-        //set the type
-        chooser.setFileFilter(filter);
+    public static String fileChooser(String des) {
+        try {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                    "MP4 Videos", "mp4");
+            //set the type
+            chooser.setFileFilter(filter);
 
-        //open the panel
-        int returnVal = chooser.showOpenDialog(new JPanel());
+            //open the panel
+            int returnVal = chooser.showOpenDialog(new JPanel());
 
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            System.out.println("你打开的文件是: " +
-                    chooser.getSelectedFile().getName());
+
+            File file = chooser.getSelectedFile();
+            System.out.println(file.getAbsolutePath());
+            copyFile(file.getAbsolutePath(), des + file.getName());
+            return file.getName();
+        }catch (Exception e){
+            return null;
         }
 
-
-        File file = chooser.getSelectedFile();
-        System.out.println(file.getAbsolutePath());
-        copyFile(file.getAbsolutePath(), des + file.getName());
-
-        return true;
     }
 
     /**
@@ -73,6 +72,6 @@ public class VideoUpload {
     }
 
     public static void main(String[] args) {
-        fileChooser("data/videoFile/");
+        fileChooser("data/");
     }
 }

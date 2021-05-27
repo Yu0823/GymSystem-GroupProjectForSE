@@ -3,7 +3,9 @@ package service;
 import dao.ClassDataUtil;
 import dao.UserDataUtil;
 import dao.VideoDataUtil;
+import dao.alldo.UserDO;
 
+import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,8 +26,9 @@ public class Util {
                 int number = random.nextInt(9);
                 sb.append(str.charAt(number));
                 id = sb.toString();
-            }}
-            while (UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder(type,"id",id))!=null) ;
+            }
+        }
+            while (!UserDataUtil.findNodes(UserDataUtil.xpathBuilder(type,"id",id)).isEmpty()) ;
             return id;
         }
 
@@ -84,7 +87,7 @@ public class Util {
      * @return valid or invalid
      */
     public static boolean checkPhone(String phonenumber){
-        String regex =   "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$";
+        String regex =   "^1[0-9]{10}$";
         Pattern   p   =   Pattern.compile(regex);
         Matcher m   =   p.matcher(phonenumber);
         return m.find();

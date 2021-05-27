@@ -38,6 +38,8 @@ public class Profile_Modification extends JFrame {
             JOptionPane.showMessageDialog(null,"Invalid e-mail address!"+"\n"+"Please input again!");
         }else if(Util.checkEmail(textField3.getText())==true&&Util.checkPhone(textField2.getText()) == false){
             JOptionPane.showMessageDialog(null,"Invalid phone number format!"+"\n"+"Please input again!");
+        }else if(textField1.getText()==""){
+            JOptionPane.showMessageDialog(null,"Invalid name format!"+"\n"+"Please input again!");
         }else{
             JOptionPane.showMessageDialog(null,"Invalid e-mail address and phone number format!"+"\n"+"Please input again!");
         }
@@ -66,43 +68,53 @@ public class Profile_Modification extends JFrame {
 
         //======== frame1 ========
         {
+            frame1.setFont(new Font(Font.DIALOG, Font.PLAIN, 12));
             var frame1ContentPane = frame1.getContentPane();
             frame1ContentPane.setLayout(null);
 
             //---- label1 ----
             label1.setText("Personal Information Modification");
-            label1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 20));
+            label1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 20));
             frame1ContentPane.add(label1);
-            label1.setBounds(30, 30, 315, 40);
+            label1.setBounds(30, 30, 335, 40);
+
+            //---- textField1 ----
+            textField1.setBackground(new Color(255, 204, 255));
             frame1ContentPane.add(textField1);
-            textField1.setBounds(150, 105, 150, textField1.getPreferredSize().height);
+            textField1.setBounds(160, 110, 150, textField1.getPreferredSize().height);
+
+            //---- textField2 ----
+            textField2.setBackground(new Color(255, 204, 255));
             frame1ContentPane.add(textField2);
-            textField2.setBounds(150, 145, 150, textField2.getPreferredSize().height);
+            textField2.setBounds(160, 150, 150, textField2.getPreferredSize().height);
+
+            //---- textField3 ----
+            textField3.setBackground(new Color(255, 204, 255));
             frame1ContentPane.add(textField3);
-            textField3.setBounds(150, 185, 150, textField3.getPreferredSize().height);
+            textField3.setBounds(160, 190, 150, textField3.getPreferredSize().height);
 
             //---- label2 ----
             label2.setText("New Name");
-            label2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 15));
+            label2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 15));
             frame1ContentPane.add(label2);
             label2.setBounds(new Rectangle(new Point(50, 110), label2.getPreferredSize()));
 
             //---- label3 ----
             label3.setText("New Phone");
-            label3.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 15));
+            label3.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 15));
             frame1ContentPane.add(label3);
             label3.setBounds(new Rectangle(new Point(50, 150), label3.getPreferredSize()));
 
             //---- label4 ----
             label4.setText("New Mail");
-            label4.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 15));
+            label4.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 15));
             frame1ContentPane.add(label4);
             label4.setBounds(new Rectangle(new Point(50, 190), label4.getPreferredSize()));
 
             //---- button1 ----
             button1.setText("Confirm");
-            button1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button1.getFont().getStyle(), button1.getFont().getSize() + 8));
-            button1.setBackground(new Color(204, 204, 255));
+            button1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button1.getFont().getStyle() | Font.BOLD, button1.getFont().getSize() + 8));
+            button1.setBorder(new BevelBorder(BevelBorder.RAISED, Color.blue, new Color(0, 166, 197), new Color(200, 83, 103), new Color(155, 65, 189)));
             button1.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -114,8 +126,8 @@ public class Profile_Modification extends JFrame {
 
             //---- button2 ----
             button2.setText("Cancel");
-            button2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button2.getFont().getStyle(), button2.getFont().getSize() + 8));
-            button2.setBackground(new Color(204, 204, 255));
+            button2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button2.getFont().getStyle() | Font.BOLD, button2.getFont().getSize() + 8));
+            button2.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(174, 53, 53), new Color(0, 131, 218), new Color(132, 128, 16), new Color(182, 80, 80)));
             button2.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -139,7 +151,7 @@ public class Profile_Modification extends JFrame {
                 frame1ContentPane.setMinimumSize(preferredSize);
                 frame1ContentPane.setPreferredSize(preferredSize);
             }
-            frame1.pack();
+            frame1.setSize(600, 450);
             frame1.setLocationRelativeTo(frame1.getOwner());
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents

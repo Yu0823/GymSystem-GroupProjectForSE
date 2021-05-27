@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <promoter id="300001"/>
+    <promoter id="300001" password="123456"/>
     <promoter id="300002"/>
     <promoter id="300003"/>
     <promoter id="300004"/>

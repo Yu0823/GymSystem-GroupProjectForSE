@@ -25,10 +25,6 @@ public class User_Video_Play extends JFrame {
         initComponents();
         frame1.setVisible(true);
         this.m = m;
-        comboBox2.addItem("Yoga");
-        comboBox2.addItem("Martial art");
-        comboBox2.addItem("Fitness");
-        comboBox2.addItem("Aerobics");
         int count1 = 0;
         if(count1==0){
             {
@@ -62,14 +58,7 @@ public class User_Video_Play extends JFrame {
         CustomerSearchVideoByType list = new CustomerSearchVideoByType();
         List<VideoDO> list1 = list.searchVideoByType(s);
         for(VideoDO a: list1){
-            ImageIcon i = new ImageIcon(a.getPath());
-            JLabel l = new JLabel();
-            JLabel id = new JLabel();
-            l.setIcon(i);
-            l.setVisible(true);
-            id.setText(a.getId());
-            scrollPane1.add(l);
-            scrollPane1.add(id);
+            textArea1.append("ID:"+a.getId()+" Name:"+a.getName()+" Type:"+a.getVideoType()+" Uploader:"+a.getUploader()+"\n");
         }
     }
 
@@ -77,15 +66,16 @@ public class User_Video_Play extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - 666
+        // Generated using JFormDesigner Evaluation license - MudongGuo
         frame1 = new JFrame();
         button1 = new JButton();
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
+        textArea1 = new JTextArea();
         comboBox1 = new JComboBox();
         label2 = new JLabel();
         button2 = new JButton();
-        comboBox2 = new JComboBox();
+        comboBox2 = new JComboBox<>();
         button3 = new JButton();
 
         //======== frame1 ========
@@ -99,6 +89,7 @@ public class User_Video_Play extends JFrame {
             button1.setText("Back");
             button1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button1.getFont().getStyle(), button1.getFont().getSize() + 8));
             button1.setBackground(new Color(204, 204, 255));
+            button1.setBorder(new BevelBorder(BevelBorder.RAISED, Color.red, new Color(194, 242, 83), new Color(119, 92, 172), new Color(0, 129, 227)));
             button1.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -115,8 +106,17 @@ public class User_Video_Play extends JFrame {
             label1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", label1.getFont().getStyle() | Font.BOLD, label1.getFont().getSize() + 5));
             frame1ContentPane.add(label1);
             label1.setBounds(45, 25, 115, 70);
+
+            //======== scrollPane1 ========
+            {
+                scrollPane1.setBorder(new MatteBorder(5, 2, 1, 2, Color.gray));
+                scrollPane1.setViewportView(textArea1);
+            }
             frame1ContentPane.add(scrollPane1);
             scrollPane1.setBounds(140, 110, 545, 345);
+
+            //---- comboBox1 ----
+            comboBox1.setBorder(new BevelBorder(BevelBorder.RAISED));
             frame1ContentPane.add(comboBox1);
             comboBox1.setBounds(260, 470, 100, 50);
 
@@ -131,6 +131,7 @@ public class User_Video_Play extends JFrame {
             button2.setText("Play");
             button2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button2.getFont().getStyle(), button2.getFont().getSize() + 8));
             button2.setBackground(new Color(204, 204, 255));
+            button2.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 129, 202), new Color(205, 40, 40), new Color(26, 184, 193), new Color(0, 86, 131)));
             button2.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -139,13 +140,22 @@ public class User_Video_Play extends JFrame {
             });
             frame1ContentPane.add(button2);
             button2.setBounds(370, 470, 150, 50);
+
+            //---- comboBox2 ----
+            comboBox2.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Yoga",
+                "Martial art",
+                "Fitness",
+                "Aerobics"
+            }));
+            comboBox2.setBorder(new BevelBorder(BevelBorder.RAISED));
             frame1ContentPane.add(comboBox2);
             comboBox2.setBounds(370, 45, 100, 50);
 
             //---- button3 ----
             button3.setText("Search");
             button3.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button3.getFont().getStyle(), button3.getFont().getSize() + 8));
-            button3.setBackground(new Color(204, 204, 255));
+            button3.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(211, 96, 211), new Color(85, 220, 185), new Color(211, 43, 73), new Color(0, 42, 113)));
             button3.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -169,22 +179,23 @@ public class User_Video_Play extends JFrame {
                 frame1ContentPane.setMinimumSize(preferredSize);
                 frame1ContentPane.setPreferredSize(preferredSize);
             }
-            frame1.pack();
+            frame1.setSize(710, 570);
             frame1.setLocationRelativeTo(frame1.getOwner());
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - 666
+    // Generated using JFormDesigner Evaluation license - MudongGuo
     private JFrame frame1;
     private JButton button1;
     private JLabel label1;
     private JScrollPane scrollPane1;
+    private JTextArea textArea1;
     private JComboBox comboBox1;
     private JLabel label2;
     private JButton button2;
-    private JComboBox comboBox2;
+    private JComboBox<String> comboBox2;
     private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

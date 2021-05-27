@@ -2,6 +2,9 @@ package service;
 
 import dao.UserDataUtil;
 import dao.alldo.TrainerDO;
+import dao.alldo.UserDO;
+
+import java.util.List;
 
 public class TrainerLogin {
     /**
@@ -11,11 +14,10 @@ public class TrainerLogin {
      */
     public TrainerDO login(TrainerDO u) {
         String xpath = UserDataUtil.xpathBuilder("trainer","id",u.getId());
-        TrainerDO saved = (TrainerDO) UserDataUtil.findSingleNode(xpath);
-        System.out.println();
-        if(saved!=null){
-            if(saved.getPassword().equals(u.getPassword())){
-                return saved;
+        List<UserDO> saved = UserDataUtil.findNodes(xpath);
+        if(!saved.isEmpty()){
+            if(saved.get(0).getPassword().equals(u.getPassword())){
+                return (TrainerDO)saved.get(0);
             } else
                 return null;
         }

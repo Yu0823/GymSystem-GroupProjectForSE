@@ -85,7 +85,7 @@ public class Recharge extends JFrame {
             //---- button1 ----
             button1.setText("Back");
             button1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button1.getFont().getStyle(), button1.getFont().getSize() + 8));
-            button1.setBackground(new Color(204, 204, 255));
+            button1.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 143, 176), new Color(153, 44, 44), new Color(85, 191, 85), new Color(0, 86, 180)));
             button1.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -97,14 +97,14 @@ public class Recharge extends JFrame {
 
             //---- label1 ----
             label1.setText("Account Upgrade");
-            label1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 17));
+            label1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 20));
             frame1ContentPane.add(label1);
             label1.setBounds(25, 25, 175, 70);
 
             //---- button2 ----
             button2.setText("Confirm");
             button2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button2.getFont().getStyle(), button2.getFont().getSize() + 8));
-            button2.setBackground(new Color(204, 204, 255));
+            button2.setBorder(new BevelBorder(BevelBorder.RAISED, Color.pink, Color.magenta, Color.green, Color.orange));
             button2.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -132,16 +132,19 @@ public class Recharge extends JFrame {
 
             //---- label4 ----
             label4.setText("Your account balance:");
-            label4.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 19));
+            label4.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 19));
             frame1ContentPane.add(label4);
-            label4.setBounds(110, 235, 195, 55);
+            label4.setBounds(110, 235, 210, 55);
 
             //======== scrollPane1 ========
             {
+
+                //---- textArea1 ----
+                textArea1.setBackground(new Color(255, 204, 255));
                 scrollPane1.setViewportView(textArea1);
             }
             frame1ContentPane.add(scrollPane1);
-            scrollPane1.setBounds(315, 255, 110, scrollPane1.getPreferredSize().height);
+            scrollPane1.setBounds(330, 260, 70, scrollPane1.getPreferredSize().height);
 
             {
                 // compute preferred size
@@ -157,7 +160,7 @@ public class Recharge extends JFrame {
                 frame1ContentPane.setMinimumSize(preferredSize);
                 frame1ContentPane.setPreferredSize(preferredSize);
             }
-            frame1.pack();
+            frame1.setSize(710, 570);
             frame1.setLocationRelativeTo(frame1.getOwner());
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents

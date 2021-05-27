@@ -14,7 +14,7 @@ public class CustomerGetClass {
      */
     public String getclass(MemberDO m){
         String result = null;
-        List<ClassDO> c = ClassDataUtil.findNodes(ClassDataUtil.xpathBuilder("cusId",m.getId()));
+        List<ClassDO> c = ClassDataUtil.findNodes(ClassDataUtil.xpathBuilder("cusId",m.getId(),"isConfirm","true"));
         int i = 0;
         for(ClassDO cla:c){
             if(i==0){

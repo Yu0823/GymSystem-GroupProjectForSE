@@ -8,14 +8,10 @@ import static service.Util.generateIDforVideo;
 public class TrainerAddFilm {
     /**
      * add the film
-     * @param path video's path, author
+     * @param video object
      * @return weather add successful
      */
-    public Boolean  addFilm(String path,String author){
-        VideoDO video = new VideoDO();
-        video.setId(generateIDforVideo());
-        video.setPath(path);
-        video.setUploader(author);
+    public Boolean addFilm(VideoDO video){
         VideoDataUtil.addVideo(video);
         return true;
     }

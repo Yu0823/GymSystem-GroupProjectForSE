@@ -8,9 +8,14 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.plaf.*;
 
 
+
+import dao.alldo.AdminDO;
 import dao.alldo.MemberDO;
+import dao.alldo.PromoterDO;
 import dao.alldo.TrainerDO;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
@@ -21,7 +26,9 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Screen;
+import service.AdminLogin;
 import service.CustomerLogin;
+import service.PromoterLogin;
 import service.TrainerLogin;
 
 
@@ -40,7 +47,6 @@ public class UserLogin {
         String password = String.valueOf(passwordField1.getPassword());
         switch (type){
             case "trainer":
-
                 TrainerLogin s1 = new TrainerLogin();
                 TrainerDO u = new TrainerDO();
                 u.setPassword(password);
@@ -49,6 +55,8 @@ public class UserLogin {
                     JOptionPane.showMessageDialog(null,"登陆失败！");
                 else{
                     TrainerDO trainer = s1.login(u);
+                    System.out.println(trainer.toString());
+                    new Trainer_Menu(trainer);
                     Login.dispose();
                 }
                 break;
@@ -57,13 +65,40 @@ public class UserLogin {
                 MemberDO m = new MemberDO();
                 m.setPassword(password);
                 m.setId(id);
-                if(s2.login(m)==null)
+                if(s2.login(m) == null)
                     JOptionPane.showMessageDialog(null,"用户名或密码错误！");
                 else{
                     MemberDO member = s2.login(m);
                     new Main_Menu(member);
                     Login.dispose();
                 }
+                break;
+            case "promoter":
+                PromoterLogin pl = new PromoterLogin();
+                PromoterDO p = new PromoterDO();
+                p.setPassword(password);
+                p.setId(id);
+                if(pl.login(p)==null)
+                    JOptionPane.showMessageDialog(null,"用户名或密码错误！");
+                else{
+                    PromoterDO member = pl.login(p);
+                    new Promoter(member);
+                    Login.dispose();
+                }
+                break;
+            case "admin":
+                AdminLogin al = new AdminLogin();
+                AdminDO a = new AdminDO();
+                a.setId(id);
+                a.setPassword(password);
+                if(al.login(a)==null)
+                    JOptionPane.showMessageDialog(null,"用户名或密码错误！");
+                else{
+                    AdminDO member = al.login(a);
+                    new Admin_Menu(member);
+                    Login.dispose();
+                }
+                break;
         }
     }
 
@@ -98,42 +133,48 @@ public class UserLogin {
 
             //---- label2 ----
             label2.setText("welcome!");
-            label2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 21));
+            label2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", label2.getFont().getStyle() | Font.BOLD, 21));
+            label2.setBorder(null);
             LoginContentPane.add(label2);
-            label2.setBounds(285, 10, 90, 65);
+            label2.setBounds(285, 10, 130, 65);
 
             //======== panel1 ========
             {
-                panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
-                ( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border
-                . TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt
-                . Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
-                propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( )
-                ; }} );
+                panel1.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
+                panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
+                EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing
+                . border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ),
+                java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( )
+                { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () ))
+                throw new RuntimeException( ); }} );
                 panel1.setLayout(null);
 
                 //---- passwordField1 ----
                 passwordField1.setToolTipText("input the passworld");
+                passwordField1.setColumns(1);
+                passwordField1.setBackground(new Color(255, 204, 255));
                 panel1.add(passwordField1);
                 passwordField1.setBounds(130, 45, 270, 41);
+
+                //---- textField1 ----
+                textField1.setBackground(new Color(255, 204, 255));
                 panel1.add(textField1);
                 textField1.setBounds(130, 0, 270, 41);
 
                 //---- button1 ----
                 button1.setText("login");
-                button1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 17));
-                button1.addActionListener(e -> {
-			button1ActionPerformed(e);
-		});
+                button1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 17));
+                button1.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(100, 157, 186), new Color(46, 196, 196), new Color(153, 124, 19), new Color(128, 22, 22)));
+                button1.setAutoscrolls(true);
+                button1.addActionListener(e -> button1ActionPerformed(e));
                 panel1.add(button1);
                 button1.setBounds(130, 115, 135, 45);
 
                 //---- button2 ----
                 button2.setText("register");
-                button2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 17));
-                button2.addActionListener(e -> {
-			button2ActionPerformed(e);
-		});
+                button2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 17));
+                button2.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(111, 104, 167), new Color(0, 87, 176), new Color(245, 71, 71), new Color(105, 21, 21)));
+                button2.addActionListener(e -> button2ActionPerformed(e));
                 panel1.add(button2);
                 button2.setBounds(320, 115, 135, 45);
 
@@ -144,19 +185,22 @@ public class UserLogin {
                     "promoter",
                     "admin"
                 }));
+                comboBox1.setBackground(new Color(238, 238, 238));
+                comboBox1.setForeground(Color.black);
+                comboBox1.setBorder(new BevelBorder(BevelBorder.RAISED));
                 comboBox1.addActionListener(e -> comboBox1ActionPerformed(e));
                 panel1.add(comboBox1);
-                comboBox1.setBounds(new Rectangle(new Point(410, 0), comboBox1.getPreferredSize()));
+                comboBox1.setBounds(new Rectangle(new Point(420, 5), comboBox1.getPreferredSize()));
 
                 //---- label5 ----
                 label5.setText("user id");
-                label5.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 16));
+                label5.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 16));
                 panel1.add(label5);
                 label5.setBounds(30, 10, 90, label5.getPreferredSize().height);
 
                 //---- label6 ----
                 label6.setText("password");
-                label6.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 16));
+                label6.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 16));
                 panel1.add(label6);
                 label6.setBounds(30, 55, 90, label6.getPreferredSize().height);
 

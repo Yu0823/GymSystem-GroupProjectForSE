@@ -114,7 +114,7 @@ public class VideoDataUtil {
      */
     public static boolean delNodes(String xpath){
         
-        String pos = "data/classes.xml";
+        String pos = "data/videos.xml";
 
         try {
             // init the reader
