@@ -5,6 +5,9 @@ import dao.alldo.ClassDO;
 
 import java.util.List;
 
+/**
+ * @author yly
+ * */
 public class TrainerConform {
     /**
      * trainer conform the book.

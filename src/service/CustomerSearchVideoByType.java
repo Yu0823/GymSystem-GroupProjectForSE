@@ -1,12 +1,12 @@
 package service;
-
 import dao.alldo.VideoDO;
-
 import java.util.List;
-
 import static dao.VideoDataUtil.findNodes;
 import static dao.VideoDataUtil.xpathBuilder;
 
+/**
+ * @author yly
+ * */
 public class CustomerSearchVideoByType {
     /**
      * customer search the video

@@ -10,7 +10,9 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * @author yly
+ * */
 public class Util {
     /**
      * generate id for user

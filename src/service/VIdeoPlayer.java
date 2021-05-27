@@ -18,7 +18,7 @@ import javafx.stage.Screen;
 import javax.swing.JFrame;
 
 /**
- * @author yuan
+ * @author yly
  * */
 public class VIdeoPlayer {
     private static final int WIDTH = 800;

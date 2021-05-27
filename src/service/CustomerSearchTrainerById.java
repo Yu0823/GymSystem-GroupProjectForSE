@@ -6,6 +6,9 @@ import dao.alldo.UserDO;
 
 import java.util.List;
 
+/**
+ * @author yly
+ * */
 public class CustomerSearchTrainerById {
     /**
      * return the trainer object by id

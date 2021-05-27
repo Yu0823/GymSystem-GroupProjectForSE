@@ -9,6 +9,9 @@ import java.util.List;
 import static dao.VideoDataUtil.findNodes;
 import static dao.VideoDataUtil.xpathBuilder;
 
+/**
+ * @author yly
+ * */
 public class CustomerListAllVideoId {
     /**
      * customer search the video

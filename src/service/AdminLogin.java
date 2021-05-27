@@ -7,6 +7,9 @@ import dao.alldo.UserDO;
 
 import java.util.List;
 
+/**
+ * @author yly
+ * */
 public class AdminLogin {
     /**
      *  admin log in
