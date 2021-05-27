@@ -29,12 +29,13 @@ public class User_Video_Play extends JFrame {
         if(count1==0){
             {
                 CustomerListAllVideoId s1 = new CustomerListAllVideoId();
-                for(String str:s1.listAllVideoId()){
+                for(String str:s1.listAllVideoId(m.getType())){
                     comboBox1.addItem(str);
                 }
                 count1++;
             }
         }
+
     }
 
     private void button1MouseClicked(MouseEvent e) {
@@ -53,6 +54,7 @@ public class User_Video_Play extends JFrame {
 
     private void button3MouseClicked(MouseEvent e) {
         // TODO add your code here
+        textArea1.setText(null);
         String s = comboBox2.getSelectedItem().toString();
         //ID picture
         CustomerSearchVideoByType list = new CustomerSearchVideoByType();

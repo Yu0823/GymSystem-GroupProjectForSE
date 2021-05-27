@@ -10,11 +10,12 @@ import static dao.VideoDataUtil.xpathBuilder;
 public class CustomerSearchVideoByType {
     /**
      * customer search the video
-     *
+     * @param type, video's types
+     * @return l, the video list of certain type.
      */
     public List<VideoDO> searchVideoByType(String type)
     {
-        List<VideoDO> l = findNodes(xpathBuilder("videoType",type));
+        List<VideoDO> l = findNodes(xpathBuilder("videotype",type));
         return l;
     }
 }

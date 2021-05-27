@@ -7,6 +7,11 @@ import dao.alldo.UserDO;
 import java.util.List;
 
 public class PromoterReward {
+    /**
+     * promoter reward the balance
+     * @param amount, amount of money to be added in the balance
+     * @return weather add successful
+     */
     public boolean rewardBalance(double amount){
         List<UserDO> l = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("member"));
 
@@ -19,9 +24,5 @@ public class PromoterReward {
             UserDataUtil.addUser(m);
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        new PromoterReward().rewardBalance(100);
     }
 }

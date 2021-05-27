@@ -24,7 +24,7 @@ public class VIdeoPlayer {
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
     /**
-     *  play the video
+     *  class that generates a frame to play the video
      * @param path the video's path
      */
     public VIdeoPlayer(String path) {
@@ -33,7 +33,9 @@ public class VIdeoPlayer {
 
     String path;
 
-
+    /**
+     *  play the video
+     */
     public void run() {
 
         JFrame frame = new JFrame("play");

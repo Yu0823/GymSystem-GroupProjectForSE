@@ -47,9 +47,10 @@ public class Admin_Menu extends JFrame {
             MemberDO m = new MemberDO();
             m.setId(id);
             m.setPassword(pwd);
-            if(aac.addCustomer(m)==1){
+            int result = aac.addCustomer(m);
+            if(result==1){
                 JOptionPane.showMessageDialog(null,"ID has been occupied! Please Try another ID!");
-            }else if(aac.addCustomer(m)==2){
+            }else if(result==2){
                 JOptionPane.showMessageDialog(null,"Add a customer successfully!");
             }else{
                 JOptionPane.showMessageDialog(null,"Invalid input format! Please try again!");
@@ -59,9 +60,10 @@ public class Admin_Menu extends JFrame {
             TrainerDO m = new TrainerDO();
             m.setId(id);
             m.setPassword(pwd);
-            if(aac.addTrainer(m)==1){
+            int result = aac.addTrainer(m);
+            if(result==1){
                 JOptionPane.showMessageDialog(null,"ID has been occupied! Please Try another ID!");
-            }else if(aac.addTrainer(m)==2){
+            }else if(result==2){
                 JOptionPane.showMessageDialog(null,"Add a trainer successfully!");
             }else{
                 JOptionPane.showMessageDialog(null,"Invalid input format! Please try again!");
@@ -71,9 +73,10 @@ public class Admin_Menu extends JFrame {
             PromoterDO m = new PromoterDO();
             m.setId(id);
             m.setPassword(pwd);
-            if(aac.addPromoter(m)==1){
+            int result = aac.addPromoter(m);
+            if(result==1){
                 JOptionPane.showMessageDialog(null,"ID has been occupied! Please Try another ID!");
-            }else if(aac.addPromoter(m)==2){
+            }else if(result==2){
                 JOptionPane.showMessageDialog(null,"Add a Promoter successfully!");
             }else{
                 JOptionPane.showMessageDialog(null,"Invalid input format! Please try again!");
