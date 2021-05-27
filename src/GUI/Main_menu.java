@@ -12,7 +12,7 @@ import dao.alldo.MemberDO;
 /**
  * @author MudongGuo
  */
-public class Main_Menu extends JFrame {
+class Main_Menu extends JFrame {
 
     MemberDO m;
 

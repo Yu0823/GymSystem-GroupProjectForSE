@@ -5,38 +5,47 @@
      
    
    
+   
   <member id="200000" password="123456" name="tom" info="student" phoneNumber="13423321922" age="19" gender="M" type="normal" email="322@123.com"/>
      
+   
    
    
   <member id="200001" password="123456" name="Aom" info="superman" phoneNumber="15423224923" age="29" gender="F" type="normal" email="312@123.com"/>
      
    
    
+   
   <member id="200002" password="123456" name="Bom" info="teacher" phoneNumber="18423324924" age="39" gender="M" type="normal" email="352@123.com"/>
      
+   
    
    
   <member id="200003" password="123456" name="Com" info="student" phoneNumber="13423424925" age="49" gender="F" type="normal" email="362@123.com"/>
      
    
    
+   
   <member id="200005" password="121212" name="Eom" info="strong man" phoneNumber="15423624927" age="17" gender="F" type="VIP" email="3232@123.com"/>
      
+   
    
    
   <member id="200006" password="121212" name="Fom" info="weak man" phoneNumber="18423724928" age="16" gender="M" type="VIP" email="337@123.com"/>
      
    
    
+   
   <member id="200007" password="121212" name="Gom" info="weak woman" phoneNumber="15423824929" age="19" gender="F" type="VIP" email="3342@123.com"/>
      
+   
    
    
   <member id="200008" password="123456" name="Hom" info="student" phoneNumber="13423924920" age="25" gender="M" type="SVIP" email="3362@123.com"/>
      
    
    
+   
   <member id="200009" password="123456" name="Iom" info="student" phoneNumber="15423024922" age="37" gender="F" type="SVIP" email="3327@123.com"/>
 
-</configuration>
+   <member id="Test001" password="111" name="1" phoneNumber="400" info="fffff" age="12" gender="male"/></configuration>
