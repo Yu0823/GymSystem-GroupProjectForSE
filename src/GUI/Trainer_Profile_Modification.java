@@ -1,5 +1,5 @@
 /*
- * Created by JFormDesigner on Mon May 24 20:15:45 CST 2021
+ * Created by JFormDesigner on Wed May 26 16:38:59 CST 2021
  */
 
 package GUI;
@@ -8,48 +8,46 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
-import dao.alldo.MemberDO;
-import service.CustomerChangeProfile;
+import dao.alldo.TrainerDO;
+import service.TrainerChangeProfile;
 import service.Util;
+
 /**
  * @author MudongGuo
  */
-public class Profile_Modification extends JFrame {
-    MemberDO m;
-    public Profile_Modification(MemberDO m) {
+public class Trainer_Profile_Modification extends JFrame {
+    TrainerDO t;
+    public Trainer_Profile_Modification(TrainerDO t) {
         initComponents();
         frame1.setVisible(true);
-        this.m = m;
-    }
-
-    private void button1MouseClicked(MouseEvent e) {
-        // TODO add your code here
-        if(Util.checkEmail(textField3.getText())&&Util.checkPhone(textField2.getText()) == true&&textField1.getText()!="") {
-            this.m.setName(textField1.getText());
-            this.m.setPhoneNumber(textField2.getText());
-            this.m.setEmail(textField3.getText());
-            frame1.setVisible(false);
-            CustomerChangeProfile s = new CustomerChangeProfile();
-            s.changeProfile(m);
-            JOptionPane.showMessageDialog(null,"Successfully Modified!");
-            new Information(this.m);
-            frame1.dispose();
-        }else if(Util.checkEmail(textField3.getText())==false&&Util.checkPhone(textField2.getText()) == true){
-            JOptionPane.showMessageDialog(null,"Invalid e-mail address!"+"\n"+"Please input again!");
-        }else if(Util.checkEmail(textField3.getText())==true&&Util.checkPhone(textField2.getText()) == false){
-            JOptionPane.showMessageDialog(null,"Invalid phone number format!"+"\n"+"Please input again!");
-        }else if(textField1.getText()==""){
-            JOptionPane.showMessageDialog(null,"Invalid name format!"+"\n"+"Please input again!");
-        }else{
-            JOptionPane.showMessageDialog(null,"Invalid e-mail address and phone number format!"+"\n"+"Please input again!");
-        }
+        this.t = t;
     }
 
     private void button2MouseClicked(MouseEvent e) {
         // TODO add your code here
         frame1.setVisible(false);
-        new Information(this.m);
+        new Trainer_Information(this.t);
         frame1.dispose();
+    }
+
+    private void button1MouseClicked(MouseEvent e) {
+        // TODO add your code here
+        if(Util.checkPhone(textField2.getText()) == true&&textField1.getText()!="") {
+            this.t.setName(textField1.getText());
+            this.t.setPhoneNumber(textField2.getText());
+            frame1.setVisible(false);
+            TrainerChangeProfile s = new TrainerChangeProfile();
+            s.changeProfile(t);
+            JOptionPane.showMessageDialog(null,"Successfully Modified!");
+            new Trainer_Information(this.t);
+            frame1.dispose();
+        }else if(Util.checkPhone(textField2.getText()) == false){
+            JOptionPane.showMessageDialog(null,"Invalid phone number format!"+"\n"+"Please input again!");
+        }else if(textField1.getText()==""){
+            JOptionPane.showMessageDialog(null,"Invalid name format"+"\n"+"Please input again!");
+        }else{
+            JOptionPane.showMessageDialog(null,"Invalid name format and phone number format!"+"\n"+"Please input again!");
+        }
     }
 
     private void initComponents() {
@@ -59,10 +57,8 @@ public class Profile_Modification extends JFrame {
         label1 = new JLabel();
         textField1 = new JTextField();
         textField2 = new JTextField();
-        textField3 = new JTextField();
         label2 = new JLabel();
         label3 = new JLabel();
-        label4 = new JLabel();
         button1 = new JButton();
         button2 = new JButton();
 
@@ -73,7 +69,7 @@ public class Profile_Modification extends JFrame {
             frame1ContentPane.setLayout(null);
 
             //---- label1 ----
-            label1.setText("Personal Information Modification");
+            label1.setText("Trainer Information Modification");
             label1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 20));
             frame1ContentPane.add(label1);
             label1.setBounds(30, 30, 335, 40);
@@ -88,11 +84,6 @@ public class Profile_Modification extends JFrame {
             frame1ContentPane.add(textField2);
             textField2.setBounds(160, 150, 150, textField2.getPreferredSize().height);
 
-            //---- textField3 ----
-            textField3.setBackground(new Color(255, 204, 255));
-            frame1ContentPane.add(textField3);
-            textField3.setBounds(160, 190, 150, textField3.getPreferredSize().height);
-
             //---- label2 ----
             label2.setText("New Name");
             label2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 15));
@@ -104,12 +95,6 @@ public class Profile_Modification extends JFrame {
             label3.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 15));
             frame1ContentPane.add(label3);
             label3.setBounds(new Rectangle(new Point(50, 150), label3.getPreferredSize()));
-
-            //---- label4 ----
-            label4.setText("New Mail");
-            label4.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.BOLD, 15));
-            frame1ContentPane.add(label4);
-            label4.setBounds(new Rectangle(new Point(50, 190), label4.getPreferredSize()));
 
             //---- button1 ----
             button1.setText("Confirm");
@@ -163,10 +148,8 @@ public class Profile_Modification extends JFrame {
     private JLabel label1;
     private JTextField textField1;
     private JTextField textField2;
-    private JTextField textField3;
     private JLabel label2;
     private JLabel label3;
-    private JLabel label4;
     private JButton button1;
     private JButton button2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

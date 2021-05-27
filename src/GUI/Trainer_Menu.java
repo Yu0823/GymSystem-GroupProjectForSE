@@ -1,5 +1,5 @@
 /*
- * Created by JFormDesigner on Mon May 24 18:46:19 CST 2021
+ * Created by JFormDesigner on Wed May 26 16:15:29 CST 2021
  */
 
 package GUI;
@@ -8,50 +8,47 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
-import dao.alldo.MemberDO;
-import service.CustomerGetClass;
+import dao.alldo.TrainerDO;
+import service.TrainerListConformedClassInformation;
 /**
  * @author MudongGuo
  */
-public class Main_Menu extends JFrame {
-    MemberDO m;
-    CustomerGetClass cfc = new CustomerGetClass();
-    public Main_Menu(MemberDO m) {
+public class Trainer_Menu extends JFrame {
+    TrainerDO t;
+    TrainerListConformedClassInformation tlc = new TrainerListConformedClassInformation();
+
+    public Trainer_Menu(TrainerDO t) {
         initComponents();
-        this.m = m;
         frame1.setVisible(true);
-        textArea1.append(cfc.getclass(this.m)+System.getProperty("line separator"));
-    }
-
-    private void button2MouseClicked(MouseEvent e) {
-        // TODO add your code here
-        if(m.getType().equals("SVIP")){
-            frame1.setVisible(false);
-            new Reservation(this.m);
-            frame1.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null,"Insufficient privileges!"+"\n"+"Please upgrade to SVIP in profile page!");
-        }
-    }
-
-    private void button3MouseClicked(MouseEvent e) {
-        // TODO add your code here
-        frame1.setVisible(false);
-        new User_Video_Play(this.m);
-        frame1.dispose();
-    }
-
-    private void button4MouseClicked(MouseEvent e) {
-        // TODO add your code here
-        frame1.setVisible(false);
-        new Information(this.m);
-        frame1.dispose();
+        this.t = t;
+        textArea1.append(tlc.listConfirmedClassInformation(this.t.getId()));
     }
 
     private void button5MouseClicked(MouseEvent e) {
         // TODO add your code here
         frame1.setVisible(false);
         new UserLogin();
+        frame1.dispose();
+    }
+
+    private void button4MouseClicked(MouseEvent e) {
+        // TODO add your code here
+        frame1.setVisible(false);
+        new Trainer_Information(this.t);
+        frame1.dispose();
+    }
+
+    private void button3MouseClicked(MouseEvent e) {
+        // TODO add your code here
+        frame1.setVisible(false);
+        new Trainer_Upload_Video(this.t);
+        frame1.dispose();
+    }
+
+    private void button2MouseClicked(MouseEvent e) {
+        // TODO add your code here
+        frame1.setVisible(false);
+        new Trainer_Confirm_Reservation(this.t);
         frame1.dispose();
     }
 
@@ -77,7 +74,7 @@ public class Main_Menu extends JFrame {
             frame1ContentPane.setLayout(null);
 
             //---- button2 ----
-            button2.setText("Reserve");
+            button2.setText("Appointment");
             button2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button2.getFont().getStyle() | Font.BOLD, button2.getFont().getSize() + 8));
             button2.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(170, 71, 209), Color.orange, new Color(0, 73, 158), new Color(135, 123, 169)));
             button2.setMaximumSize(new Dimension(122, 28));
@@ -89,10 +86,10 @@ public class Main_Menu extends JFrame {
                 }
             });
             frame1ContentPane.add(button2);
-            button2.setBounds(40, 110, 150, 50);
+            button2.setBounds(45, 110, 150, 50);
 
             //---- button3 ----
-            button3.setText("Video play");
+            button3.setText("My Video");
             button3.setFont(new Font("\u65b9\u6b63\u8212\u4f53", button3.getFont().getStyle() | Font.BOLD, button3.getFont().getSize() + 8));
             button3.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(255, 65, 93), Color.darkGray, new Color(0, 117, 190), Color.yellow));
             button3.addMouseListener(new MouseAdapter() {
@@ -139,20 +136,22 @@ public class Main_Menu extends JFrame {
             label1.setBounds(45, 25, 155, 70);
 
             //---- label2 ----
-            label2.setText("Schedule");
+            label2.setText("Future schedule");
             label2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", label2.getFont().getStyle(), label2.getFont().getSize() + 5));
             frame1ContentPane.add(label2);
-            label2.setBounds(305, 25, 115, 70);
+            label2.setBounds(305, 25, 145, 70);
 
             //======== scrollPane1 ========
             {
+                scrollPane1.setForeground(Color.white);
 
                 //---- textArea1 ----
                 textArea1.setEditable(false);
+                textArea1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 12));
                 scrollPane1.setViewportView(textArea1);
             }
             frame1ContentPane.add(scrollPane1);
-            scrollPane1.setBounds(310, 105, 340, 300);
+            scrollPane1.setBounds(310, 110, 340, 315);
 
             {
                 // compute preferred size

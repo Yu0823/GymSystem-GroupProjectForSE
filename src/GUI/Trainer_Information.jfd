@@ -12,16 +12,16 @@ new FormModel {
 				"text": "Back"
 				"font": new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 1, 8, false )
 				"border": new javax.swing.border.BevelBorder( 0, sfield java.awt.Color orange, sfield java.awt.Color red, sfield java.awt.Color cyan, sfield java.awt.Color magenta )
-				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button5MouseClicked", true ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button1MouseClicked", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 150
 				"height": 50
 				"x": 405
-				"y": 260
+				"y": 190
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
-				"text": "Personal Information"
+				"text": "Trainer Information"
 				"font": new java.awt.Font( "方正舒体", 1, 20 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 25
@@ -39,14 +39,14 @@ new FormModel {
 				"width": 150
 				"height": 50
 				"x": 405
-				"y": 180
+				"y": 110
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane1"
 				add( new FormComponent( "javax.swing.JTextArea" ) {
 					name: "profile"
 					"background": new java.awt.Color( 255, 255, 255, 255 )
-					"font": new java.awt.Font( "方正舒体", 0, 12 )
+					"font": new java.awt.Font( "微软雅黑", 0, 12 )
 					"border": new javax.swing.border.MatteBorder( 5, 2, 1, 2, sfield java.awt.Color gray )
 					"editable": false
 				} )
@@ -55,18 +55,6 @@ new FormModel {
 				"y": 110
 				"width": 235
 				"height": 265
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button3"
-				"text": "Recharge"
-				"font": new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 1, 8, false )
-				"border": new javax.swing.border.BevelBorder( 0, new java.awt.Color( 80, 44, 228, 255 ), sfield java.awt.Color magenta, sfield java.awt.Color yellow, sfield java.awt.Color cyan )
-				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button3MouseClicked", true ) )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 150
-				"height": 50
-				"y": 100
-				"x": 405
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"size": new java.awt.Dimension( 710, 570 )

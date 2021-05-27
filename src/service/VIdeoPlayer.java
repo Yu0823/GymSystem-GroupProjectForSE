@@ -75,7 +75,7 @@ public class VIdeoPlayer {
         int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
         int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(WIDTH, HEIGHT);
         frame.setLocation((screenWidth - WIDTH) / 2, (screenHeight - HEIGHT) / 2);
         frame.setVisible(true);

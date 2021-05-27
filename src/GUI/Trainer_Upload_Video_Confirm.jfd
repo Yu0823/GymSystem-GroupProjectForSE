@@ -1,0 +1,125 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "frame1"
+			"undecorated": true
+			"font": new java.awt.Font( "Dialog", 2, 32 )
+			"$sizePolicy": 1
+			"title": "Confirmation"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Back"
+				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 0, 8, false )
+				"border": new javax.swing.border.BevelBorder( 0, sfield java.awt.Color pink, sfield java.awt.Color green, sfield java.awt.Color orange, new java.awt.Color( 0, 77, 187, 255 ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button1MouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 150
+				"height": 50
+				"x": 360
+				"y": 310
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Upload Video"
+				"inheritsPopupMenu": false
+				"foreground": sfield java.awt.Color pink
+				"font": new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 1, 5, false )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 45
+				"y": 25
+				"width": 115
+				"height": 70
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "Confirm"
+				"font": #SwingDerivedFont0
+				"border": new javax.swing.border.BevelBorder( 0, sfield java.awt.Color magenta, sfield java.awt.Color red, sfield java.awt.Color pink, new java.awt.Color( 0, 73, 41, 255 ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button3MouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 150
+				"height": 50
+				"x": 360
+				"y": 245
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Name of the video:"
+				"font": new java.awt.Font( "方正舒体", 0, 15 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 65
+				"y": 105
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField1"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 200
+				"y": 105
+				"width": 140
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Type of the Video:"
+				"font": new java.awt.Font( "方正舒体", 0, 15 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 65
+				"y": 225
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Level of the video:"
+				"font": new java.awt.Font( "方正舒体", 0, 15 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 65
+				"y": 185
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox1"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Yoga"
+					addElement( "Yoga" )
+					addElement( "Martial art" )
+					addElement( "Fitness" )
+					addElement( "Aerobics" )
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 200
+				"y": 225
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox2"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "All"
+					addElement( "All" )
+					addElement( "VIP" )
+					addElement( "SVIP" )
+				}
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 200
+				"y": 185
+				"width": 105
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Path of the video:"
+				"font": new java.awt.Font( "方正舒体", 0, 15 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 65
+				"y": 145
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField2"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 200
+				"y": 145
+				"width": 140
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 585, 460 )
+			"location": new java.awt.Point( 45, 25 )
+		} )
+	}
+}

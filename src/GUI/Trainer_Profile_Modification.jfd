@@ -9,7 +9,7 @@ new FormModel {
 			"font": new com.jformdesigner.model.SwingDerivedFont( "Dialog", 196608, 12, true )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
-				"text": "Personal Information Modification"
+				"text": "Trainer Information Modification"
 				"font": new java.awt.Font( "方正舒体", 1, 20 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 30
@@ -33,14 +33,6 @@ new FormModel {
 				"y": 150
 				"width": 150
 			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField3"
-				"background": new java.awt.Color( 255, 204, 255, 255 )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 160
-				"y": 190
-				"width": 150
-			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
 				"text": "New Name"
@@ -56,14 +48,6 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 50
 				"y": 150
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label4"
-				"text": "New Mail"
-				"font": new java.awt.Font( "方正舒体", 1, 15 )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 50
-				"y": 190
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
@@ -90,8 +74,8 @@ new FormModel {
 				"y": 270
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 45, 55 )
 			"size": new java.awt.Dimension( 600, 450 )
+			"location": new java.awt.Point( 0, 0 )
 		} )
 	}
 }
