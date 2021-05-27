@@ -8,6 +8,9 @@ import java.util.List;
 
 import static service.Util.generateIDforVideo;
 
+/**
+ * @author yly
+ * */
 public class TrainerListUpload {
     /**
      * list trainers' upload video information

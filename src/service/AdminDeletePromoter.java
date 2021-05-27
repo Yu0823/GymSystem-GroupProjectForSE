@@ -5,6 +5,9 @@ import dao.alldo.UserDO;
 
 import java.util.List;
 
+/**
+ * @author yly
+ * */
 public class AdminDeletePromoter {
     /**
      *  delete the promoter

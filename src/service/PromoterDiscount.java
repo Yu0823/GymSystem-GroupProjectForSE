@@ -9,7 +9,7 @@ import dao.alldo.PriceListDO;
  */
 public class PromoterDiscount {
     /**
-     *
+     * promoter set discount
      * @param discount new price = price * discount
      * @return true if success, false if fail
      */

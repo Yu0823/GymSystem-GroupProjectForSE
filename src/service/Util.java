@@ -10,11 +10,14 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * @author yly
+ * */
 public class Util {
     /**
      * generate id for user
-     *
+     * @param type, the user's kind
+     * @return id, id number
      */
     public static String generateID(String type) {
         String id = "1111111";
@@ -34,7 +37,7 @@ public class Util {
 
     /**
      * generate id for class
-     *
+     * @return id, class id number
      */
     public static String generateIDforClass() {
         String id = "1111111";
@@ -52,7 +55,7 @@ public class Util {
     }
     /**
      * generate id for video
-     *
+     * @return id, video id number
      */
     public static String generateIDforVideo() {
         String id = "1111111";
@@ -71,7 +74,7 @@ public class Util {
 
     /**
      * check the validness of email
-     * @param email the email address that need to be checked
+     * @param email, the email address that need to be checked
      * @return valid or invalid
      */
     public static boolean checkEmail(String email){
@@ -83,7 +86,7 @@ public class Util {
 
     /**
      * check the validness of phone number
-     * @param phonenumber the phone number that need to be checked
+     * @param phonenumber, the phone number that need to be checked
      * @return valid or invalid
      */
     public static boolean checkPhone(String phonenumber){
@@ -93,7 +96,12 @@ public class Util {
         return m.find();
     }
 
-    //判断密码是否符合格式要求
+    //judge weather the password is valid
+    /**
+     * check the validness of password
+     * @param s, the phone number that need to be checked
+     * @return weather the password is valid
+     */
     public static boolean passwordIsValid(String s){
         if(s.length()>=6)
             return true;
@@ -101,20 +109,16 @@ public class Util {
             return false;
     }
     //该方法判断用户名是否符合格式要求。
+    /**
+     * check the validness of userid
+     * @param s, the phone number that need to be checked
+     * @return weather the userid is valid
+     */
     public static boolean useridIsValid(String s) {
         if (s.length() >= 6)
             return true;
         else
             return false;
-
     }
 
-    public static void main(String[] args) {
-
-       System.out.println(checkEmail("3327317060@.com"));
-       System.out.println(checkPhone("13588410085"));
-
-
-
-    }
 }

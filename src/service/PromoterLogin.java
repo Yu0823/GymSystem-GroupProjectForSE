@@ -8,6 +8,9 @@ import dao.alldo.UserDO;
 
 import java.util.List;
 
+/**
+ * @author yly
+ * */
 public class PromoterLogin {
     /**
      *  promoter log in

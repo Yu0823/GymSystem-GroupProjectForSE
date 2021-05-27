@@ -3,6 +3,9 @@ package service;
 import dao.UserDataUtil;
 import dao.alldo.MemberDO;
 
+/**
+ * @author yly
+ * */
 public class CustomerChangeProfile {
     /**
      * change the customer's profile

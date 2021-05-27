@@ -44,7 +44,7 @@ public class book extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
+        // Generated using JFormDesigner Evaluation license - 666
         frame1 = new JFrame();
         book = new JPanel();
         button1 = new JButton();
@@ -63,11 +63,13 @@ public class book extends JFrame {
 
             //======== book ========
             {
-                book.setBorder(new CompoundBorder(new TitledBorder(new EmptyBorder(
-                0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", TitledBorder.CENTER, TitledBorder
-                .BOTTOM,new Font("Dialo\u0067", Font.BOLD,12), Color.
-                red),book. getBorder()));book. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.
-                beans.PropertyChangeEvent e){if("borde\u0072".equals(e.getPropertyName()))throw new RuntimeException();}});
+                book.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.
+                swing.border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border
+                .TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog"
+                ,java.awt.Font.BOLD,12),java.awt.Color.red),book. getBorder
+                ()));book. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java
+                .beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException
+                ();}});
                 book.setLayout(null);
 
                 //---- button1 ----
@@ -158,7 +160,7 @@ public class book extends JFrame {
 
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - 666
     private JFrame frame1;
     private JPanel book;
     private JButton button1;

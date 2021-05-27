@@ -3,6 +3,9 @@ package service;
 import dao.UserDataUtil;
 import dao.alldo.TrainerDO;
 
+/**
+ * @author yly
+ * */
 public class TrainerChangeProfile {
     /**
      * change the trainer's profile

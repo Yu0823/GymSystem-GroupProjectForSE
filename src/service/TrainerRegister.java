@@ -9,6 +9,9 @@ import java.util.List;
 import static service.Util.passwordIsValid;
 import static service.Util.useridIsValid;
 
+/**
+ * @author yly
+ * */
 public class TrainerRegister {
     /**
      *  register a trainer
