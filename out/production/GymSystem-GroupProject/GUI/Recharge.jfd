@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.7" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -81,11 +81,13 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JTextArea" ) {
 					name: "textArea1"
 					"background": new java.awt.Color( 255, 204, 255, 255 )
+					"editable": false
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 330
-				"y": 260
-				"width": 70
+				"x": 340
+				"y": 240
+				"width": 120
+				"height": 70
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"size": new java.awt.Dimension( 710, 570 )

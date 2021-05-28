@@ -8,19 +8,26 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
+
+import dao.UserDataUtil;
 import dao.alldo.MemberDO;
+import service.CustomerUpgrade;
+
 /**
  * @author MudongGuo
  */
 public class Recharge extends JFrame {
     MemberDO m;
+    CustomerUpgrade up;
     public Recharge(MemberDO m) {
         initComponents();
         frame1.setVisible(true);
-        this.m = m;
+        this.m = (MemberDO) UserDataUtil.findSingleNode(UserDataUtil.xpathBuilder("member", "id", m.getId()));
         if(m.getType().toString()=="VIP"){
             radioButton2.setVisible(false);
         }
+        textArea1.setText(m.getBalance());
+        this.up = new CustomerUpgrade();
     }
 
     private void button1MouseClicked(MouseEvent e) {
@@ -36,29 +43,22 @@ public class Recharge extends JFrame {
             JOptionPane.showMessageDialog(null,"Please Select only 1 option!");
         }else if(radioButton2.isSelected()==false&&radioButton1.isSelected()==false){
             JOptionPane.showMessageDialog(null,"Please Select 1 option!");
-        }/*else if(radioButton1.isSelected()&&m.balance<200){
-            JOptionPane.showMessageDialog(null,"Your balance is insufficient!"+"\n"+"Please recharge and try again!");
-        }else if(radioButton2.isSelected()&&m.balance<100){
-            JOptionPane.showMessageDialog(null,"Your balance is insufficient!"+"\n"+"Please recharge and try again!");
-        }else if(radioButton1.isSelected()){
-            m.setBalance(m.balance-200);
-            m.setType("SVIP");
-            CustomerChangeProfile s = new CustomerChangeProfile();
-            s.changeProfile(m);
-            JOptionPane.showMessageDialog(null,"Your account has been upgraded to SVIP!");
-            frame1.setVisible(false);
-            new Information(this.m);
-            frame1.dispose();
-        }else if(radioButton2.isSelected()){
-            m.setBalance(m.balance-100);
-            m.setType("VIP");
-            CustomerChangeProfile s = new CustomerChangeProfile();
-            s.changeProfile(m);
-            JOptionPane.showMessageDialog(null,"Your account has been upgraded to VIP!");
-            frame1.setVisible(false);
-            new Information(this.m);
-            frame1.dispose();
-        }*/
+        }else {
+            double r = up.upgrade(m, radioButton1.isSelected() == true? "SVIP" : "VIP");
+            if(r < 0){
+                JOptionPane.showMessageDialog(null,"Upgrade Successfully!");
+                textArea1.setText(String.valueOf(r * (-1)));
+            }
+            else if(r == 0){
+                JOptionPane.showMessageDialog(null,"Balance is not enough!");
+            }
+            else if(r == 1){
+                JOptionPane.showMessageDialog(null,"You don't need to upgrade!");
+            }
+            else if(r == 2){
+                JOptionPane.showMessageDialog(null,"You don't need to upgrade!");
+            }
+        }
     }
 
     private void initComponents() {
@@ -141,10 +141,11 @@ public class Recharge extends JFrame {
 
                 //---- textArea1 ----
                 textArea1.setBackground(new Color(255, 204, 255));
+                textArea1.setEditable(false);
                 scrollPane1.setViewportView(textArea1);
             }
             frame1ContentPane.add(scrollPane1);
-            scrollPane1.setBounds(330, 260, 70, scrollPane1.getPreferredSize().height);
+            scrollPane1.setBounds(340, 240, 120, 70);
 
             {
                 // compute preferred size

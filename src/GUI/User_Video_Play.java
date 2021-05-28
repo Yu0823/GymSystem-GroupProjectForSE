@@ -68,7 +68,7 @@ public class User_Video_Play extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - MudongGuo
+        // Generated using JFormDesigner Evaluation license - PangYu
         frame1 = new JFrame();
         button1 = new JButton();
         label1 = new JLabel();
@@ -188,7 +188,7 @@ public class User_Video_Play extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - MudongGuo
+    // Generated using JFormDesigner Evaluation license - PangYu
     private JFrame frame1;
     private JButton button1;
     private JLabel label1;
