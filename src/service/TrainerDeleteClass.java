@@ -3,6 +3,9 @@ package service;
 import dao.ClassDataUtil;
 import dao.UserDataUtil;
 
+/**
+ * @author yly
+ * */
 public class TrainerDeleteClass {
     /**
      *  delete the class

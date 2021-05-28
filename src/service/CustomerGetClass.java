@@ -6,6 +6,9 @@ import dao.alldo.MemberDO;
 
 import java.util.List;
 
+/**
+ * @author yly
+ * */
 public class CustomerGetClass {
     /**
      * get customer's class

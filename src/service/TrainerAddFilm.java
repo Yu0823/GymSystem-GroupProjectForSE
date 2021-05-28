@@ -5,6 +5,9 @@ import dao.alldo.VideoDO;
 
 import static service.Util.generateIDforVideo;
 
+/**
+ * @author yly
+ * */
 public class TrainerAddFilm {
     /**
      * add the film

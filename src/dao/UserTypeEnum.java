@@ -17,12 +17,18 @@ public enum UserTypeEnum {
 
     private String pos;
 
+
     UserTypeEnum(int type, String name, String pos) {
         this.type = type;
         this.name = name;
         this.pos = pos;
     }
 
+    /**
+     * get the user name by type
+     * @param type
+     * @return the name of the user
+     */
     public static String getName(int type){
         UserTypeEnum[] enums = UserTypeEnum.values();
         for(UserTypeEnum user : enums){
@@ -33,6 +39,11 @@ public enum UserTypeEnum {
         return null;
     }
 
+    /**
+     * get the pos of the data file
+     * @param type
+     * @return the path of the data file
+     */
     public static String getPos(int type){
         UserTypeEnum[] enums = UserTypeEnum.values();
         for(UserTypeEnum user : enums){
@@ -43,6 +54,11 @@ public enum UserTypeEnum {
         return null;
     }
 
+    /**
+     * get the type bu name
+     * @param name
+     * @return type of the user
+     */
     public static Integer getType(String name){
         UserTypeEnum[] enums = UserTypeEnum.values();
         for(UserTypeEnum user : enums){

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * some utils for videos data
  * @author yu
  */
 public class VideoDataUtil {
@@ -76,13 +77,13 @@ public class VideoDataUtil {
 
     /**
      * build a path to find all videos
-     * @return
+     * @return the xpath
      */
     public static String xpathBuilder(){
         return "//" + "video";
     }
     /**
-     *
+     * as above
      * @param searchCondition the name of the condition you want to delete
      * @param searchContent the content of the condition you want to delete
      * @return a xpath built by your conditions
@@ -91,7 +92,7 @@ public class VideoDataUtil {
         return "//" + "video" + "[@" + searchCondition + "='" + searchContent + "']";
     }
     /**
-     *
+     * as above
      * @param searchCondition1 the name of the condition you want to delete
      * @param searchContent1 the content of the condition you want to delete
      * @param searchCondition2 as above
@@ -108,13 +109,12 @@ public class VideoDataUtil {
 
     /**
      * delete videos by condition
-     *
      * @param xpath Search path built by the builder
      * @return success or not
      */
     public static boolean delNodes(String xpath){
         
-        String pos = "data/classes.xml";
+        String pos = "data/videos.xml";
 
         try {
             // init the reader

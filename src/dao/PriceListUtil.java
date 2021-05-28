@@ -14,12 +14,12 @@ import java.io.Writer;
 import java.util.List;
 
 /**
+ * Some utils for price data
  * @author yu
  */
 public class PriceListUtil {
     /**
      * update the price list in the data
-     *
      * @param l a list of all price
      * @return true when success, false when fail
      */

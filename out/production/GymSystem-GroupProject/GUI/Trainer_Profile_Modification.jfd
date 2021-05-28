@@ -1,0 +1,81 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "frame1"
+			"$sizePolicy": 1
+			"font": new com.jformdesigner.model.SwingDerivedFont( "Dialog", 196608, 12, true )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Trainer Information Modification"
+				"font": new java.awt.Font( "方正舒体", 1, 20 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 30
+				"y": 30
+				"width": 335
+				"height": 40
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField1"
+				"background": new java.awt.Color( 255, 204, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 160
+				"y": 110
+				"width": 150
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField2"
+				"background": new java.awt.Color( 255, 204, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 160
+				"y": 150
+				"width": 150
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "New Name"
+				"font": new java.awt.Font( "方正舒体", 1, 15 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 50
+				"y": 110
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "New Phone"
+				"font": new java.awt.Font( "方正舒体", 1, 15 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 50
+				"y": 150
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Confirm"
+				"font": new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 1, 8, false )
+				"border": new javax.swing.border.BevelBorder( 0, sfield java.awt.Color blue, new java.awt.Color( 0, 166, 197, 255 ), new java.awt.Color( 200, 83, 103, 255 ), new java.awt.Color( 155, 65, 189, 255 ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button1MouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 150
+				"height": 50
+				"x": 60
+				"y": 270
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "Cancel"
+				"font": new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 1, 8, false )
+				"border": new javax.swing.border.BevelBorder( 0, new java.awt.Color( 174, 53, 53, 255 ), new java.awt.Color( 0, 131, 218, 255 ), new java.awt.Color( 132, 128, 16, 255 ), new java.awt.Color( 182, 80, 80, 255 ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button2MouseClicked", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 150
+				"height": 50
+				"x": 280
+				"y": 270
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 600, 450 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}

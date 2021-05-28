@@ -39,7 +39,7 @@ public class Reservation extends JFrame {
             }
         }
         CustomerListAllTrainerInformation s2 = new CustomerListAllTrainerInformation();
-        textArea1.append(s2.listAllTrainer()+System.getProperty("line separator"));
+        textArea1.append(s2.listAllTrainer());
     }
 
     private void button1MouseClicked(MouseEvent e) {

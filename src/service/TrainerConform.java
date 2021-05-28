@@ -5,6 +5,9 @@ import dao.alldo.ClassDO;
 
 import java.util.List;
 
+/**
+ * @author yly
+ * */
 public class TrainerConform {
     /**
      * trainer conform the book.
@@ -14,6 +17,8 @@ public class TrainerConform {
     public boolean conform(String classid){
         List<ClassDO> cla = ClassDataUtil.findNodes(ClassDataUtil.xpathBuilder("id",classid));
         cla.get(0).setIsConfirm("true");
+        ClassDataUtil.delNodes(ClassDataUtil.xpathBuilder("id",classid));
+        ClassDataUtil.addClass(cla.get(0));
         return true;
     }
 }

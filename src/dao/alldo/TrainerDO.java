@@ -1,8 +1,7 @@
 package dao.alldo;
 
-import java.util.HashSet;
-
 /**
+ * Trainer User
  * @author yu
  */
 public class TrainerDO  extends UserDO{

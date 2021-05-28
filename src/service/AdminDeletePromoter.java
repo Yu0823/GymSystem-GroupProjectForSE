@@ -1,7 +1,13 @@
 package service;
 
 import dao.UserDataUtil;
+import dao.alldo.UserDO;
 
+import java.util.List;
+
+/**
+ * @author yly
+ * */
 public class AdminDeletePromoter {
     /**
      *  delete the promoter
@@ -10,7 +16,12 @@ public class AdminDeletePromoter {
      */
     public boolean deletePromoter(String id)
     {
-        boolean result = UserDataUtil.delNodes(UserDataUtil.xpathBuilder("promoter","id",id));
+        boolean result;
+        List<UserDO> collection = UserDataUtil.findNodes(UserDataUtil.xpathBuilder("promoter","id",id));
+        if(collection.isEmpty())
+            result = false;
+        else
+            result = UserDataUtil.delNodes(UserDataUtil.xpathBuilder("promoter","id",id));
         if (result)
             return true;
         else

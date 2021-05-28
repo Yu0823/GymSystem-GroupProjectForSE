@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.7" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -60,6 +60,21 @@ new FormModel {
 				"y": 35
 				"width": 100
 				"height": 50
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button4"
+				"text": "log out"
+				"font": new java.awt.Font( "方正舒体", 0, 15 )
+				"border": new javax.swing.border.BevelBorder( 1, null, null, null, null )
+				"maximumSize": new java.awt.Dimension( 92, 28 )
+				"minimumSize": new java.awt.Dimension( 92, 28 )
+				"preferredSize": new java.awt.Dimension( 92, 28 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button4ActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 450
+				"y": 255
+				"width": 100
+				"height": 45
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

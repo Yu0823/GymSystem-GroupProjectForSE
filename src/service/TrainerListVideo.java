@@ -5,6 +5,9 @@ import dao.alldo.VideoDO;
 
 import java.util.List;
 
+/**
+ * @author yly
+ * */
 public class TrainerListVideo {
     /**
      * list trainers' upload video object

@@ -20,7 +20,7 @@ public class Main_Menu extends JFrame {
         initComponents();
         this.m = m;
         frame1.setVisible(true);
-        textArea1.append(cfc.getclass(this.m)+System.getProperty("line separator"));
+        textArea1.append(cfc.getclass(this.m));
     }
 
     private void button2MouseClicked(MouseEvent e) {

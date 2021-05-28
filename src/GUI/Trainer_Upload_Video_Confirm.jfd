@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.7" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -18,8 +18,8 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 150
 				"height": 50
-				"x": 360
-				"y": 310
+				"x": 395
+				"y": 315
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
@@ -28,9 +28,9 @@ new FormModel {
 				"foreground": sfield java.awt.Color pink
 				"font": new com.jformdesigner.model.SwingDerivedFont( "方正舒体", 1, 5, false )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 45
-				"y": 25
-				"width": 115
+				"x": 60
+				"y": 30
+				"width": 120
 				"height": 70
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -42,39 +42,24 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 150
 				"height": 50
-				"x": 360
-				"y": 245
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label2"
-				"text": "Name of the video:"
-				"font": new java.awt.Font( "方正舒体", 0, 15 )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 65
-				"y": 105
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField1"
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 200
-				"y": 105
-				"width": 140
+				"y": 310
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"text": "Type of the Video:"
 				"font": new java.awt.Font( "方正舒体", 0, 15 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 65
-				"y": 225
+				"x": 75
+				"y": 240
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
 				"text": "Level of the video:"
-				"font": new java.awt.Font( "方正舒体", 0, 15 )
+				"font": &Font0 new java.awt.Font( "方正舒体", 0, 15 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 65
-				"y": 185
+				"x": 75
+				"y": 190
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "comboBox1"
@@ -86,8 +71,8 @@ new FormModel {
 					addElement( "Aerobics" )
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 200
-				"y": 225
+				"x": 225
+				"y": 235
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "comboBox2"
@@ -98,28 +83,30 @@ new FormModel {
 					addElement( "SVIP" )
 				}
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 200
-				"y": 185
+				"x": 225
+				"y": 190
 				"width": 105
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label5"
-				"text": "Path of the video:"
-				"font": new java.awt.Font( "方正舒体", 0, 15 )
+				"text": "Name of the video:"
+				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 65
-				"y": 145
+				"width": 135
+				"height": 17
+				"x": 70
+				"y": 140
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField2"
+				name: "textField1"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 200
-				"y": 145
-				"width": 140
+				"x": 225
+				"y": 140
+				"width": 230
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"size": new java.awt.Dimension( 585, 460 )
-			"location": new java.awt.Point( 45, 25 )
+			"location": new java.awt.Point( 45, 0 )
 		} )
 	}
 }

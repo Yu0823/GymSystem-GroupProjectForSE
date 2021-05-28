@@ -6,6 +6,9 @@ import dao.alldo.UserDO;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author yly
+ * */
 public class CustomerListAllTrainerId {
     /**
      * list all trainer

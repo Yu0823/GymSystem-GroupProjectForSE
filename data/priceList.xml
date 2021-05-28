@@ -3,5 +3,5 @@
 <configuration>
 
     
-  
-   <priceList price1="15.0" price2="25.0"/></configuration>
+  <priceList price1="150" price2="250"/>
+</configuration>

@@ -1,13 +1,11 @@
 package dao.alldo;
 
-import java.util.HashSet;
-
 /**
+ * Member User
  * @author yu
  */
 
 public class MemberDO extends UserDO{
-
     /**
      * type of the member
      */

@@ -29,12 +29,13 @@ public class User_Video_Play extends JFrame {
         if(count1==0){
             {
                 CustomerListAllVideoId s1 = new CustomerListAllVideoId();
-                for(String str:s1.listAllVideoId()){
+                for(String str:s1.listAllVideoId(m.getType())){
                     comboBox1.addItem(str);
                 }
                 count1++;
             }
         }
+
     }
 
     private void button1MouseClicked(MouseEvent e) {
@@ -47,12 +48,13 @@ public class User_Video_Play extends JFrame {
     private void button2MouseClicked(MouseEvent e) {
         // TODO add your code here
         String ID = comboBox1.getSelectedItem().toString();
-        VIdeoPlayer newWindow = new VIdeoPlayer("video\\"+ID+".mp4");
+        VIdeoPlayer newWindow = new VIdeoPlayer("video/"+ID+".mp4");
         newWindow.run();
     }
 
     private void button3MouseClicked(MouseEvent e) {
         // TODO add your code here
+        textArea1.setText(null);
         String s = comboBox2.getSelectedItem().toString();
         //ID picture
         CustomerSearchVideoByType list = new CustomerSearchVideoByType();
@@ -66,7 +68,7 @@ public class User_Video_Play extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - MudongGuo
+        // Generated using JFormDesigner Evaluation license - PangYu
         frame1 = new JFrame();
         button1 = new JButton();
         label1 = new JLabel();
@@ -186,7 +188,7 @@ public class User_Video_Play extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - MudongGuo
+    // Generated using JFormDesigner Evaluation license - PangYu
     private JFrame frame1;
     private JButton button1;
     private JLabel label1;

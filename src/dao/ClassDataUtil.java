@@ -7,7 +7,6 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-import javax.xml.transform.OutputKeys;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.Writer;
@@ -15,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Some utils for classes data
  * @author yu
  */
 public class ClassDataUtil {
@@ -72,7 +72,7 @@ public class ClassDataUtil {
     }
     
     /**
-     *
+     * To build a xpath
      * @param searchCondition the name of the condition you want to delete
      * @param searchContent the content of the condition you want to delete
      * @return a xpath built by your conditions
@@ -81,6 +81,14 @@ public class ClassDataUtil {
         return "//" + "class" + "[@" + searchCondition + "='" + searchContent + "']";
     }
 
+    /**
+     * as above
+     * @param searchCondition1
+     * @param searchContent1
+     * @param searchCondition2
+     * @param searchContent2
+     * @return a xpath built by your conditions
+     */
     public static String xpathBuilder(String searchCondition1, String searchContent1,
                                       String searchCondition2, String searchContent2){
         return "//" + "class" + "[@" + searchCondition1 + "='" + searchContent1 + "' and @" +
@@ -88,7 +96,7 @@ public class ClassDataUtil {
     }
 
     /**
-     *
+     * as above
      * @param upperBound the upperbound of the data
      * @param lowerBound the lowerbound of the date
      * @return a xpath built by your conditions
@@ -98,7 +106,14 @@ public class ClassDataUtil {
                "date" + ">='" + lowerBound + "']";
     }
 
-
+    /**
+     * to build a xpath with given time interval
+     * @param dateUpperBound
+     * @param dateLowerBound
+     * @param timeUpperBound
+     * @param timeLowerBound
+     * @return
+     */
     public static String DateAndTimeXpathBuilder(String dateUpperBound, String dateLowerBound,
                                                  String timeUpperBound, String timeLowerBound){
         return "//" + "class" + "[@" + "date" + "<='" + dateUpperBound +
@@ -110,7 +125,6 @@ public class ClassDataUtil {
 
     /**
      * delete classes by condition
-     *
      * @param xpath Searchpath built by the builder
      * @return success or not
      */
@@ -153,7 +167,6 @@ public class ClassDataUtil {
     
     /**
      * search many classes by condition
-     *
      * @param xpath the search path built by function xpathBuilder
      * @return the correct classDOs
      */

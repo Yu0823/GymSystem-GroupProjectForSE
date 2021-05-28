@@ -72,6 +72,7 @@ public class UserLogin {
                     new Main_Menu(member);
                     Login.dispose();
                 }
+                break;
             case "promoter":
                 PromoterLogin pl = new PromoterLogin();
                 PromoterDO p = new PromoterDO();

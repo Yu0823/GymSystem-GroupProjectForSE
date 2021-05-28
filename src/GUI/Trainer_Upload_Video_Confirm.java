@@ -18,10 +18,12 @@ public class Trainer_Upload_Video_Confirm extends JFrame {
     TrainerDO t;
     TrainerAddFilm taf = new TrainerAddFilm();
     VideoDO v = new VideoDO();
-    public Trainer_Upload_Video_Confirm(TrainerDO t) {
+    String name;
+    public Trainer_Upload_Video_Confirm(TrainerDO t, String path) {
         initComponents();
         frame1.setVisible(true);
         this.t = t;
+        this.name = path.substring(0,path.length()-4);
     }
 
     private void button1MouseClicked(MouseEvent e) {
@@ -32,8 +34,9 @@ public class Trainer_Upload_Video_Confirm extends JFrame {
 
     private void button3MouseClicked(MouseEvent e) {
         // TODO add your code here
+        String videoid = this.name;
         String name = textField1.getText();
-        String path = textField2.getText();
+        String path = "video//"+videoid+".mp4";
         String type = comboBox1.getSelectedItem().toString();
         String length = "20min";
         String uploader = this.t.getId();
@@ -45,7 +48,8 @@ public class Trainer_Upload_Video_Confirm extends JFrame {
         }else {
             level = "2";
         }
-        v.setId(t.getId());
+        v.setId(videoid);
+        v.setUploader(t.getId());
         v.setLength(length);
         v.setVideoType(type);
         v.setPath(path);
@@ -63,19 +67,17 @@ public class Trainer_Upload_Video_Confirm extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - MudongGuo
+        // Generated using JFormDesigner Evaluation license - 666
         frame1 = new JFrame();
         button1 = new JButton();
         label1 = new JLabel();
         button3 = new JButton();
-        label2 = new JLabel();
-        textField1 = new JTextField();
         label3 = new JLabel();
         label4 = new JLabel();
         comboBox1 = new JComboBox<>();
         comboBox2 = new JComboBox<>();
         label5 = new JLabel();
-        textField2 = new JTextField();
+        textField1 = new JTextField();
 
         //======== frame1 ========
         {
@@ -96,7 +98,7 @@ public class Trainer_Upload_Video_Confirm extends JFrame {
                 }
             });
             frame1ContentPane.add(button1);
-            button1.setBounds(360, 310, 150, 50);
+            button1.setBounds(395, 315, 150, 50);
 
             //---- label1 ----
             label1.setText("Upload Video");
@@ -104,7 +106,7 @@ public class Trainer_Upload_Video_Confirm extends JFrame {
             label1.setForeground(Color.pink);
             label1.setFont(new Font("\u65b9\u6b63\u8212\u4f53", label1.getFont().getStyle() | Font.BOLD, label1.getFont().getSize() + 5));
             frame1ContentPane.add(label1);
-            label1.setBounds(45, 25, 115, 70);
+            label1.setBounds(60, 30, 120, 70);
 
             //---- button3 ----
             button3.setText("Confirm");
@@ -117,27 +119,19 @@ public class Trainer_Upload_Video_Confirm extends JFrame {
                 }
             });
             frame1ContentPane.add(button3);
-            button3.setBounds(360, 245, 150, 50);
-
-            //---- label2 ----
-            label2.setText("Name of the video:");
-            label2.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 15));
-            frame1ContentPane.add(label2);
-            label2.setBounds(new Rectangle(new Point(65, 105), label2.getPreferredSize()));
-            frame1ContentPane.add(textField1);
-            textField1.setBounds(200, 105, 140, textField1.getPreferredSize().height);
+            button3.setBounds(65, 310, 150, 50);
 
             //---- label3 ----
             label3.setText("Type of the Video:");
             label3.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 15));
             frame1ContentPane.add(label3);
-            label3.setBounds(new Rectangle(new Point(65, 225), label3.getPreferredSize()));
+            label3.setBounds(new Rectangle(new Point(75, 240), label3.getPreferredSize()));
 
             //---- label4 ----
             label4.setText("Level of the video:");
             label4.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 15));
             frame1ContentPane.add(label4);
-            label4.setBounds(new Rectangle(new Point(65, 185), label4.getPreferredSize()));
+            label4.setBounds(new Rectangle(new Point(75, 190), label4.getPreferredSize()));
 
             //---- comboBox1 ----
             comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
@@ -147,7 +141,7 @@ public class Trainer_Upload_Video_Confirm extends JFrame {
                 "Aerobics"
             }));
             frame1ContentPane.add(comboBox1);
-            comboBox1.setBounds(new Rectangle(new Point(200, 225), comboBox1.getPreferredSize()));
+            comboBox1.setBounds(new Rectangle(new Point(225, 235), comboBox1.getPreferredSize()));
 
             //---- comboBox2 ----
             comboBox2.setModel(new DefaultComboBoxModel<>(new String[] {
@@ -156,15 +150,15 @@ public class Trainer_Upload_Video_Confirm extends JFrame {
                 "SVIP"
             }));
             frame1ContentPane.add(comboBox2);
-            comboBox2.setBounds(200, 185, 105, comboBox2.getPreferredSize().height);
+            comboBox2.setBounds(225, 190, 105, comboBox2.getPreferredSize().height);
 
             //---- label5 ----
-            label5.setText("Path of the video:");
+            label5.setText("Name of the video:");
             label5.setFont(new Font("\u65b9\u6b63\u8212\u4f53", Font.PLAIN, 15));
             frame1ContentPane.add(label5);
-            label5.setBounds(new Rectangle(new Point(65, 145), label5.getPreferredSize()));
-            frame1ContentPane.add(textField2);
-            textField2.setBounds(200, 145, 140, textField2.getPreferredSize().height);
+            label5.setBounds(70, 140, 135, 17);
+            frame1ContentPane.add(textField1);
+            textField1.setBounds(225, 140, 230, textField1.getPreferredSize().height);
 
             {
                 // compute preferred size
@@ -187,18 +181,16 @@ public class Trainer_Upload_Video_Confirm extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - MudongGuo
+    // Generated using JFormDesigner Evaluation license - 666
     private JFrame frame1;
     private JButton button1;
     private JLabel label1;
     private JButton button3;
-    private JLabel label2;
-    private JTextField textField1;
     private JLabel label3;
     private JLabel label4;
     private JComboBox<String> comboBox1;
     private JComboBox<String> comboBox2;
     private JLabel label5;
-    private JTextField textField2;
+    private JTextField textField1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
